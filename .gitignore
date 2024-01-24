@@ -49,3 +49,6 @@ po/*~
 rsconnect/
 =======
 .Rproj.user
+
+/.quarto/
+/_site/
