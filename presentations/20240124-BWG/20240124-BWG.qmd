@@ -680,6 +680,8 @@ input_ids <- mod_picker_server("picker_1")
   - [Shiny in Production](https://posit-conf-2023.github.io/shiny-r-prod/)
   - [Getting Started with Quarto](https://rstudio-conf-2022.github.io/get-started-quarto/)
 
+![](images/qrcode_github.com.png){fig-align="center" width="200"}
+
 :::
 
 ::: {.column width="50%" .nonincremental}
