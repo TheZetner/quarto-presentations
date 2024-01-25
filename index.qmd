@@ -1,5 +1,8 @@
 ---
 title: "quarto-presentations"
 listing:
-  contents: presentations
+  contents: 
+    - presentations
+    - "!template.qmd"
+  sort: "date desc"
 ---

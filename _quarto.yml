@@ -9,6 +9,8 @@ website:
     left:
       - href: index.qmd
         text: Presentation List
+      - href: https://github.com/TheZetner/quarto-presentations/tree/main/presentations/template.qmd
+        text: Template
     right:
       - icon: github
         href: https://github.com/TheZetner/quarto-presentations

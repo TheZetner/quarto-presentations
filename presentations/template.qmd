@@ -1,0 +1,182 @@
+---
+title: "Template Slide Options"
+author: "Adrian Zetner"
+date: "2024-01-25"
+logo: https://avatars.githubusercontent.com/u/124097317?s=200&v=4
+format: 
+  revealjs:
+    theme: moon
+    incremental: true
+editor: source
+---
+<!-- Section title slide -->
+
+# Section 1 {.title}
+
+<!-- Named Image Only Slide - Top Level -->
+
+# {#introduction}
+
+![](20240124-BWG_images/positconf.jpg){fig-align="center" width="500"}
+
+::: notes
+- 
+:::
+
+<!-- Image Only Slide - With Name Footer and Notes -->
+
+## {#name}
+
+![](20240124-BWG_images/RStudio-Logo.png){fig-align="center" width="400"}
+
+::: {.footer}
+[More Info](https://posit.co/blog/rstudio-is-becoming-posit/)
+:::
+
+::: notes
+- 
+:::
+
+<!-- Two Column Image Slide - With Footer and Notes -->
+
+## 
+
+::: columns
+::: {.column width="50%"}
+![](20240124-BWG_images/shiny.png){fig-align="center" width="500"}
+:::
+
+::: {.column width="50%"}
+![](20240124-BWG_images/golem.png){fig-align="center" width="500"}
+:::
+:::
+
+::: {.footer}
+[Materials](https://github.com/posit-conf-2023/shiny-r-prod)
+:::
+
+::: notes
+- Second of the two one-day workshops
+- Shiny in Production with Golem
+- Pretty cool to have Joe Cheng, the original creator of the Shiny framework, as a TA
+:::
+
+<!-- Two Column Code Slide with under section - Incremental reveal -->
+
+##
+
+::::: {.columns}
+
+:::: {.column width="45%"}
+
+::: {.fragment}
+### Module UI
+
+```{.r code-line-numbers="1,2"}
+picker_ui <- function(id) {
+
+  ns <- NS(id)
+  
+  tagList(
+  
+    # UI FEATURES
+    
+    )
+  
+}
+```
+
+:::
+
+::::
+
+:::: {.column width="55%"}
+
+::: {.fragment}
+
+### Module Server
+```{.r code-line-numbers="1,4"}
+picker_server <- function(id, 
+                          sets_rv){
+  moduleServer(
+    id,
+    function(input, 
+             output, 
+             session) {
+      # SERVER LOGIC
+    }
+  )
+}
+```
+
+:::
+
+::::
+
+:::::
+
+::: {.fragment}
+### Easily Added to Apps
+```r
+# app_ui.R
+mod_picker_ui("picker_1")
+
+# app_server.R
+input_ids <- mod_picker_server("picker_1")
+```
+::: 
+
+::: {.footer}
+[Source](https://posit-conf-2023.github.io/shiny-r-prod/)
+
+:::
+
+::: notes
+
+:::
+
+
+<!-- Bullets Slide with Non-Incremental Portion -->
+## 
+
+::: {.nonincremental}
+- This part just...
+- appears when the slide opens
+::: 
+- This part requires clicking
+- a
+- b
+- c
+
+<!-- Two Column Static Slide -->
+
+## {#.resources}
+
+::: columns
+::: {.column width="50%" .nonincremental}
+
+#### Workshops
+
+  - [Big Data in R with Arrow](https://posit-conf-2023.github.io/arrow/)
+  - [Intro to Shiny](https://posit-conf-2023.github.io/shiny-r-intro/)
+  - [Shiny in Production](https://posit-conf-2023.github.io/shiny-r-prod/)
+  - [Getting Started with Quarto](https://rstudio-conf-2022.github.io/get-started-quarto/)
+
+![](20240124-BWG_images/qrcode_thezetner.github.io.png){fig-align="center" width="200"}
+
+:::
+
+::: {.column width="50%" .nonincremental}
+
+#### Talks
+
+  - [Abstractions all the way down](https://youtu.be/Pa1PNfoOp-I?si=w6vTBsQLONcjPNB4)
+  - [Increase Accessibility](https://youtu.be/0qfzxHHCDfE?si=MHbjyUWGVP4W9rjj)
+  - [ShinyUIEditor](https://youtu.be/G3uxNtACutI?si=6HXKnew15fe2R6oq)
+  - [Parameterized Quarto Reports](https://youtu.be/lbE5uOqfT70?si=0aW5Ygq8dYsIRLoe)
+  - [Magic with WASM and WebR](https://youtu.be/P7aTHrgjHt4?si=fINVlM8viDoIEC3z)
+  - [Pandem-2](https://youtu.be/F8aDgKkXoxI?si=iFutXpLAFIb0t0Sd)
+  - [Full Posit 2023 Playlist](https://youtube.com/playlist?list=PL9HYL-VRX0oRFZslRGHwHuwea7SvAATHp&si=n2YUbMfTyX9ZB_vg)
+
+:::
+:::
