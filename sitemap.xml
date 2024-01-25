@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://TheZetner.github.io/quarto-presentations/presentations/20240124-BWG.html</loc>
-    <lastmod>2024-01-25T17:46:05.843Z</lastmod>
-  </url>
-  <url>
-    <loc>https://TheZetner.github.io/quarto-presentations/index.html</loc>
-    <lastmod>2024-01-25T17:46:00.029Z</lastmod>
+    <loc>https://TheZetner.github.io/quarto-presentations/presentations/template.html</loc>
+    <lastmod>2024-01-25T23:51:38.445Z</lastmod>
   </url>
   <url>
     <loc>https://TheZetner.github.io/quarto-presentations/presentations/20230704-renv.html</loc>
-    <lastmod>2024-01-25T17:46:03.427Z</lastmod>
+    <lastmod>2024-01-25T23:51:34.899Z</lastmod>
+  </url>
+  <url>
+    <loc>https://TheZetner.github.io/quarto-presentations/index.html</loc>
+    <lastmod>2024-01-25T23:51:31.816Z</lastmod>
+  </url>
+  <url>
+    <loc>https://TheZetner.github.io/quarto-presentations/presentations/20240124-BWG.html</loc>
+    <lastmod>2024-01-25T23:51:37.080Z</lastmod>
   </url>
 </urlset>
