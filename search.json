@@ -1,0 +1,408 @@
+[
+  {
+    "objectID": "presentations/renv.html#sharing-r-analyses-with-collaborators",
+    "href": "presentations/renv.html#sharing-r-analyses-with-collaborators",
+    "title": "Reproducibility with renv",
+    "section": "Sharing R Analyses with Collaborators",
+    "text": "Sharing R Analyses with Collaborators\n\n“I tried to run your code but it says I’m missing X” 😟\n“Your code used to run fine but now it’s not working” 😖\n“I upgraded my software and now your code is junk” 💔\n\nWe’ve all been here. Headaches coming from code that we’ve written and are proud of but can’t be used by our colleagues or no longer works for them. The"
+  },
+  {
+    "objectID": "presentations/renv.html#reproducibility-in-data-driven-analysis",
+    "href": "presentations/renv.html#reproducibility-in-data-driven-analysis",
+    "title": "Reproducibility with renv",
+    "section": "Reproducibility in Data Driven Analysis",
+    "text": "Reproducibility in Data Driven Analysis\n\nCrucial for collaboration and transparency in science\nSoftware and package versions can differ between computers\nPotential code failure or inconsistent results\nSolution: Replicate the environment\n\n\n- Reproducibility in analysis is crucial for collaboration and transparency in science.\n- Even with free and open-source software and clean code, software and package versions can differ between computers.\n- Differences in software versions, package versions, and external dependencies can lead to code failure or inconsistent results.\n- One solution is to replicate the environment in which the code was developed to ensure compatibility and result consistency."
+  },
+  {
+    "objectID": "presentations/renv.html#replicate-the-environment",
+    "href": "presentations/renv.html#replicate-the-environment",
+    "title": "Reproducibility with renv",
+    "section": "Replicate the environment ♊",
+    "text": "Replicate the environment ♊\n\nManual replication of the environment is impractical\nPotential solutions\n\nVirtual environments (Python, Conda, etc)\nDocker\nBinder/Jupyter Notebooks\n\n\n\n- Manual replication of the environment is impractical, prompting the need for automated solutions.\n- Solutions range from ensuring consistent package versions to replicating the entire computer environment.\n- Virtual environments to install elements from packages up to system libraries (python, conda, etc)\n- Docker containers package applications into portable images to run consistently in almost any environment\n- Binder and jupyter make sharing online from github etc easy"
+  },
+  {
+    "objectID": "presentations/renv.html#virtual-environments",
+    "href": "presentations/renv.html#virtual-environments",
+    "title": "Reproducibility with renv",
+    "section": "Virtual Environments 🌌",
+    "text": "Virtual Environments 🌌\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPython virtual environments are folders containing a complete copy of the Python stack used to create them.\nThey consist of a separate python executable, the associated stack, and a site-packages folder for installed Python packages.\nVirtual environments ensure full isolation by handling package installations independently.\nThey are easy to understand and use but can be heavyweight due to the duplication of the Python stack and packages for each environment.\nConda is a language-agnostic tool for package management and environment management. As a package manager, Conda can install, update and remove packages. As an environment manager, it can manage virtual environments. It’s robust and broadly applicable but not useable in all contexts"
+  },
+  {
+    "objectID": "presentations/renv.html#containers",
+    "href": "presentations/renv.html#containers",
+    "title": "Reproducibility with renv",
+    "section": "Containers 🎁",
+    "text": "Containers 🎁\n\n\n\n\n\n\n\n\n\nDocker containers are lightweight relative to true virtual machines and create isolated environments that package applications and their dependencies into a standardized unit\nDeveloping docker containers comes with increased overhead both from complexity in development and deployment along with potential security concerns and performance limitations\nNot exactly what we want to have to focus on when sharing data analysis with colleagues"
+  },
+  {
+    "objectID": "presentations/renv.html#notebooks",
+    "href": "presentations/renv.html#notebooks",
+    "title": "Reproducibility with renv",
+    "section": "Notebooks 📑",
+    "text": "Notebooks 📑\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote book options\nBinder is a free service that creates a virtual computer in the cloud based on the specifications listed in a GitHub repository. In the process of building the environment, Binder also clones the GitHub repository making it painless to reproduce analyses. It is essentially read-only though and while great for sharing analyses it can be slow to load and easy to lose work\nJupyter notebooks integrate code and its output into a single document that combines visualizations, narrative text, mathematical equations, and other rich media. In other words: it’s a single document where you can run code, display the output, and also add explanations, formulas, charts, and make your work more transparent, understandable, repeatable, and shareable. Great for sharing analyses, somewhat limited by software needed to run\nThese all seem like a lot of work simply to share our projects with other people, enter…"
+  },
+  {
+    "objectID": "presentations/renv.html#r-projects",
+    "href": "presentations/renv.html#r-projects",
+    "title": "Reproducibility with renv",
+    "section": "R Projects 📂",
+    "text": "R Projects 📂\n\n\n\nProjects are the organizational tool of RStudio, essentially a folder\nOrganize all aspects of an analysis (raw data, R scripts, external scripts, outputs, documentation, etc) within a root directory\nAllows for relative pathing amongst all elements\nAllows for simultaneous analyses in different folders and siloing those from each other"
+  },
+  {
+    "objectID": "presentations/renv.html#packages",
+    "href": "presentations/renv.html#packages",
+    "title": "Reproducibility with renv",
+    "section": "Packages 📦",
+    "text": "Packages 📦\n\nExtend base R with more functionality\nCalled libraries or packages in other languages\nCan require compilation on your machine (source) or pre-compiled as a binary package\n\n\nExtend base R with more functionality Called libraries or packages in other languages Can require compilation on your machine (source) or pre-compiled as a binary package\nBinary packages offer several advantages such as Faster installation, Platform compatibility, Dependency resolution, and greater Security when installed from trusted sites. When binary packages are unavailable (OS differences etc) they must be compiled locally.\nInstalled from…"
+  },
+  {
+    "objectID": "presentations/renv.html#repositories",
+    "href": "presentations/renv.html#repositories",
+    "title": "Reproducibility with renv",
+    "section": "Repositories 🏛️",
+    "text": "Repositories 🏛️\n\nSource of packages 📦\nMany different available\n\nCRAN\nBioconductor\nPosit Public Package Manager\nR Universe\n\n\n\n\nA repository is a source of packages.\nThe main repository for R packages is CRAN (Comprehensive R Archive Network), which is accessible in almost every R session.\nOther freely available repositories include Bioconductor, Posit (formerly RStudio) Public Package Manager, and R Universe.\nWhen a package is retrieved from a repository it is installed on your computer to a library"
+  },
+  {
+    "objectID": "presentations/renv.html#libraries",
+    "href": "presentations/renv.html#libraries",
+    "title": "Reproducibility with renv",
+    "section": "Libraries 📚",
+    "text": "Libraries 📚\n\nStore packages installed for current R version\nSystem libraries\n\nUser\nSite\nDefault\n\n\n\nA library in R is a directory that contains installed packages.\nThree system libraries: a user library, a site library, and a default library where base R packages are installed.\nGenerally, you don’t have to worry about libraries and can install all packages into a system library shared across projects.\nSometimes changes to packages can break functionality in older projects.\nWith the use of renv, you can employ project libraries, which provide each project with its own separate set of packages."
+  },
+  {
+    "objectID": "presentations/renv.html#project-local-libraries-with-renv",
+    "href": "presentations/renv.html#project-local-libraries-with-renv",
+    "title": "Reproducibility with renv",
+    "section": "Project Local Libraries with renv 📚",
+    "text": "Project Local Libraries with renv 📚\n\nProject local dependency management\nStore and restore your project dependencies\nMimic Packrat\nLittle to no change to workflows\n\n\n\nProject local dependency management\nStore and restore your project dependencies\nMimic Packrat\nLittle to no change to workflows\n\nOK, so we have the concepts of projects, packages, libraries, and repositories down now, correct? So the natural extension of that is to individualize dependencies to a single project in order to save and load the state of your project as you wrote it. renv is designed to more robustly mimic much of the functionality of the now defunct packrat package with fewer surprises and better default behaviours. The philosophy behind renv is that your project workflow shouldn’t meaningfully change due to incorporating it into your projects."
+  },
+  {
+    "objectID": "presentations/renv.html#workflow",
+    "href": "presentations/renv.html#workflow",
+    "title": "Reproducibility with renv",
+    "section": "Workflow 🔀",
+    "text": "Workflow 🔀\n\nInitialize a new project local environment with a private R library with renv::init()\nWork in the project as normal adding packages with install.packages()\nSave the state of the working project with renv::snapshot() to lock file (renv.lock)\nKeep working with the option to save state after successful changes (renv::snapshot()) or revert to previous if updates introduce new problems (renv::restore())\n\n\nThe general workflow when working with renv is: 1. Call [renv::init()](../reference/init.html) to initialize a new project-local environment with a private R library\n2. Work in the project as normal, installing and removing new R packages as they are needed in the project\n3. Call [renv::snapshot()](../reference/snapshot.html) to save the state of the project library to the lockfile (called renv.lock)\n4. Keep working with the option to save state after successful changes (renv::snapshot()) or revert to previous if updates introduce new problems (renv::restore())"
+  },
+  {
+    "objectID": "presentations/renv.html#initialize",
+    "href": "presentations/renv.html#initialize",
+    "title": "Reproducibility with renv",
+    "section": "Initialize ✨",
+    "text": "Initialize ✨\n\nSearches R scripts for implicitly included dependencies using dependencies()\n\nlibrary(\"dplyr\")\ndplyr::mutate()\n\nCopy discovered packages into the renv global package cache for re-use\nMissing R package dependencies are installed into the project’s private library\nInitial lockfile capturing the state of the project’s library is created\nThe project is activated with activate()\n\n\nWhat does renv actually do when you call init? The primary steps taken when initializing a new project are:\n1. R package dependencies are discovered within the R files used within the project with [dependencies()](dependencies.html)\n2. Discovered packages are copied into the renv global package cache, so these packages can be re-used across future projects as necessary\n3. Any missing R package dependencies discovered are then installed into the project’s private library\n4. A lockfile capturing the state of the project’s library is created with [snapshot()](snapshot.html)\n5. The project is activated with [activate()](activate.html) which adds the necessary code to the project’s .Rprofile to use the project’s own library on start up"
+  },
+  {
+    "objectID": "presentations/renv.html#initialize---infrastructure-files",
+    "href": "presentations/renv.html#initialize---infrastructure-files",
+    "title": "Reproducibility with renv",
+    "section": "Initialize - Infrastructure & Files ✨",
+    "text": "Initialize - Infrastructure & Files ✨\n\n\n\n\n\n\n\nFile\nUsage\n\n\n\n\n.Rprofile\nUpdated to activate renv for new project R sessions\n\n\nrenv.lock\nThe lockfile\n\n\nrenv/\nFolder containing all environment details\n\n\nrenv/activate.R\nActivation script run by the project .Rprofile.\n\n\nrenv/library\nThe private project library\n\n\nrenv/settings.json\nProject settings\n\n\nrenv/.gitignore\nrenv specific gitignore\n\n\n\n\n\nProject Rprofile with appended activation scripts\nLockfile describing the state of your project’s library at some point in time.\nProject subfolder that holds all the the important environment details like: Activation script, project library, settings, and .gitignore\n.Rprofile, renv.lock and renv/activate.R files should be committed to your version control system which is usually done by renv::init(). Changes to settings.json should also be tracked."
+  },
+  {
+    "objectID": "presentations/renv.html#renv.lock",
+    "href": "presentations/renv.html#renv.lock",
+    "title": "Reproducibility with renv",
+    "section": "renv.lock 🔒",
+    "text": "renv.lock 🔒\n\n\n\nVersion of renv\n\nVersion of R\nR repositories active for lockfile\n\nPackage records\n\n\n{\n  \"R\": {\n    \"Version\": \"4.2.3\",\n    \"Repositories\": [\n      {\n        \"Name\": \"CRAN\",\n        \"URL\": \"https://cloud.r-project.org\"\n      }\n    ]\n  },\n  \"Packages\": {\n    \"markdown\": {\n      \"Package\": \"markdown\",\n      \"Version\": \"1.0\",\n      \"Source\": \"Repository\",\n      \"Repository\": \"CRAN\",\n      \"Hash\": \"4584a57f565dd7987d59dda3a02cfb41\"\n    },\n    \"here\": {\n      \"Package\": \"here\",\n      \"Version\": \"0.7\",\n      \"Source\": \"Repository\",\n      \"Repository\": \"CRAN\",\n      \"Hash\": \"908d95ccbfd1dd274073ef07a7c93934\"\n    }\n  }\n}\n\n\n\nrenv uses a lockfile to capture the state of your library at some point in time. It is stored as a collection of records, with different records defining:\n\nThe version of renv used when generating the lockfile;\nThe version of R used in that project;\nThe R repositories that were active when the lockfile was created;\nPackage records defining each R package, their version, and their installation source.\n\nHere is an example lockfile, including the packages markdown and here"
+  },
+  {
+    "objectID": "presentations/renv.html#cache",
+    "href": "presentations/renv.html#cache",
+    "title": "Reproducibility with renv",
+    "section": "Cache 🏦",
+    "text": "Cache 🏦\n\nGlobal package installation location shared across all projects\nProject specific libraries built from symlinks to cache\nPrimary benefits:\n\nSpeed up renv::restore() and renv::install()\nSave disk space\n\n\n\nOne of renv’s primary features is the use of a global package cache, which is shared across all projects using renv. This means that project specific libraries are actually built from symlinks to the user’s cache\nThe renv package cache provides two primary benefits:\n\nFuture calls to [renv::restore()](../reference/restore.html) and [renv::install()](../reference/install.html) will become much faster, as renv will be able to find and re-use packages already installed in the cache.\n\nBecause it is not necessary to have duplicate versions of your packages installed in each project, the renv cache should also help you save disk space relative to an approach with project-specific libraries without a global cache."
+  },
+  {
+    "objectID": "presentations/renv.html#cache-1",
+    "href": "presentations/renv.html#cache-1",
+    "title": "Reproducibility with renv",
+    "section": "Cache 🏦",
+    "text": "Cache 🏦\n\nInstall process\n\nInstallation requested\nAvailable? Link, otherwise install.\nCopy to cache\nLink back to project\n\nLocation\n\nDefault to ~/.local/share/renv\nMultiple locations allowed\n\n\n\nThe process by which packages enter the cache is roughly as follows:\n\nPackage installation is requested via e.g. [install.packages()](https://rdrr.io/r/utils/install.packages.html), or [renv::install()](../reference/install.html), or as part of [renv::restore()](../reference/restore.html).\nIf renv is able to find the requested version of the package in the cache, then that package is linked into the project library, and installation is complete.\n\nOtherwise, the package is downloaded and installed into the project library.\n\nAfter installation of the package has successfully completed, the package is then copied into the global package cache, and then linked back into the project library.\n\nRenv defaults to the user’s home .local folder but multiple locations cache locations can be indicated and shared between users. If using a shared cache the time and disk savings can be leveraged across many users"
+  },
+  {
+    "objectID": "presentations/renv.html#shims",
+    "href": "presentations/renv.html#shims",
+    "title": "Reproducibility with renv",
+    "section": "Shims 🔼",
+    "text": "Shims 🔼\n\n\n\nFunction\nShim\n\n\n\n\ninstall.packages()\nrenv::install()\n\n\nremove.packages()\nrenv::remove()\n\n\nupdate.packages()\nrenv::update()\n\n\n\n\nTo help you take advantage of the package cache, renv places a couple of shims (or aliases) on the search path - Package related functions like install/remove/update from the utils package become renv functions In effect, calling [install.packages()](https://rdrr.io/r/utils/install.packages.html) within an renv project will call [renv::install()](../reference/install.html) instead. This can be useful when installing packages which have already been cached. For example, if you use renv::install(\"dplyr\"), and renv detects that the latest version on CRAN has already been cached, then renv will just install using the copy available in the cache – thereby skipping some of the installation overhead. This can be disabled but is a really lovely convenience feature."
+  },
+  {
+    "objectID": "presentations/renv.html#isolation",
+    "href": "presentations/renv.html#isolation",
+    "title": "Reproducibility with renv",
+    "section": "Isolation 🫧",
+    "text": "Isolation 🫧\n\nRequire that all packages be distributed with a project\nrenv::isolate(): copies all dependencies into the local library\nVastly increases project folder size\nNo reliance on external libraries\n\n\n\nSometimes one requires that a project can be distributed in a more contained fashion with all packages included in a zip file.\nRenv’s isolate function copies all dependencies in the project library from the cache into the project folder: project can be zipped and shared at the cost of a large increase of folder size"
+  },
+  {
+    "objectID": "presentations/renv.html#collaboration---setup",
+    "href": "presentations/renv.html#collaboration---setup",
+    "title": "Reproducibility with renv",
+    "section": "Collaboration - Setup ⚒️",
+    "text": "Collaboration - Setup ⚒️\n\nCreate a new project repository and folder\nOne user explicitly initializes renv in the version controlled project folder\nCommit all files including renv generated ones\nrenv will now bootstrap the project environment on collaborators computers\n\n\n\nOne user (perhaps yourself) should explicitly initialize renv in the project, via [renv::init()](../reference/init.html). This will create the initial renv lockfile, and also write the renv auto-loaders to the project’s .Rprofile and renv/activate.R. These will ensure the right version of renv is downloaded and installed for your collaborators when they start in this project.\nShare your project sources, alongside the generated lockfile renv.lock. Be sure to also share the generated auto-loaders in .Rprofile and renv/activate.R.\nWhen a collaborator first launches in this project, renv should automatically bootstrap itself, thereby downloading and installing the appropriate version of renv into the project library. After this has completed, they can then use [renv::restore()](../reference/restore.html) to restore the project library locally on their machine."
+  },
+  {
+    "objectID": "presentations/renv.html#collaboration---workflow",
+    "href": "presentations/renv.html#collaboration---workflow",
+    "title": "Reproducibility with renv",
+    "section": "Collaboration - Workflow 🔀",
+    "text": "Collaboration - Workflow 🔀\n\nEnsure all collaborators using the same package version\n\nInstall and test locally\nSnapshot project\nShare lockfile\nRestore locally\n\nLockfile changes can be viewed with renv::history()\n\n\nWhile working on a project, you or your collaborators may need to update or install new packages in your project. When this occurs, you’ll also want to ensure your collaborators are then using the same newly-installed packages. In general, the process looks like this: 1. A user installs, or updates, one or more packages in their local project library; 2. That user calls [renv::snapshot()](../reference/snapshot.html) to update the renv.lock lockfile;\n3. That user then shares the updated version of renv.lock with their collaborators;\n4. Other collaborators then call [renv::restore()](../reference/restore.html) to install the packages specified in the newly-updated lockfile.\nA bit of care is required if collaborators wish to update the shared renv.lock lockfile concurrently – in particular, if multiple collaborators are installing new packages and updating their own local copy of the lockfile, then conflicts would need to be sorted out afterwards.\nOne way to guard against this it to use a version control system, and have all collaborators work off the same branch. This way, if someone needs to update renv.lock in the public repository, all collaborators will see that updated lockfile and will gain access to it next time they pull those changes. Depending on the size of your team, you may want to ensure any changes to renv.lock are communicated so that everyone knows and understands when and why packages have been installed or updated."
+  },
+  {
+    "objectID": "presentations/renv.html#caveats",
+    "href": "presentations/renv.html#caveats",
+    "title": "Reproducibility with renv",
+    "section": "Caveats ☠️",
+    "text": "Caveats ☠️\n\nNot a panacea for reproducibility\nSolves one part of the problem\n\nRecords R and package versions\nTools to reinstall above\n\nProblems\n\nResults may depend on other system components\nPackages may be removed from repositories\n\n\n\nIt is important to emphasize that renv is not a panacea for reproducibility. Rather, it is a tool that can help make projects reproducible by solving one small part of the problem: it records the version of R + R packages being used in a project, and provides tools for reinstalling the declared versions of those packages in a project. Ultimately, making a project reproducible requires some thoughtfulness from the user: what does it mean for a particular project to be reproducible, and how can renv (and other tools) be used to accomplish that particular goal of reproducibility?\nThere are a still a number of factors that can affect whether this project could truly be reproducible in the future – for example,\n\nThe results produced by a particular project might depend on other components of the system it’s being run on – for example, the operating system itself, the versions of system libraries in use, the compiler(s) used to compile R and the R packages used, and so on. Keeping a ‘stable’ machine image is a separate challenge, but Docker is one popular solution. See also [vignette(\"docker\", package = \"renv\")](../articles/docker.html) for recommendations on how Docker can be used together with renv.\nThe R packages that the project depends on may no longer be available. If your project depends on R packages available on CRAN, it’s possible those packages may be removed in the future – either by request of the package maintainer, or by the maintainers of CRAN itself. This is quite rare, but needs consideration if reproducibility of a project is paramount.\n\nIn addition, be aware that package installation may fail if a package was originally installed through a CRAN-available binary, but that binary is no longer available. renv will attempt to install the package from sources in this situation, but attempts to install from source can (and often do) fail due to missing system prerequisites for compilation of a package. The [renv::equip()](../reference/equip.html) function may be useful in these scenarios, especially on Windows: it will download external software commonly used when compiling R packages from sources, and instruct R to use that software during compilation.\nA salient example of this is the rmarkdown package, as it relies heavily on the pandoc command line utility. However, because pandoc is not bundled with the rmarkdown package (it is normally provided by RStudio, or installed separately by the user), simply restoring an renv project using rmarkdown may not be sufficient – one also needs to ensure the project is run in a environment with the correct version of pandoc available."
+  },
+  {
+    "objectID": "presentations/renv.html#use-case---shiny",
+    "href": "presentations/renv.html#use-case---shiny",
+    "title": "Reproducibility with renv",
+    "section": "Use Case - Shiny🌟",
+    "text": "Use Case - Shiny🌟\n\nShiny apps utilize site library\nChanges to one app’s dependencies can break others\n\nEg. dplyr update from version 1.0.10 to 1.1.12 replaced summarise() with reframe()\nInstalling new dplyr to system library breaks older apps\n\nSolution:\n\nInitialize renv project in shiny app dir (shared shiny user cache)\nRestore lockfile to symlink and install all dependencies to app local library\nInclude sourcing of renv/activate.R in app.R\n\nNow Shiny apps can rely on some shared packages and some unique packages\nEasier addition of more shiny apps without clobbering existing"
+  },
+  {
+    "objectID": "presentations/renv.html#when-to-use-renv",
+    "href": "presentations/renv.html#when-to-use-renv",
+    "title": "Reproducibility with renv",
+    "section": "When to Use renv",
+    "text": "When to Use renv\n\nCollaborating on project and sharing results\nEnsure forward compatibility\nProject small enough to not warrant using more intense encapsulation\nUse of more robust encapsulation problematic (eg. Docker on Shiny Server)"
+  },
+  {
+    "objectID": "presentations/renv.html#questions",
+    "href": "presentations/renv.html#questions",
+    "title": "Reproducibility with renv",
+    "section": "Questions?",
+    "text": "Questions?"
+  },
+  {
+    "objectID": "presentations/renv.html#use-case---operational-reports",
+    "href": "presentations/renv.html#use-case---operational-reports",
+    "title": "Reproducibility with renv",
+    "section": "Use Case - Operational Reports",
+    "text": "Use Case - Operational Reports\n\nUpdating dplyr caused a change in the functionality of if_else() where Surveiller relied on the\n\n\nHot off the presses."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "quarto-presentations",
+    "section": "",
+    "text": "Insights and Innovations from Posit Conf 2023\n\n\n\n\n\n\n\n\n\n\n\n\nJan 24, 2024\n\n\nAdrian Zetner\n\n\n\n\n\n\n  \n\n\n\n\nReproducibility with renv\n\n\n\n\n\n\n\n\n\n\n\n\nJul 4, 2023\n\n\nAdrian Zetner\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "presentations/20240124-BWG.html#section",
+    "href": "presentations/20240124-BWG.html#section",
+    "title": "Insights and Innovations from Posit Conf 2023",
+    "section": "",
+    "text": "More Info\n\n\n\nRStudio was founded in 2009 with the vision of creating high-quality open-source software for data scientists with initial focus on the R community\nThey invested heavily in open-source development, education, and community growth through their IDE (of the same name), conferences, and package development\nThis focus on open-source software often comes into conflict with the imperatives of sustaining a commercial enterprise when shareholder profit trumps customer interests\nIn order to avoid those pitfalls RStudio reincorporated as…"
+  },
+  {
+    "objectID": "presentations/20240124-BWG.html#section-1",
+    "href": "presentations/20240124-BWG.html#section-1",
+    "title": "Insights and Innovations from Posit Conf 2023",
+    "section": "",
+    "text": "More Info\n\n\n\nA public benefit corporation with\n\nHigh standards of transparency and accountability\nFiduciary responsibility to address social, economic, and environmental needs while still overseeing business goals\n\nThe intent is to remain independent over the long term while remaining committed to open source, broadening focus to be more inclusive of other languages (notably Python), and continue to grow the community\nThe RStudio IDE will remain the same\nThis conference started out with two one-day workshops on Sunday and Monday before the conference proper began"
+  },
+  {
+    "objectID": "presentations/20240124-BWG.html#.arrow",
+    "href": "presentations/20240124-BWG.html#.arrow",
+    "title": "Insights and Innovations from Posit Conf 2023",
+    "section": "",
+    "text": "Materials\n\n\n\nFirst of the two one-day workshops\nBig Data in R with Arrow\nThe workshop focused on using an R interface to Apache Arrow to process larger-than-memory files and multi-file datasets with arrow using familiar dplyr syntax.\nMain reason? …"
+  },
+  {
+    "objectID": "presentations/20240124-BWG.html#section-2",
+    "href": "presentations/20240124-BWG.html#section-2",
+    "title": "Insights and Innovations from Posit Conf 2023",
+    "section": "",
+    "text": "To avoid the over use of memory that leads to seg faults and crashing your R session"
+  },
+  {
+    "objectID": "presentations/20240124-BWG.html#big-data-in-r-with-arrow",
+    "href": "presentations/20240124-BWG.html#big-data-in-r-with-arrow",
+    "title": "Insights and Innovations from Posit Conf 2023",
+    "section": "Big Data in R with Arrow",
+    "text": "Big Data in R with Arrow\n\nWhat is Arrow?\n\nA toolbox\nDesigned to improve\n\nAlgorithm performance\nData transfer efficiency\n\n\n\n\n\nA multi-language toolbox for accelerated data interchange and in-memory processing\nIt defines a memory format and provides libraries for interaction\nArrow is designed to both improve the performance of analytical algorithms and the efficiency of moving data from one system or programming language to another"
+  },
+  {
+    "objectID": "presentations/20240124-BWG.html#big-data-in-r-with-arrow-1",
+    "href": "presentations/20240124-BWG.html#big-data-in-r-with-arrow-1",
+    "title": "Insights and Innovations from Posit Conf 2023",
+    "section": "Big Data in R with Arrow",
+    "text": "Big Data in R with Arrow\n\nAccomplished via in-memory columnar format\n\nStandardized\nLanguage agnostic\n\nInteraction via Arrow libraries\n\nC, C++, C#, Go, Java, JavaScript, Julia, MATLAB, Python, R, Ruby, and Rust.\n\n\n\n\nAccomplished via an in-memory columnar format for representing structured, table-like data sets in-memory.\nStandardized, language-agnostic specification\nInteraction with this format is via Arrow’s libraries\nLibraries are available for C, C++, C#, Go, Java, JavaScript, Julia, MATLAB, Python, R, Ruby, and Rust."
+  },
+  {
+    "objectID": "presentations/20240124-BWG.html#section-3",
+    "href": "presentations/20240124-BWG.html#section-3",
+    "title": "Insights and Innovations from Posit Conf 2023",
+    "section": "",
+    "text": "Source\n\n\n\nThe columnar format in question\nParquet files take advantage of the latest SIMD (Single Instruction, Multiple Data) operations included in modern processors\n\nEssentially: Your processor can process more data in parallel across multiple files and portions of files.\n\nThey’re able to do this due to a hybrid contiguous columnar layout used in data storage that improves read speeds over 30x and reduces storage space by &gt;80%\nThe only downside is they’re slightly less intuitive to the user"
+  },
+  {
+    "objectID": "presentations/20240124-BWG.html#section-4",
+    "href": "presentations/20240124-BWG.html#section-4",
+    "title": "Insights and Innovations from Posit Conf 2023",
+    "section": "",
+    "text": "Source\n\n\n\nHere is a comparison to serialization of CSV and pure column based storage formats\nParquet files use a hybrid method to sequentially store chunks of columns along with limited metadata about them"
+  },
+  {
+    "objectID": "presentations/20240124-BWG.html#section-5",
+    "href": "presentations/20240124-BWG.html#section-5",
+    "title": "Insights and Innovations from Posit Conf 2023",
+    "section": "",
+    "text": "Source\n\n\n\nThis hybrid storage makes them especially useful for both\n\nprojection: selecting certain columns for the user, does not have to traverse the entire file as it would with CSV\npredicates: identifying certain rows based on criteria in a specific column, easiest in row-based storage as can be accomplished with sorting\n\nData science requires both of these and for efficiency’s sake needs to traverse as little of the file as possible in doing so"
+  },
+  {
+    "objectID": "presentations/20240124-BWG.html#section-6",
+    "href": "presentations/20240124-BWG.html#section-6",
+    "title": "Insights and Innovations from Posit Conf 2023",
+    "section": "",
+    "text": "Source\n\n\n\nParquet files leverage metadata to skip parts of the data that can be excluded according to the chosen predicate: for eg. Int &lt; 5\nSkip reading parts of the file or entire files when they are partitioned appropriately\nParquet files also take advantage of"
+  },
+  {
+    "objectID": "presentations/20240124-BWG.html#parquet",
+    "href": "presentations/20240124-BWG.html#parquet",
+    "title": "Insights and Innovations from Posit Conf 2023",
+    "section": "Parquet",
+    "text": "Parquet\n\nFurther optimizations\n\nRun length encoding for duplicate values\nDictionary encoding for long strings\nProjection and predicate pushdown\n\n\n\n\nRLE encodes sequential duplicates by storing the value and the count of times it consecutively repeats reducing storage and read times\nLike storing factors in R Dictionary encoding replaces values with small integers and stores the mapping separately.\nSelect only the necessary columns (projection) and rows (predicate) during the data read process.\nAll in all Parquet is a phenomenal data storage format for speed, size, and efficiency\nWhy does that matter in the context of this workshop…"
+  },
+  {
+    "objectID": "presentations/20240124-BWG.html#big-data-in-r-with-arrow-2",
+    "href": "presentations/20240124-BWG.html#big-data-in-r-with-arrow-2",
+    "title": "Insights and Innovations from Posit Conf 2023",
+    "section": "Big Data in R with Arrow",
+    "text": "Big Data in R with Arrow\n\nNYC Taxi Dataset\n\nBIG data\n&gt;40Gb on disk\n&gt; 1.15 billion rows\n\n\n\n\nThis workshop had us examining truly gigantic data\nToo large for loading into memory on just about any machine\nThis data was downloaded onto our machines in preparation for the course and was partitioned across multiple folders and files by year and month a process which took hours"
+  },
+  {
+    "objectID": "presentations/20240124-BWG.html#big-data-in-r-with-arrow-3",
+    "href": "presentations/20240124-BWG.html#big-data-in-r-with-arrow-3",
+    "title": "Insights and Innovations from Posit Conf 2023",
+    "section": "Big Data in R with Arrow",
+    "text": "Big Data in R with Arrow\n\narrow::open_dataset()\n\nPointer to data (in arrow)\nBuild queries as normal with dplyr\n\n\n\n\nWorkhorse is open_dataset\nCall it to point to a directory of parquet files or a single large one and return a Dataset pointer\nQueries are built against that pointer using dplyr verbs as if against a tibble\nQuery is not evaluated at this time, nothing moved to memory"
+  },
+  {
+    "objectID": "presentations/20240124-BWG.html#big-data-in-r-with-arrow-4",
+    "href": "presentations/20240124-BWG.html#big-data-in-r-with-arrow-4",
+    "title": "Insights and Innovations from Posit Conf 2023",
+    "section": "Big Data in R with Arrow",
+    "text": "Big Data in R with Arrow\n\narrow::compute()\narrow::collect()\n\n\n\nEvaluation of queries is blazingly fast as it relies on C++ libraries\ncompute() evaluates the query, in-memory output stays in Arrow\ncollect() evaluates the query, in-memory output returns to R"
+  },
+  {
+    "objectID": "presentations/20240124-BWG.html#big-data-in-r-with-arrow-5",
+    "href": "presentations/20240124-BWG.html#big-data-in-r-with-arrow-5",
+    "title": "Insights and Innovations from Posit Conf 2023",
+    "section": "Big Data in R with Arrow",
+    "text": "Big Data in R with Arrow\n\nnrow()\nhead(), select(), filter(), and collect()\nacross()\n\n\n\nMostly familiar dplyr verbs for interaction with the results\nnrow() to work out how many rows of data your analyses will return\ncompute() when you need to execute intermediate steps\ncollect() to pull all of the data into your R session\nhead(), select(), filter(), and collect() to preview results\nacross() to manipulate data in multiple columns at once"
+  },
+  {
+    "objectID": "presentations/20240124-BWG.html#big-data-in-r-with-arrow-6",
+    "href": "presentations/20240124-BWG.html#big-data-in-r-with-arrow-6",
+    "title": "Insights and Innovations from Posit Conf 2023",
+    "section": "Big Data in R with Arrow",
+    "text": "Big Data in R with Arrow\n\nEfficiently read + filter + join + summarise massive datasets\nLeverage Parquet file format and C++ libraries\nSimple interaction via queries build with dplyr\n\n\n\nWhy use Arrow?\nEfficiently read + filter + join + summarise massive datasets\nLeverage Parquet file format and fast C++ libraries\nSimple interaction via queries build with dplyr\nThe course included a good amount of practice using Arrow on large datasets\nSo far application in our context of mostly SQL databases has been limited"
+  },
+  {
+    "objectID": "presentations/20240124-BWG.html#.shiny",
+    "href": "presentations/20240124-BWG.html#.shiny",
+    "title": "Insights and Innovations from Posit Conf 2023",
+    "section": "",
+    "text": "Materials\n\n\n\nSecond of the two one-day workshops\nShiny in Production with Golem\nPretty cool to have Joe Cheng, the original creator of the Shiny framework, as a TA"
+  },
+  {
+    "objectID": "presentations/20240124-BWG.html#shiny-in-production",
+    "href": "presentations/20240124-BWG.html#shiny-in-production",
+    "title": "Insights and Innovations from Posit Conf 2023",
+    "section": "Shiny in Production",
+    "text": "Shiny in Production\n\n\nIntro Shiny\n\n\n\nShiny is an R package that makes it easy to build interactive web apps straight from R.\nYou can host standalone apps on a webpage or embed them in R Markdown documents or build dashboards or any number of things.\nYou can also extend your Shiny apps with CSS themes, htmlwidgets, and JavaScript actions.\nChallenges often emerge when these applications are deployed beyond the developer’s machine or developed beyond a minimal size"
+  },
+  {
+    "objectID": "presentations/20240124-BWG.html#shiny-in-production-1",
+    "href": "presentations/20240124-BWG.html#shiny-in-production-1",
+    "title": "Insights and Innovations from Posit Conf 2023",
+    "section": "Shiny in Production",
+    "text": "Shiny in Production\n\n\n\nProblems with performance bottlenecks, crashes, simultaneous user issues, optimization, and un-managed complexity tend to arise when these applications grow beyond their initial ideation\nPart of that is due to many apps being designed as a prototype and turning into a full blown web app\nEven more troubles arise when connecting to external data sources, other execution backends, and incorporating numerous other R packages\nThis sort of ballooning complexity makes collaboration, modification, and debugging much more difficult\nAll of a sudden your shiny app is looking decidedly less so"
+  },
+  {
+    "objectID": "presentations/20240124-BWG.html#shiny-in-production-2",
+    "href": "presentations/20240124-BWG.html#shiny-in-production-2",
+    "title": "Insights and Innovations from Posit Conf 2023",
+    "section": "Shiny in Production",
+    "text": "Shiny in Production\n\n\n\nEnter the Golem framework for building shiny apps\nScripts guide you with first steps akin to {usethis} & {devtools}\nEncourages Shiny best practices by providing structure and guardrails\nProduce shiny apps as R packages to ensure dependencies are met"
+  },
+  {
+    "objectID": "presentations/20240124-BWG.html#shiny-in-production-3",
+    "href": "presentations/20240124-BWG.html#shiny-in-production-3",
+    "title": "Insights and Innovations from Posit Conf 2023",
+    "section": "Shiny in Production",
+    "text": "Shiny in Production\n\n\n\n01_start.R for original setup\n02_dev.R in for ongoing work\n03_deploy.R for deployment\n\n\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   ├── app_config.R\n│   ├── app_server.R\n│   ├── app_ui.R\n│   └── run_app.R\n├── dev\n│   ├── 01_start.R\n│   ├── 02_dev.R\n│   ├── 03_deploy.R\n│   └── run_dev.R\n├── inst\n│   ├── app\n│   │   └── www\n│   │       └── favicon.ico\n│   └── golem-config.yml\n└── man\n    └── run_app.Rd\n\n\n\nSource\n\n\n\nDev scripts get you started and keep you rolling.\nThey initially create your description, readme and license files, add version control and tests\nUse them to add dependencies, create custom functions, and modularize your shiny code\nWhen ready the scripts in 03 ease deployment to shiny hosting servers, docker containers, etc through checking code, building the package, and generating appropriate configs"
+  },
+  {
+    "objectID": "presentations/20240124-BWG.html#shiny-in-production-4",
+    "href": "presentations/20240124-BWG.html#shiny-in-production-4",
+    "title": "Insights and Innovations from Posit Conf 2023",
+    "section": "Shiny in Production",
+    "text": "Shiny in Production\n\n\n\nApp Scripts live in R/ directory\nDefined front end (UI) and back end (server)\n\n\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   ├── app_config.R\n│   ├── app_server.R\n│   ├── app_ui.R\n│   └── run_app.R\n├── dev\n│   ├── 01_start.R\n│   ├── 02_dev.R\n│   ├── 03_deploy.R\n│   └── run_dev.R\n├── inst\n│   ├── app\n│   │   └── www\n│   │       └── favicon.ico\n│   └── golem-config.yml\n└── man\n    └── run_app.Rd\n\n\n\nSource\n\n\n\nUI and Server scripts define the front and back end code of your\nModules are also added here"
+  },
+  {
+    "objectID": "presentations/20240124-BWG.html#shiny-in-production-5",
+    "href": "presentations/20240124-BWG.html#shiny-in-production-5",
+    "title": "Insights and Innovations from Posit Conf 2023",
+    "section": "Shiny in Production",
+    "text": "Shiny in Production\n\n\n\n\nApp Scripts live in R/ directory\n\n\n\nModules in individual files\n\nEncapsulate and repeat features\nPrevent collisions\nLogical organization\nEasier debugging\n\n\n\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   ├── app_config.R\n│   ├── app_server.R\n│   ├── app_ui.R\n│   ├── mod_picker.R\n│   └── run_app.R\n├── dev\n│   ├── 01_start.R\n│   ├── 02_dev.R\n│   ├── 03_deploy.R\n│   └── run_dev.R\n├── inst\n│   ├── app\n│   │   └── www\n│   │       └── favicon.ico\n│   └── golem-config.yml\n└── man\n    └── run_app.Rd\n\n\n\nSource\n\n\n\nModules allow you to encapsulate distinct app interfaces\nAvoids namespace collisions when using same widget across different areas of your app\nOrganize code into logical and easy-to-understand components\nFacilitate collaboration and easy debugging"
+  },
+  {
+    "objectID": "presentations/20240124-BWG.html#shiny-in-production-6",
+    "href": "presentations/20240124-BWG.html#shiny-in-production-6",
+    "title": "Insights and Innovations from Posit Conf 2023",
+    "section": "Shiny in Production",
+    "text": "Shiny in Production\n\n\n\n\nModule UI\npicker_ui &lt;- function(id) {\n\n  ns &lt;- NS(id)\n  \n  tagList(\n  \n    # UI FEATURES\n    \n    )\n  \n}\n\n\n\n\nModule Server\npicker_server &lt;- function(id, \n                          sets_rv){\n  moduleServer(\n    id,\n    function(input, \n             output, \n             session) {\n      # SERVER LOGIC\n    }\n  )\n}\n\n\n\n\n\nEasily Added to Apps\n# app_ui.R\nmod_picker_ui(\"picker_1\")\n\n# app_server.R\ninput_ids &lt;- mod_picker_server(\"picker_1\")\n\n\nSource\n\n\n\nAn example module for a UI picker element (numbers, groups, etc)\nUI\n\nid: String to use for namespace\nns &lt;- NS(id): Create proper namespace function\nHTML taglist of UI elements to return\n\nServer\n\nLogic is encapsulated with namespace applied\n\nAdd to app easily\n\nCopy/paste the included module calling functions\nUse as many times as you like with different names\npicker_1, picker_2, etc"
+  },
+  {
+    "objectID": "presentations/20240124-BWG.html#shiny-in-production-7",
+    "href": "presentations/20240124-BWG.html#shiny-in-production-7",
+    "title": "Insights and Innovations from Posit Conf 2023",
+    "section": "Shiny in Production",
+    "text": "Shiny in Production\n\n{profvis}\n{crew}\nShiny + Arrow\n{shinyloadtest}\n\n\nSource\n\n\n\nAlso covered a number of important aspects including:\n\nProfiling your Shiny app with {profvis}\nAsynchronous processes with {crew}\nA further exploration of fast data loading/querying with {arrow} & .parquet files\nLoad testing\n\nAbsolutely cram packed day but lots of good content\n\nCurrently preparing a rewrite of the Surveiller app to take advantage of these improvements"
+  },
+  {
+    "objectID": "presentations/20240124-BWG.html#abstractions-all-the-way-down",
+    "href": "presentations/20240124-BWG.html#abstractions-all-the-way-down",
+    "title": "Insights and Innovations from Posit Conf 2023",
+    "section": "Abstractions All the Way Down",
+    "text": "Abstractions All the Way Down\n\n“An abstraction” is the outcome of a process of deriving general rules and concepts from specific examples — a concept that acts as a common noun for all subordinate concepts and connects any related concepts as a group, field, or category.\n\n\n\nIn software engineering and computer science, abstraction is the process of generalizing concrete details, such as attributes, away from the study of objects and systems to focus attention on details of greater importance.\n\n\nSource\n\n\n\nAs systems become more complex, we must rely on more abstractions.\nEach abstraction tries to hide complexity, allowing more focus on the more important details\nMostly don’t care how the results get done layers below the abstraction you’re dealing with, this applies in computer science as well as in organizational structures\n\nCS: write code in high level programming language, maybe need to know vaguely how the compiler works in order to debug\nOS: request from CEO that is passed down corp structure to the people and machines that actually do the work\n\nWhy do we use abstractions? …"
+  },
+  {
+    "objectID": "presentations/20240124-BWG.html#abstractions-all-the-way-down-1",
+    "href": "presentations/20240124-BWG.html#abstractions-all-the-way-down-1",
+    "title": "Insights and Innovations from Posit Conf 2023",
+    "section": "Abstractions All the Way Down",
+    "text": "Abstractions All the Way Down\n\nHead trunk only hold so much junk\n\n\nConstrain complexity and separate concerns\n\n\nAll non-trivial abstractions, to some degree, are leaky\n\n\n\nFrom djikstra: the competent programmer is fully aware of the limited size of his own skull\nWith the complexity of the modern world / workplace we cannot be masters of everything\nAccording to Joe Spolsky who wrote a great article called the Law of Leaky Abstractions: All non…\nSpolsky’s article gives examples of an abstraction that works most of the time, but where a detail of the underlying complexity cannot be ignored, thus leaking complexity out of the abstraction back into the software that uses the abstraction. This results in abstraction failure: unexpected results, errors, incorrect responses"
+  },
+  {
+    "objectID": "presentations/20240124-BWG.html#abstractions-all-the-way-down-assertions",
+    "href": "presentations/20240124-BWG.html#abstractions-all-the-way-down-assertions",
+    "title": "Insights and Innovations from Posit Conf 2023",
+    "section": "Abstractions All the Way Down: Assertions",
+    "text": "Abstractions All the Way Down: Assertions\n\nAbstractions can leak so they must be permeable\nNo abstraction is right for everyone\n\n\n\nJD’s assertions about abstractions were as follows"
+  },
+  {
+    "objectID": "presentations/20240124-BWG.html#abstractions-all-the-way-down-solutions",
+    "href": "presentations/20240124-BWG.html#abstractions-all-the-way-down-solutions",
+    "title": "Insights and Innovations from Posit Conf 2023",
+    "section": "Abstractions All the Way Down: Solutions",
+    "text": "Abstractions All the Way Down: Solutions\n\nAbstraction permeability allows for debugging\n\nCommunication is key\n\n“Meet people where they are”\n\n80-16-4 split of normal/advanced/guru users\n\n\n\n\n… Holds for organizations and computers\n\nCommunication of owndership, responsibility, code visibilty, etc\n\nWhat is fast becoming the ethos of the computation and operational genomics group …\n\nMatch the abstraction to the person needing\ndon’t jump 0 to 100 and burn down their process to creat an API or a LIMS database before helping troubleshoot and improve the Excel they’re currently having issue with\n\nExcellent talk, highly recommend"
+  },
+  {
+    "objectID": "presentations/20240124-BWG.html#session-roundup",
+    "href": "presentations/20240124-BWG.html#session-roundup",
+    "title": "Insights and Innovations from Posit Conf 2023",
+    "section": "Session Roundup",
+    "text": "Session Roundup\n\nCommit to Change: How to Increase Accessibility in Your Favorite Open Source Projects\nShinyUiEditor: From Alpha to Powerful Shiny App Development Tool\nParameterized Quarto Reports Improve Understanding of Soil Health\nMagic with WebAssembly and webR\nAutomating the Dutch National Flu Surveillance for Pandemic Preparedness\n\n\n\nCall to arms to improve accessibility of docs and packages\nBrilliant tool to allow visual editing of a Shiny UI that creates the server / UI code automatically\nImpressive commitment to customization in reporting based on a few simple rules\nRunning shiny without a server in a web browser, frankly mindblowing the possibilities\nHeartening to see the shared challenges we and the Dutch National Flu Surveillance program faced along with similar solutions"
+  },
+  {
+    "objectID": "presentations/20240124-BWG.html#.resources",
+    "href": "presentations/20240124-BWG.html#.resources",
+    "title": "Insights and Innovations from Posit Conf 2023",
+    "section": "",
+    "text": "Workshops\n\nBig Data in R with Arrow\nIntro to Shiny\nShiny in Production\nGetting Started with Quarto\n\n\n\n\n\n\n\nTalks\n\nAbstractions all the way down\nIncrease Accessibility\nShinyUIEditor\nParameterized Quarto Reports\nMagic with WASM and WebR\nPandem-2\nFull Posit 2023 Playlist"
+  }
+]
