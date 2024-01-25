@@ -3,10 +3,15 @@ project:
 
 website:
   title: "Quarto Presentations"
+  repo-url: https://github.com/TheZetner/quarto-presentations
+  repo-actions: [issue]
   navbar:
     left:
       - href: index.qmd
-        text: Presntation List
+        text: Presentation List
+    right:
+      - icon: github
+        href: https://github.com/TheZetner/quarto-presentations
 
 format:
   html:
