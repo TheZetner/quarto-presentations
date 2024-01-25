@@ -11,8 +11,8 @@
   <meta name="generator" content="quarto-1.3.450">
 
   <meta name="author" content="Adrian Zetner">
-  <meta name="dcterms.date" content="2024-01-24">
-  <title>Quarto Presentations - Insights and Innovations from Posit Conf 2023</title>
+  <meta name="dcterms.date" content="2023-07-04">
+  <title>Quarto Presentations - Reproducibility with renv</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -30,71 +30,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-      }
-    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-    div.sourceCode
-      { color: #f8f8f2;  }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #f8f8f2; } /* Normal */
-    code span.al { color: #f07178; background-color: #2a0f15; font-weight: bold; } /* Alert */
-    code span.an { color: #d4d0ab; } /* Annotation */
-    code span.at { color: #00e0e0; } /* Attribute */
-    code span.bn { color: #d4d0ab; } /* BaseN */
-    code span.bu { color: #abe338; } /* BuiltIn */
-    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #abe338; } /* Char */
-    code span.cn { color: #ffd700; } /* Constant */
-    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
-    code span.cv { color: #ffd700; } /* CommentVar */
-    code span.do { color: #f8f8f2; } /* Documentation */
-    code span.dt { color: #ffa07a; } /* DataType */
-    code span.dv { color: #d4d0ab; } /* DecVal */
-    code span.er { color: #f07178; text-decoration: underline; } /* Error */
-    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
-    code span.fl { color: #d4d0ab; } /* Float */
-    code span.fu { color: #ffa07a; } /* Function */
-    code span.im { color: #abe338; } /* Import */
-    code span.in { color: #d4d0ab; } /* Information */
-    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
-    code span.op { color: #ffa07a; } /* Operator */
-    code span.ot { color: #00e0e0; } /* Other */
-    code span.pp { color: #dcc6e0; } /* Preprocessor */
-    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
-    code span.sc { color: #abe338; } /* SpecialChar */
-    code span.ss { color: #abe338; } /* SpecialString */
-    code span.st { color: #abe338; } /* String */
-    code span.va { color: #00e0e0; } /* Variable */
-    code span.vs { color: #abe338; } /* VerbatimString */
-    code span.wa { color: #dcc6e0; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -391,7 +326,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Insights and Innovations from Posit Conf 2023</h1>
+  <h1 class="title">Reproducibility with <code>renv</code></h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -401,18 +336,189 @@ Adrian Zetner
 </div>
 </div>
 
-  <p class="date">2024-01-24</p>
+  <p class="date">2023-07-04</p>
+</section>
+<section id="sharing-r-analyses-with-collaborators" class="slide level2">
+<h2>Sharing R Analyses with Collaborators</h2>
+<ul>
+<li class="fragment"><p>“I tried to run your code but it says I’m missing X” 😟</p></li>
+<li class="fragment"><p>“Your code used to run fine but now it’s not working” 😖</p></li>
+<li class="fragment"><p>“I upgraded my software and now your code is junk” 💔</p>
+<aside class="notes">
+<p>We’ve all been here. Headaches coming from code that we’ve written and are proud of but can’t be used by our colleagues or no longer works for them. The</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></li>
+</ul>
+</section>
+<section id="reproducibility-in-data-driven-analysis" class="slide level2">
+<h2>Reproducibility in Data Driven Analysis</h2>
+<ul>
+<li class="fragment"><p>Crucial for collaboration and transparency in science</p></li>
+<li class="fragment"><p>Software and package versions can differ between computers</p></li>
+<li class="fragment"><p>Potential code failure or inconsistent results</p></li>
+<li class="fragment"><p>Solution: Replicate the environment</p></li>
+</ul>
+<aside class="notes">
+<p>- Reproducibility in analysis is crucial for collaboration and transparency in science.</p>
+<p>- Even with free and open-source software and clean code, software and package versions can differ between computers.</p>
+<p>- Differences in software versions, package versions, and external dependencies can lead to code failure or inconsistent results.</p>
+<p>- One solution is to replicate the environment in which the code was developed to ensure compatibility and result consistency.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="replicate-the-environment" class="slide level2">
+<h2>Replicate the environment ♊</h2>
+<ul>
+<li class="fragment"><p>Manual replication of the environment is impractical</p></li>
+<li class="fragment"><p>Potential solutions</p>
+<ul>
+<li class="fragment"><p>Virtual environments (Python, Conda, etc)</p></li>
+<li class="fragment"><p>Docker</p></li>
+<li class="fragment"><p>Binder/Jupyter Notebooks</p></li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p>- Manual replication of the environment is impractical, prompting the need for automated solutions.</p>
+<p>- Solutions range from ensuring consistent package versions to replicating the entire computer environment.</p>
+<p>- Virtual environments to install elements from packages up to system libraries (python, conda, etc)</p>
+<p>- Docker containers package applications into portable images to run consistently in almost any environment</p>
+<p>- Binder and jupyter make sharing online from github etc easy</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="virtual-environments" class="slide level2">
+<h2>Virtual Environments 🌌</h2>
+<div class="fragment fade-in-then-semi-out">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://www.logicraysacademy.com/blog/wp-content/uploads/2020/04/python-programming.png" width="306"></p>
+</figure>
+</div>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://conda.io/en/latest/_static/conda_logo_full.svg" width="323"></p>
+</figure>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>Python virtual environments are folders containing a complete copy of the Python stack used to create them.</li>
+<li>They consist of a separate python executable, the associated stack, and a site-packages folder for installed Python packages.</li>
+<li>Virtual environments ensure full isolation by handling package installations independently.</li>
+<li>They are easy to understand and use but can be heavyweight due to the duplication of the Python stack and packages for each environment.</li>
+<li>Conda is a language-agnostic tool for package management and environment management. As a package manager, Conda can install, update and remove packages. As an environment manager, it can manage virtual environments. It’s robust and broadly applicable but not useable in all contexts</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="containers" class="slide level2">
+<h2>Containers 🎁</h2>
+<div class="fragment fade-in-then-semi-out">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Docker_%28container_engine%29_logo.svg" width="323"></p>
+</figure>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li><p>Docker containers are lightweight relative to true virtual machines and create isolated environments that package applications and their dependencies into a standardized unit</p></li>
+<li><p>Developing docker containers comes with increased overhead both from complexity in development and deployment along with potential security concerns and performance limitations</p></li>
+<li><p>Not exactly what we want to have to focus on when sharing data analysis with colleagues</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="notebooks" class="slide level2">
+<h2>Notebooks 📑</h2>
+<div class="fragment fade-in-then-semi-out">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://davidfastovich.com/post/r_jupyter/featured_hu56ca4828c15a5b64b87022f5c351d8ec_15830_720x2500_fit_q75_h2_lanczos_3.webp" width="323"></p>
+</figure>
+</div>
+</div>
+<div class="fragment fade-in-then-semi-out">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://allthedifferences.com/wp-content/uploads/2023/03/image-11.png.webp" width="323"></p>
+</figure>
+</div>
+</div>
+<aside class="notes">
+<p>Note book options</p>
+<p><a href="https://mybinder.org/">Binder</a> is a&nbsp;<strong>free</strong>&nbsp;service that creates a virtual computer in the cloud based on the specifications listed in a GitHub repository. In the process of building the environment, Binder also clones the GitHub repository making it painless to reproduce analyses. It is essentially read-only though and while great for sharing analyses it can be slow to load and easy to lose work</p>
+<p>Jupyter notebooks integrate code and its output into a single document that combines visualizations, narrative text, mathematical equations, and other rich media. In other words: it’s a single document where you can run code, display the output, and also add explanations, formulas, charts, and make your work more transparent, understandable, repeatable, and shareable. Great for sharing analyses, somewhat limited by software needed to run</p>
+<p>These all seem like a lot of work simply to share our projects with other people, enter…</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section>
-<section id="introduction" class="title-slide slide level1 center">
+<section id="section" class="title-slide slide level1 center">
 <h1></h1>
 
-<img data-src="20240124-BWG_images/positconf.jpg" width="500" class="r-stretch quarto-figure-center"><aside class="notes">
+<img data-src="https://rstudio.github.io/renv/logo.svg" width="500" class="r-stretch quarto-figure-center"><aside class="notes">
 <ul>
-<li>Sunday, September 17 - Wednesday, September 20, 2023</li>
-<li>Two days of workshops and two days of conference keynotes and talks in “sunny Chicago”</li>
-<li>I’m going to discuss some of the things I learned about that weekend.</li>
-<li>This Posit name is new though, what happened to Rstudio Conf…</li>
+<li>RStudio, specifically Kevin Ushey, has developed a user-friendly solution called renv to address reproducibility in R projects</li>
+<li>You use `renv` to store information about dependencies with your code</li>
+<li>Other people use `renv` to install the exact same versions of the dependencies before running your code</li>
+<li>A couple glossary terms before getting into it…</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -426,19 +532,39 @@ Adrian Zetner
           display:block!important;
       }</style></aside>
 </section>
-<section id="section" class="slide level2">
-<h2></h2>
+<section id="r-projects" class="slide level2">
+<h2>R Projects 📂</h2>
 
-<img data-src="20240124-BWG_images/RStudio-Logo.png" width="400" class="r-stretch quarto-figure-center"><div class="footer">
-<p><a href="https://posit.co/blog/rstudio-is-becoming-posit/">More Info</a></p>
-</div>
+<img data-src="https://intro2r.com/images/directory_structure.png" width="287" class="r-stretch"><aside class="notes">
+<ul>
+<li><p>Projects are the organizational tool of RStudio, essentially a folder</p></li>
+<li><p>Organize all aspects of an analysis (raw data, R scripts, external scripts, outputs, documentation, etc) within a root directory</p></li>
+<li><p>Allows for relative pathing amongst all elements</p></li>
+<li><p>Allows for simultaneous analyses in different folders and siloing those from each other</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="packages" class="slide level2">
+<h2>Packages 📦</h2>
+<ul>
+<li class="fragment"><p>Extend base R with more functionality</p></li>
+<li class="fragment"><p>Called libraries or packages in other languages</p></li>
+<li class="fragment"><p>Can require compilation on your machine (source) or pre-compiled as a binary package</p></li>
+</ul>
 <aside class="notes">
-<ul>
-<li>RStudio was founded in 2009 with the vision of creating high-quality open-source software for data scientists with initial focus on the R community</li>
-<li>They invested heavily in open-source development, education, and community growth through their IDE (of the same name), conferences, and package development</li>
-<li>This focus on open-source software often comes into conflict with the imperatives of sustaining a commercial enterprise when shareholder profit trumps customer interests</li>
-<li>In order to avoid those pitfalls RStudio reincorporated as…</li>
-</ul>
+<p>Extend base R with more functionality Called libraries or packages in other languages Can require compilation on your machine (source) or pre-compiled as a binary package</p>
+<p>Binary packages offer several advantages such as Faster installation, Platform compatibility, Dependency resolution, and greater Security when installed from trusted sites. When binary packages are unavailable (OS differences etc) they must be compiled locally.</p>
+<p>Installed from…</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -451,102 +577,24 @@ Adrian Zetner
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-1" class="slide level2">
-<h2></h2>
-
-<img data-src="20240124-BWG_images/posit.jpg" width="500" class="r-stretch quarto-figure-center"><div class="footer">
-<p><a href="https://posit.co/blog/rstudio-is-now-posit/">More Info</a></p>
-</div>
-<aside class="notes">
+<section id="repositories" class="slide level2">
+<h2>Repositories 🏛️</h2>
 <ul>
-<li>A public benefit corporation with
+<li class="fragment"><p>Source of packages 📦</p></li>
+<li class="fragment"><p>Many different available</p>
 <ul>
-<li>High standards of transparency and accountability</li>
-<li>Fiduciary responsibility to address social, economic, and environmental needs while still overseeing business goals</li>
-</ul></li>
-<li>The intent is to remain independent over the long term while remaining committed to open source, broadening focus to be more inclusive of other languages (notably Python), and continue to grow the community</li>
-<li>The RStudio IDE will remain the same</li>
-<li>This conference started out with two one-day workshops on Sunday and Monday before the conference proper began</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section></section>
-<section>
-<section id="workshop-1-big-data-in-r-with-arrow" class="title-slide slide level1 title center">
-<h1>Workshop 1: Big Data in R with Arrow</h1>
-
-</section>
-<section id=".arrow" class="slide level2">
-<h2></h2>
-
-<img data-src="20240124-BWG_images/arrow.png" width="500" class="r-stretch quarto-figure-center"><div class="footer">
-<p><a href="https://github.com/posit-conf-2023/arrow/tree/main">Materials</a></p>
-</div>
-<aside class="notes">
-<ul>
-<li>First of the two one-day workshops</li>
-<li>Big Data in R with Arrow</li>
-<li>The workshop focused on using an R interface to Apache Arrow to process larger-than-memory files and multi-file datasets with arrow using familiar dplyr syntax.</li>
-<li>Main reason? …</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="section-2" class="slide level2">
-<h2></h2>
-
-<img data-src="20240124-BWG_images/segfault.png" width="500" class="r-stretch quarto-figure-center"><aside class="notes">
-<ul>
-<li>To avoid the over use of memory that leads to seg faults and crashing your R session</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="big-data-in-r-with-arrow" class="slide level2">
-<h2>Big Data in R with Arrow</h2>
-<ul>
-<li class="fragment">What is Arrow?
-<ul>
-<li class="fragment">A toolbox</li>
-<li class="fragment">Designed to improve
-<ul>
-<li class="fragment">Algorithm performance</li>
-<li class="fragment">Data transfer efficiency</li>
-</ul></li>
+<li class="fragment"><p>CRAN</p></li>
+<li class="fragment"><p>Bioconductor</p></li>
+<li class="fragment"><p>Posit Public Package Manager</p></li>
+<li class="fragment"><p>R Universe</p></li>
 </ul></li>
 </ul>
 <aside class="notes">
 <ul>
-<li>A multi-language toolbox for accelerated data interchange and in-memory processing</li>
-<li>It defines a memory format and provides libraries for interaction</li>
-<li>Arrow is designed to both improve the performance of analytical algorithms and the efficiency of moving data from one system or programming language to another</li>
+<li><p>A repository is a source of packages.</p></li>
+<li><p>The main repository for R packages is CRAN (Comprehensive R Archive Network), which is accessible in almost every R session.</p></li>
+<li><p>Other freely available repositories include Bioconductor, Posit (formerly RStudio) Public Package Manager, and R Universe.</p></li>
+<li><p>When a package is retrieved from a repository it is installed on your computer to a library</p></li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -560,158 +608,23 @@ Adrian Zetner
           display:block!important;
       }</style></aside>
 </section>
-<section id="big-data-in-r-with-arrow-1" class="slide level2">
-<h2>Big Data in R with Arrow</h2>
+<section id="libraries" class="slide level2">
+<h2>Libraries 📚</h2>
 <ul>
-<li class="fragment">Accomplished via in-memory columnar format
+<li class="fragment"><p>Store packages installed for current R version</p></li>
+<li class="fragment"><p>System libraries</p>
 <ul>
-<li class="fragment">Standardized</li>
-<li class="fragment">Language agnostic</li>
-</ul></li>
-<li class="fragment">Interaction via Arrow libraries
-<ul>
-<li class="fragment">C, C++, C#, Go, Java, JavaScript, Julia, MATLAB, Python, <em>R</em>, Ruby, and Rust.</li>
-</ul></li>
-</ul>
-<aside class="notes">
-<ul>
-<li>Accomplished via an in-memory columnar format for representing structured, table-like data sets in-memory.</li>
-<li>Standardized, language-agnostic specification</li>
-<li>Interaction with this format is via Arrow’s libraries</li>
-<li>Libraries are available for C, C++, C#, Go, Java, JavaScript, Julia, MATLAB, Python, R, Ruby, and Rust.</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="section-3" class="slide level2">
-<h2></h2>
-
-<img data-src="20240124-BWG_images/columnar-fast.png" width="500" class="r-stretch quarto-figure-center"><div class="footer">
-<p><a href="https://posit-conf-2023.github.io/arrow/materials/20240124-BWG_images/columnar-fast.png">Source</a></p>
-</div>
-<aside class="notes">
-<ul>
-<li>The columnar format in question</li>
-<li>Parquet files take advantage of the latest SIMD (Single Instruction, Multiple Data) operations included in modern processors
-<ul>
-<li>Essentially: Your processor can process more data in parallel across multiple files and portions of files.</li>
-</ul></li>
-<li>They’re able to do this due to a hybrid contiguous columnar layout used in data storage that improves read speeds over 30x and reduces storage space by &gt;80%</li>
-<li>The only downside is they’re slightly less intuitive to the user</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="section-4" class="slide level2">
-<h2></h2>
-
-<img data-src="20240124-BWG_images/parquet.webp" width="500" class="r-stretch quarto-figure-center"><div class="footer">
-<p><a href="https://towardsdatascience.com/demystifying-the-parquet-file-format-13adb0206705">Source</a></p>
-</div>
-<aside class="notes">
-<ul>
-<li>Here is a comparison to serialization of CSV and pure column based storage formats</li>
-<li>Parquet files use a hybrid method to sequentially store chunks of columns along with limited metadata about them</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="section-5" class="slide level2">
-<h2></h2>
-
-<img data-src="20240124-BWG_images/parquet2.webp" width="500" class="r-stretch quarto-figure-center"><div class="footer">
-<p><a href="https://towardsdatascience.com/demystifying-the-parquet-file-format-13adb0206705">Source</a></p>
-</div>
-<aside class="notes">
-<ul>
-<li>This hybrid storage makes them especially useful for both
-<ul>
-<li>projection: selecting certain columns for the user, does not have to traverse the entire file as it would with CSV</li>
-<li>predicates: identifying certain rows based on criteria in a specific column, easiest in row-based storage as can be accomplished with sorting</li>
-</ul></li>
-<li>Data science requires both of these and for efficiency’s sake needs to traverse as little of the file as possible in doing so</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="section-6" class="slide level2">
-<h2></h2>
-
-<img data-src="20240124-BWG_images/parquet3.webp" width="500" class="r-stretch quarto-figure-center"><div class="footer">
-<p><a href="https://towardsdatascience.com/demystifying-the-parquet-file-format-13adb0206705">Source</a></p>
-</div>
-<aside class="notes">
-<ul>
-<li>Parquet files leverage metadata to skip parts of the data that can be excluded according to the chosen predicate: for eg. Int &lt; 5</li>
-<li>Skip reading parts of the file or entire files when they are partitioned appropriately</li>
-<li>Parquet files also take advantage of</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="parquet" class="slide level2">
-<h2>Parquet</h2>
-<ul>
-<li class="fragment">Further optimizations
-<ul>
-<li class="fragment">Run length encoding for duplicate values</li>
-<li class="fragment">Dictionary encoding for long strings</li>
-<li class="fragment">Projection and predicate pushdown</li>
+<li class="fragment"><p>User</p></li>
+<li class="fragment"><p>Site</p></li>
+<li class="fragment"><p>Default</p></li>
 </ul></li>
 </ul>
 <aside class="notes">
-<ul>
-<li>RLE encodes sequential duplicates by storing the value and the count of times it consecutively repeats reducing storage and read times</li>
-<li>Like storing factors in R Dictionary encoding replaces values with small integers and stores the mapping separately.</li>
-<li>Select only the necessary columns (projection) and rows (predicate) during the data read process.</li>
-<li>All in all Parquet is a phenomenal data storage format for speed, size, and efficiency</li>
-<li>Why does that matter in the context of this workshop…</li>
-</ul>
+<p>A library in R is a directory that contains installed packages.</p>
+<p>Three system libraries: a user library, a site library, and a default library where base R packages are installed.</p>
+<p>Generally, you don’t have to worry about libraries and can install all packages into a system library shared across projects.</p>
+<p>Sometimes changes to packages can break functionality in older projects.</p>
+<p>With the use of renv, you can employ project libraries, which provide each project with its own separate set of packages.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -724,21 +637,141 @@ Adrian Zetner
           display:block!important;
       }</style></aside>
 </section>
-<section id="big-data-in-r-with-arrow-2" class="slide level2">
-<h2>Big Data in R with Arrow</h2>
+<section id="project-local-libraries-with-renv" class="slide level2">
+<h2>Project Local Libraries with <code>renv</code> 📚</h2>
 <ul>
-<li class="fragment">NYC Taxi Dataset
+<li class="fragment">Project local dependency management</li>
+<li class="fragment">Store and restore your project dependencies</li>
+<li class="fragment">Mimic Packrat</li>
+<li class="fragment">Little to no change to workflows</li>
+</ul>
+<aside class="notes">
 <ul>
-<li class="fragment">BIG data</li>
-<li class="fragment">&gt;40Gb on disk</li>
-<li class="fragment">&gt; 1.15 billion rows</li>
+<li>Project local dependency management</li>
+<li>Store and restore your project dependencies</li>
+<li>Mimic Packrat</li>
+<li>Little to no change to workflows</li>
+</ul>
+<p>OK, so we have the concepts of projects, packages, libraries, and repositories down now, correct? So the natural extension of that is to individualize dependencies to a single project in order to save and load the state of your project as you wrote it. renv is designed to more robustly mimic much of the functionality of the now defunct packrat package with fewer surprises and better default behaviours. The philosophy behind renv is that your project workflow shouldn’t meaningfully change due to incorporating it into your projects.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="workflow" class="slide level2">
+<h2>Workflow 🔀</h2>
+<ol type="1">
+<li class="fragment">Initialize a new project local environment with a private R library with <code>renv::init()</code></li>
+<li class="fragment">Work in the project as normal adding packages with <code>install.packages()</code></li>
+<li class="fragment">Save the state of the working project with <code>renv::snapshot()</code> to lock file (<code>renv.lock</code>)</li>
+<li class="fragment">Keep working with the option to save state after successful changes (<code>renv::snapshot()</code>) or revert to previous if updates introduce new problems (<code>renv::restore()</code>)</li>
+</ol>
+<aside class="notes">
+<p>The general workflow when working with&nbsp;<code>renv</code>&nbsp;is: 1. Call&nbsp;<code>[renv::init()](../reference/init.html)</code>&nbsp;to initialize a new project-local environment with a private R library<br>
+2. Work in the project as normal, installing and removing new R packages as they are needed in the project<br>
+3. Call&nbsp;<code>[renv::snapshot()](../reference/snapshot.html)</code>&nbsp;to save the state of the project library to the lockfile (called&nbsp;<code>renv.lock</code>)<br>
+4. Keep working with the option to save state after successful changes (<code>renv::snapshot()</code>) or revert to previous if updates introduce new problems (<code>renv::restore()</code>)</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="initialize" class="slide level2">
+<h2>Initialize ✨</h2>
+<ol type="1">
+<li class="fragment">Searches R scripts for implicitly included dependencies using <code>dependencies()</code>
+<ul>
+<li class="fragment"><code>library("dplyr")</code></li>
+<li class="fragment"><code>dplyr::mutate()</code></li>
 </ul></li>
-</ul>
+<li class="fragment">Copy discovered packages into the&nbsp;<code>renv</code>&nbsp;global package cache for re-use</li>
+<li class="fragment">Missing&nbsp;R&nbsp;package dependencies are installed into the project’s private library</li>
+<li class="fragment">Initial lockfile capturing the state of the project’s library is created</li>
+<li class="fragment">The project is activated with&nbsp;<code>activate()</code></li>
+</ol>
+<aside class="notes">
+<p>What does renv actually do when you call init? The primary steps taken when initializing a new project are:<br>
+1. R&nbsp;package dependencies are discovered within the&nbsp;R&nbsp;files used within the project with&nbsp;<code>[dependencies()](dependencies.html)</code><br>
+2. Discovered packages are copied into the&nbsp;<code>renv</code>&nbsp;global package cache, so these packages can be re-used across future projects as necessary<br>
+3. Any missing&nbsp;R&nbsp;package dependencies discovered are then installed into the project’s private library<br>
+4. A lockfile capturing the state of the project’s library is created with&nbsp;<code>[snapshot()](snapshot.html)</code><br>
+5. The project is activated with&nbsp;<code>[activate()](activate.html)</code> which adds the necessary code to the project’s .Rprofile to use the project’s own library on start up</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="initialize---infrastructure-files" class="slide level2 smaller">
+<h2>Initialize - Infrastructure &amp; Files ✨</h2>
+<table>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 66%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>File</strong></th>
+<th><strong>Usage</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong><code>.Rprofile</code></strong></td>
+<td>Updated to activate&nbsp;<code>renv</code>&nbsp;for new project R sessions</td>
+</tr>
+<tr class="even">
+<td><strong><code>renv.lock</code></strong></td>
+<td>The lockfile</td>
+</tr>
+<tr class="odd">
+<td><code>renv/</code></td>
+<td>Folder containing all environment details</td>
+</tr>
+<tr class="even">
+<td><strong><code>renv/activate.R</code></strong></td>
+<td>Activation script run by the project&nbsp;<code>.Rprofile</code>.</td>
+</tr>
+<tr class="odd">
+<td><code>renv/library</code></td>
+<td>The private project library</td>
+</tr>
+<tr class="even">
+<td><code>renv/settings.json</code></td>
+<td>Project settings</td>
+</tr>
+<tr class="odd">
+<td><code>renv/.gitignore</code></td>
+<td>renv specific gitignore</td>
+</tr>
+</tbody>
+</table>
 <aside class="notes">
 <ul>
-<li>This workshop had us examining truly gigantic data</li>
-<li>Too large for loading into memory on just about any machine</li>
-<li>This data was downloaded onto our machines in preparation for the course and was partitioned across multiple folders and files by year and month a process which took hours</li>
+<li>Project Rprofile with appended activation scripts</li>
+<li>Lockfile describing the state of your project’s library at some point in time.</li>
+<li>Project subfolder that holds all the the important environment details like: Activation script, project library, settings, and .gitignore</li>
+<li><code>.Rprofile</code>,&nbsp;<code>renv.lock</code>&nbsp;and&nbsp;<code>renv/activate.R</code>&nbsp;files should be committed to your version control system which is usually done by <code>renv::init()</code>. Changes to settings.json should also be tracked.</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -752,267 +785,189 @@ Adrian Zetner
           display:block!important;
       }</style></aside>
 </section>
-<section id="big-data-in-r-with-arrow-3" class="slide level2">
-<h2>Big Data in R with Arrow</h2>
-<ul>
-<li class="fragment"><code>arrow::open_dataset()</code>
-<ul>
-<li class="fragment">Pointer to data (in arrow)</li>
-<li class="fragment">Build queries as normal with dplyr</li>
-</ul></li>
-</ul>
-<aside class="notes">
-<ul>
-<li>Workhorse is open_dataset</li>
-<li>Call it to point to a directory of parquet files or a single large one and return a Dataset pointer</li>
-<li>Queries are built against that pointer using dplyr verbs as if against a tibble</li>
-<li>Query is not evaluated at this time, nothing moved to memory</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="big-data-in-r-with-arrow-4" class="slide level2">
-<h2>Big Data in R with Arrow</h2>
-<ul>
-<li class="fragment"><code>arrow::compute()</code></li>
-<li class="fragment"><code>arrow::collect()</code></li>
-</ul>
-<aside class="notes">
-<ul>
-<li>Evaluation of queries is blazingly fast as it relies on C++ libraries</li>
-<li><code>compute()</code> evaluates the query, in-memory output stays in Arrow</li>
-<li><code>collect()</code> evaluates the query, in-memory output returns to R</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="big-data-in-r-with-arrow-5" class="slide level2">
-<h2>Big Data in R with Arrow</h2>
-<ul>
-<li class="fragment"><code>nrow()</code></li>
-<li class="fragment"><code>head()</code>, <code>select()</code>, <code>filter()</code>, and <code>collect()</code></li>
-<li class="fragment"><code>across()</code></li>
-</ul>
-<aside class="notes">
-<ul>
-<li>Mostly familiar dplyr verbs for interaction with the results</li>
-<li><code>nrow()</code> to work out how many rows of data your analyses will return</li>
-<li><code>compute()</code> when you need to execute intermediate steps</li>
-<li><code>collect()</code> to pull all of the data into your R session</li>
-<li><code>head()</code>, <code>select()</code>, <code>filter()</code>, and <code>collect()</code> to preview results</li>
-<li><code>across()</code> to manipulate data in multiple columns at once</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="big-data-in-r-with-arrow-6" class="slide level2">
-<h2>Big Data in R with Arrow</h2>
-<ul>
-<li class="fragment">Efficiently read + filter + join + summarise massive datasets</li>
-<li class="fragment">Leverage Parquet file format and C++ libraries</li>
-<li class="fragment">Simple interaction via queries build with dplyr</li>
-</ul>
-<aside class="notes">
-<ul>
-<li>Why use Arrow?</li>
-<li>Efficiently read + filter + join + summarise massive datasets</li>
-<li>Leverage Parquet file format and fast C++ libraries</li>
-<li>Simple interaction via queries build with dplyr</li>
-<li>The course included a good amount of practice using Arrow on large datasets</li>
-<li>So far application in our context of mostly SQL databases has been limited</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section></section>
-<section>
-<section id="workshop-2-shiny-in-production" class="title-slide slide level1 title center">
-<h1>Workshop 2: Shiny in Production</h1>
-
-</section>
-<section id=".shiny" class="slide level2">
-<h2></h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="20240124-BWG_images/shiny.png" width="500"></p>
-</figure>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="20240124-BWG_images/golem.png" width="500"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="footer">
-<p><a href="https://github.com/posit-conf-2023/shiny-r-prod">Materials</a></p>
-</div>
-<aside class="notes">
-<ul>
-<li>Second of the two one-day workshops</li>
-<li>Shiny in Production with Golem</li>
-<li>Pretty cool to have Joe Cheng, the original creator of the Shiny framework, as a TA</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="shiny-in-production" class="slide level2">
-<h2>Shiny in Production</h2>
-
-<img data-src="20240124-BWG_images/shiny.png" width="500" class="r-stretch quarto-figure-center"><div class="footer">
-<p><a href="https://github.com/posit-conf-2023/shiny-r-intro/">Intro Shiny</a></p>
-</div>
-<aside class="notes">
-<ul>
-<li>Shiny is an R package that makes it easy to build interactive web apps straight from R.</li>
-<li>You can host standalone apps on a webpage or embed them in R Markdown documents or build dashboards or any number of things.</li>
-<li>You can also extend your Shiny apps with CSS themes, htmlwidgets, and JavaScript actions.</li>
-<li>Challenges often emerge when these applications are deployed beyond the developer’s machine or developed beyond a minimal size</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="shiny-in-production-1" class="slide level2">
-<h2>Shiny in Production</h2>
-
-<img data-src="20240124-BWG_images/shiny-broken.png" width="500" class="r-stretch quarto-figure-center"><aside class="notes">
-<ul>
-<li>Problems with performance bottlenecks, crashes, simultaneous user issues, optimization, and un-managed complexity tend to arise when these applications grow beyond their initial ideation</li>
-<li>Part of that is due to many apps being designed as a prototype and turning into a full blown web app</li>
-<li>Even more troubles arise when connecting to external data sources, other execution backends, and incorporating numerous other R packages</li>
-<li>This sort of ballooning complexity makes collaboration, modification, and debugging much more difficult</li>
-<li>All of a sudden your shiny app is looking decidedly less so</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="shiny-in-production-2" class="slide level2">
-<h2>Shiny in Production</h2>
-
-<img data-src="20240124-BWG_images/golem.png" width="500" class="r-stretch quarto-figure-center"><aside class="notes">
-<ul>
-<li>Enter the Golem framework for building shiny apps</li>
-<li>Scripts guide you with first steps akin to <code>{usethis}</code> &amp; <code>{devtools}</code></li>
-<li>Encourages Shiny best practices by providing structure and guardrails</li>
-<li>Produce shiny apps as R packages to ensure dependencies are met</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="shiny-in-production-3" class="slide level2">
-<h2>Shiny in Production</h2>
+<section id="renv.lock" class="slide level2 smaller">
+<h2><code>renv.lock</code> 🔒</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
-<li class="fragment"><code>01_start.R</code> for original setup</li>
-<li class="fragment"><code>02_dev.R</code> in for ongoing work</li>
-<li class="fragment"><code>03_deploy.R</code> for deployment</li>
+<li class="fragment">Version of <code>renv</code><br>
+</li>
+<li class="fragment">Version of R</li>
+<li class="fragment">R repositories active for lockfile<br>
+</li>
+<li class="fragment">Package records</li>
 </ul>
 </div><div class="column" style="width:50%;">
-<pre><code>├── DESCRIPTION
-├── NAMESPACE
-├── R
-│   ├── app_config.R
-│   ├── app_server.R
-│   ├── app_ui.R
-│   └── run_app.R
-├── dev
-│   ├── 01_start.R
-│   ├── 02_dev.R
-│   ├── 03_deploy.R
-│   └── run_dev.R
-├── inst
-│   ├── app
-│   │   └── www
-│   │       └── favicon.ico
-│   └── golem-config.yml
-└── man
-    └── run_app.Rd</code></pre>
+<pre><code>{
+  "R": {
+    "Version": "4.2.3",
+    "Repositories": [
+      {
+        "Name": "CRAN",
+        "URL": "https://cloud.r-project.org"
+      }
+    ]
+  },
+  "Packages": {
+    "markdown": {
+      "Package": "markdown",
+      "Version": "1.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "4584a57f565dd7987d59dda3a02cfb41"
+    },
+    "here": {
+      "Package": "here",
+      "Version": "0.7",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "908d95ccbfd1dd274073ef07a7c93934"
+    }
+  }
+}</code></pre>
 </div>
-</div>
-<div class="footer">
-<p><a href="https://github.com/posit-conf-2023/shiny-r-prod/blob/main/materials/d1-02-structure/index.qmd">Source</a></p>
 </div>
 <aside class="notes">
+<p><code>renv</code>&nbsp;uses a&nbsp;<strong>lockfile</strong>&nbsp;to capture the state of your library at some point in time. It is stored as a collection of&nbsp;<em>records</em>, with different records defining:</p>
 <ul>
-<li>Dev scripts get you started and keep you rolling.</li>
-<li>They initially create your description, readme and license files, add version control and tests</li>
-<li>Use them to add dependencies, create custom functions, and modularize your shiny code</li>
-<li>When ready the scripts in 03 ease deployment to shiny hosting servers, docker containers, etc through checking code, building the package, and generating appropriate configs</li>
+<li>The version of&nbsp;<code>renv</code>&nbsp;used when generating the lockfile;</li>
+<li>The version of&nbsp;<code>R</code>&nbsp;used in that project;</li>
+<li>The R repositories that were active when the lockfile was created;</li>
+<li><em>Package records</em>&nbsp;defining each R package, their version, and their installation source.</li>
+</ul>
+<p>Here is an example lockfile, including the packages&nbsp;<code>markdown</code>&nbsp;and&nbsp;<code>here</code></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="cache" class="slide level2">
+<h2>Cache 🏦</h2>
+<ul>
+<li class="fragment">Global package installation location shared across all projects</li>
+<li class="fragment">Project specific libraries built from symlinks to cache</li>
+<li class="fragment">Primary benefits:
+<ul>
+<li class="fragment">Speed up <code>renv::restore()</code> and <code>renv::install()</code></li>
+<li class="fragment">Save disk space</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p>One of&nbsp;<code>renv</code>’s primary features is the use of a global package cache, which is shared across all projects using&nbsp;<code>renv</code>. This means that project specific libraries are actually built from symlinks to the user’s cache</p>
+<p>The&nbsp;<code>renv</code>&nbsp;package cache provides two primary benefits:</p>
+<ol type="1">
+<li>Future calls to&nbsp;<code>[renv::restore()](../reference/restore.html)</code>&nbsp;and&nbsp;<code>[renv::install()](../reference/install.html)</code>&nbsp;will become much faster, as&nbsp;<code>renv</code>&nbsp;will be able to find and re-use packages already installed in the cache.<br>
+</li>
+<li>Because it is not necessary to have duplicate versions of your packages installed in each project, the&nbsp;<code>renv</code>&nbsp;cache should also help you save disk space relative to an approach with project-specific libraries without a global cache.</li>
+</ol>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="cache-1" class="slide level2">
+<h2>Cache 🏦</h2>
+<ul>
+<li class="fragment">Install process
+<ul>
+<li class="fragment">Installation requested</li>
+<li class="fragment">Available? Link, otherwise install.</li>
+<li class="fragment">Copy to cache</li>
+<li class="fragment">Link back to project</li>
+</ul></li>
+<li class="fragment">Location
+<ul>
+<li class="fragment">Default to <code>~/.local/share/renv</code></li>
+<li class="fragment">Multiple locations allowed</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p>The process by which packages enter the cache is roughly as follows:</p>
+<ol type="1">
+<li>Package installation is requested via e.g.&nbsp;<code>[install.packages()](https://rdrr.io/r/utils/install.packages.html)</code>, or&nbsp;<code>[renv::install()](../reference/install.html)</code>, or as part of&nbsp;<code>[renv::restore()](../reference/restore.html)</code>.</li>
+<li>If&nbsp;<code>renv</code>&nbsp;is able to find the requested version of the package in the cache, then that package is linked into the project library, and installation is complete.<br>
+</li>
+<li>Otherwise, the package is downloaded and installed into the project library.<br>
+</li>
+<li>After installation of the package has successfully completed, the package is then copied into the global package cache, and then linked back into the project library.</li>
+</ol>
+<p>Renv defaults to the user’s home .local folder but multiple locations cache locations can be indicated and shared between users. If using a shared cache the time and disk savings can be leveraged across many users</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="shims" class="slide level2">
+<h2>Shims 🔼</h2>
+<table>
+<thead>
+<tr class="header">
+<th><strong>Function</strong></th>
+<th><strong>Shim</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>install.packages()</code></td>
+<td><code>renv::install()</code></td>
+</tr>
+<tr class="even">
+<td><code>remove.packages()</code></td>
+<td><code>renv::remove()</code></td>
+</tr>
+<tr class="odd">
+<td><code>update.packages()</code></td>
+<td><code>renv::update()</code></td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>To help you take advantage of the package cache,&nbsp;<code>renv</code>&nbsp;places a couple of shims (or aliases) on the search path - Package related functions like install/remove/update from the utils package become renv functions In effect, calling&nbsp;<code>[install.packages()](https://rdrr.io/r/utils/install.packages.html)</code>&nbsp;within an&nbsp;<code>renv</code>&nbsp;project will call&nbsp;<code>[renv::install()](../reference/install.html)</code>&nbsp;instead. This can be useful when installing packages which have already been cached. For example, if you use&nbsp;<code>renv::install("dplyr")</code>, and&nbsp;<code>renv</code>&nbsp;detects that the latest version on CRAN has already been cached, then&nbsp;<code>renv</code>&nbsp;will just install using the copy available in the cache – thereby skipping some of the installation overhead. This can be disabled but is a really lovely convenience feature.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="isolation" class="slide level2">
+<h2>Isolation 🫧</h2>
+<ul>
+<li class="fragment">Require that all packages be distributed with a project</li>
+<li class="fragment"><code>renv::isolate()</code>: copies all dependencies into the local library</li>
+<li class="fragment">Vastly increases project folder size</li>
+<li class="fragment">No reliance on external libraries</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>Sometimes one requires that a project can be distributed in a more contained fashion with all packages included in a zip file.</li>
+<li>Renv’s isolate function copies all dependencies in the project library from the cache into the project folder: project can be zipped and shared at the cost of a large increase of folder size</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -1026,44 +981,20 @@ Adrian Zetner
           display:block!important;
       }</style></aside>
 </section>
-<section id="shiny-in-production-4" class="slide level2">
-<h2>Shiny in Production</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
+<section id="collaboration---setup" class="slide level2">
+<h2>Collaboration - Setup ⚒️</h2>
 <ul>
-<li class="fragment">App Scripts live in <code>R/</code> directory</li>
-<li class="fragment">Defined front end (UI) and back end (server)</li>
+<li class="fragment">Create a new project repository and folder</li>
+<li class="fragment">One user explicitly initializes <code>renv</code> in the version controlled project folder</li>
+<li class="fragment">Commit all files including <code>renv</code> generated ones</li>
+<li class="fragment"><code>renv</code> will now bootstrap the project environment on collaborators computers</li>
 </ul>
-</div><div class="column" style="width:50%;">
-<pre><code>├── DESCRIPTION
-├── NAMESPACE
-├── R
-│   ├── app_config.R
-│   ├── app_server.R
-│   ├── app_ui.R
-│   └── run_app.R
-├── dev
-│   ├── 01_start.R
-│   ├── 02_dev.R
-│   ├── 03_deploy.R
-│   └── run_dev.R
-├── inst
-│   ├── app
-│   │   └── www
-│   │       └── favicon.ico
-│   └── golem-config.yml
-└── man
-    └── run_app.Rd</code></pre>
-</div>
-</div>
-<div class="footer">
-<p><a href="https://github.com/posit-conf-2023/shiny-r-prod/blob/main/materials/d1-02-structure/index.qmd">Source</a></p>
-</div>
 <aside class="notes">
-<ul>
-<li>UI and Server scripts define the front and back end code of your</li>
-<li>Modules are also added here</li>
-</ul>
+<ol type="1">
+<li>One user (perhaps yourself) should explicitly initialize&nbsp;<code>renv</code>&nbsp;in the project, via&nbsp;<code>[renv::init()](../reference/init.html)</code>. This will create the initial&nbsp;<code>renv</code>&nbsp;lockfile, and also write the&nbsp;<code>renv</code>&nbsp;auto-loaders to the project’s&nbsp;<code>.Rprofile</code>&nbsp;and&nbsp;<code>renv/activate.R</code>. These will ensure the right version of&nbsp;<code>renv</code>&nbsp;is downloaded and installed for your collaborators when they start in this project.</li>
+<li>Share your project sources, alongside the generated lockfile&nbsp;<code>renv.lock</code>. Be sure to also share the generated auto-loaders in&nbsp;<code>.Rprofile</code>&nbsp;and&nbsp;<code>renv/activate.R</code>.</li>
+<li>When a collaborator first launches in this project,&nbsp;<code>renv</code>&nbsp;should automatically bootstrap itself, thereby downloading and installing the appropriate version of&nbsp;<code>renv</code>&nbsp;into the project library. After this has completed, they can then use&nbsp;<code>[renv::restore()](../reference/restore.html)</code>&nbsp;to restore the project library locally on their machine.</li>
+</ol>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1076,57 +1007,24 @@ Adrian Zetner
           display:block!important;
       }</style></aside>
 </section>
-<section id="shiny-in-production-5" class="slide level2">
-<h2>Shiny in Production</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div>
+<section id="collaboration---workflow" class="slide level2">
+<h2>Collaboration - Workflow 🔀</h2>
 <ul>
-<li>App Scripts live in <code>R/</code> directory</li>
-</ul>
-</div>
+<li class="fragment">Ensure all collaborators using the same package version
 <ul>
-<li class="fragment">Modules in individual files
-<ul>
-<li class="fragment">Encapsulate and repeat features</li>
-<li class="fragment">Prevent collisions</li>
-<li class="fragment">Logical organization</li>
-<li class="fragment">Easier debugging</li>
+<li class="fragment">Install and test locally</li>
+<li class="fragment">Snapshot project</li>
+<li class="fragment">Share lockfile</li>
+<li class="fragment">Restore locally</li>
 </ul></li>
+<li class="fragment">Lockfile changes can be viewed with <code>renv::history()</code></li>
 </ul>
-</div><div class="column" style="width:50%;">
-<pre><code>├── DESCRIPTION
-├── NAMESPACE
-├── R
-│   ├── app_config.R
-│   ├── app_server.R
-│   ├── app_ui.R
-│   ├── mod_picker.R
-│   └── run_app.R
-├── dev
-│   ├── 01_start.R
-│   ├── 02_dev.R
-│   ├── 03_deploy.R
-│   └── run_dev.R
-├── inst
-│   ├── app
-│   │   └── www
-│   │       └── favicon.ico
-│   └── golem-config.yml
-└── man
-    └── run_app.Rd</code></pre>
-</div>
-</div>
-<div class="footer">
-<p><a href="https://github.com/posit-conf-2023/shiny-r-prod/blob/main/materials/d1-02-structure/index.qmd">Source</a></p>
-</div>
 <aside class="notes">
-<ul>
-<li>Modules allow you to encapsulate distinct app interfaces</li>
-<li>Avoids namespace collisions when using same widget across different areas of your app</li>
-<li>Organize code into logical and easy-to-understand components</li>
-<li>Facilitate collaboration and easy debugging</li>
-</ul>
+<p>While working on a project, you or your collaborators may need to update or install new packages in your project. When this occurs, you’ll also want to ensure your collaborators are then using the same newly-installed packages. In general, the process looks like this: 1. A user installs, or updates, one or more packages in their local project library; 2. That user calls&nbsp;<code>[renv::snapshot()](../reference/snapshot.html)</code>&nbsp;to update the&nbsp;<code>renv.lock</code>&nbsp;lockfile;<br>
+3. That user then shares the updated version of&nbsp;<code>renv.lock</code>&nbsp;with their collaborators;<br>
+4. Other collaborators then call&nbsp;<code>[renv::restore()](../reference/restore.html)</code>&nbsp;to install the packages specified in the newly-updated lockfile.</p>
+<p>A bit of care is required if collaborators wish to update the shared&nbsp;<code>renv.lock</code>&nbsp;lockfile concurrently – in particular, if multiple collaborators are installing new packages and updating their own local copy of the lockfile, then conflicts would need to be sorted out afterwards.</p>
+<p><em>One way to guard against this it to use a version control system, and have all collaborators work off the same branch. This way, if someone needs to update&nbsp;<code>renv.lock</code>&nbsp;in the public repository, all collaborators will see that updated lockfile and will gain access to it next time they pull those changes. Depending on the size of your team, you may want to ensure any changes to&nbsp;<code>renv.lock</code>&nbsp;are communicated so that everyone knows and understands when and why packages have been installed or updated.</em></p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1139,75 +1037,30 @@ Adrian Zetner
           display:block!important;
       }</style></aside>
 </section>
-<section id="shiny-in-production-6" class="slide level2">
-<h2>Shiny in Production</h2>
-<div class="columns">
-<div class="column" style="width:45%;">
-<div class="fragment">
-<!-- -->
-<h3 id="module-ui">Module UI</h3>
-<div class="sourceCode" id="cb4" data-code-line-numbers="1,2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>picker_ui <span class="ot">&lt;-</span> <span class="cf">function</span>(id) {</span>
-<span id="cb4-2"><a href="#cb4-2"></a></span>
-<span id="cb4-3"><a href="#cb4-3"></a>  ns <span class="ot">&lt;-</span> <span class="fu">NS</span>(id)</span>
-<span id="cb4-4"><a href="#cb4-4"></a>  </span>
-<span id="cb4-5"><a href="#cb4-5"></a>  <span class="fu">tagList</span>(</span>
-<span id="cb4-6"><a href="#cb4-6"></a>  </span>
-<span id="cb4-7"><a href="#cb4-7"></a>    <span class="co"># UI FEATURES</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a>    </span>
-<span id="cb4-9"><a href="#cb4-9"></a>    )</span>
-<span id="cb4-10"><a href="#cb4-10"></a>  </span>
-<span id="cb4-11"><a href="#cb4-11"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:55%;">
-<div class="fragment">
-<!-- -->
-<h3 id="module-server">Module Server</h3>
-<div class="sourceCode" id="cb5" data-code-line-numbers="1,4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>picker_server <span class="ot">&lt;-</span> <span class="cf">function</span>(id, </span>
-<span id="cb5-2"><a href="#cb5-2"></a>                          sets_rv){</span>
-<span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">moduleServer</span>(</span>
-<span id="cb5-4"><a href="#cb5-4"></a>    id,</span>
-<span id="cb5-5"><a href="#cb5-5"></a>    <span class="cf">function</span>(input, </span>
-<span id="cb5-6"><a href="#cb5-6"></a>             output, </span>
-<span id="cb5-7"><a href="#cb5-7"></a>             session) {</span>
-<span id="cb5-8"><a href="#cb5-8"></a>      <span class="co"># SERVER LOGIC</span></span>
-<span id="cb5-9"><a href="#cb5-9"></a>    }</span>
-<span id="cb5-10"><a href="#cb5-10"></a>  )</span>
-<span id="cb5-11"><a href="#cb5-11"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-<div class="fragment">
-<!-- -->
-<h3 id="easily-added-to-apps">Easily Added to Apps</h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># app_ui.R</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="fu">mod_picker_ui</span>(<span class="st">"picker_1"</span>)</span>
-<span id="cb6-3"><a href="#cb6-3"></a></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="co"># app_server.R</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a>input_ids <span class="ot">&lt;-</span> <span class="fu">mod_picker_server</span>(<span class="st">"picker_1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="footer">
-<p><a href="https://posit-conf-2023.github.io/shiny-r-prod/">Source</a></p>
-</div>
-<aside class="notes">
+<section id="caveats" class="slide level2">
+<h2>Caveats ☠️</h2>
 <ul>
-<li>An example module for a UI picker element (numbers, groups, etc)</li>
-<li>UI
+<li class="fragment">Not a panacea for reproducibility</li>
+<li class="fragment">Solves one part of the problem
 <ul>
-<li><code>id</code>: String to use for namespace</li>
-<li><code>ns &lt;- NS(id)</code>: Create proper namespace function</li>
-<li>HTML taglist of UI elements to return</li>
+<li class="fragment">Records R and package versions</li>
+<li class="fragment">Tools to reinstall above</li>
 </ul></li>
-<li>Server
+<li class="fragment">Problems
 <ul>
-<li>Logic is encapsulated with namespace applied</li>
-</ul></li>
-<li>Add to app easily
-<ul>
-<li>Copy/paste the included module calling functions</li>
-<li>Use as many times as you like with different names</li>
-<li>picker_1, picker_2, etc</li>
+<li class="fragment">Results may depend on other system components</li>
+<li class="fragment">Packages may be removed from repositories</li>
 </ul></li>
 </ul>
+<aside class="notes">
+<p>It is important to emphasize that&nbsp;<strong>renv is not a panacea for reproducibility</strong>. Rather, it is a tool that can help make projects reproducible by solving one small part of the problem: it records the version of R + R packages being used in a project, and provides tools for reinstalling the declared versions of those packages in a project. Ultimately, making a project reproducible requires some thoughtfulness from the user: what does it mean for a particular project to be reproducible, and how can&nbsp;<code>renv</code>&nbsp;(and other tools) be used to accomplish that particular goal of reproducibility?</p>
+<p>There are a still a number of factors that can affect whether this project could truly be reproducible in the future – for example,</p>
+<ol type="1">
+<li><p>The results produced by a particular project might depend on other components of the system it’s being run on – for example, the operating system itself, the versions of system libraries in use, the compiler(s) used to compile R and the R packages used, and so on. Keeping a ‘stable’ machine image is a separate challenge, but&nbsp;<a href="https://www.docker.com/">Docker</a>&nbsp;is one popular solution. See also&nbsp;<code>[vignette("docker", package = "renv")](../articles/docker.html)</code>&nbsp;for recommendations on how Docker can be used together with&nbsp;<code>renv</code>.</p></li>
+<li><p>The R packages that the project depends on may no longer be available. If your project depends on R packages available on CRAN, it’s possible those packages may be removed in the future – either by request of the package maintainer, or by the maintainers of CRAN itself. This is quite rare, but needs consideration if reproducibility of a project is paramount.</p></li>
+</ol>
+<p><em>In addition, be aware that package installation may fail if a package was originally installed through a CRAN-available binary, but that binary is no longer available.&nbsp;<code>renv</code>&nbsp;will attempt to install the package from sources in this situation, but attempts to install from source can (and often do) fail due to missing system prerequisites for compilation of a package. The&nbsp;<code>[renv::equip()](../reference/equip.html)</code>&nbsp;function may be useful in these scenarios, especially on Windows: it will download external software commonly used when compiling R packages from sources, and instruct R to use that software during compilation.</em></p>
+<p>A salient example of this is the&nbsp;<code>rmarkdown</code>&nbsp;package, as it relies heavily on the&nbsp;<a href="https://pandoc.org/"><code>pandoc</code></a>&nbsp;command line utility. However, because pandoc is not bundled with the&nbsp;<code>rmarkdown</code>&nbsp;package (it is normally provided by RStudio, or installed separately by the user), simply restoring an&nbsp;<code>renv</code>&nbsp;project using&nbsp;<code>rmarkdown</code>&nbsp;may not be sufficient – one also needs to ensure the project is run in a environment with the correct version of&nbsp;<code>pandoc</code>&nbsp;available.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1220,102 +1073,26 @@ Adrian Zetner
           display:block!important;
       }</style></aside>
 </section>
-<section id="shiny-in-production-7" class="slide level2">
-<h2>Shiny in Production</h2>
+<section id="use-case---shiny" class="slide level2 smaller">
+<h2>Use Case - Shiny🌟</h2>
 <ul>
-<li class="fragment"><a href="https://rstudio.github.io/profvis/index.html">{profvis}</a></li>
-<li class="fragment"><a href="https://wlandau.github.io/crew/">{crew}</a></li>
-<li class="fragment"><a href="https://posit.co/blog/shiny-and-arrow/">Shiny + Arrow</a></li>
-<li class="fragment"><a href="https://rstudio.github.io/shinyloadtest/articles/case-study-scaling.html">{shinyloadtest}</a></li>
+<li class="fragment">Shiny apps utilize site library</li>
+<li class="fragment">Changes to one app’s dependencies can break others
+<ul>
+<li class="fragment">Eg. <code>dplyr</code> update from version 1.0.10 to 1.1.12 replaced <code>summarise()</code> with <code>reframe()</code></li>
+<li class="fragment">Installing new dplyr to system library breaks older apps</li>
+</ul></li>
+<li class="fragment">Solution:
+<ul>
+<li class="fragment">Initialize <code>renv</code> project in shiny app dir (shared shiny user cache)</li>
+<li class="fragment">Restore lockfile to symlink and install all dependencies to app local library</li>
+<li class="fragment">Include sourcing of <code>renv/activate.R</code> in <code>app.R</code></li>
+</ul></li>
+<li class="fragment">Now Shiny apps can rely on some shared packages and some unique packages</li>
+<li class="fragment">Easier addition of more shiny apps without clobbering existing</li>
 </ul>
-<div class="footer">
-<p><a href="https://posit-conf-2023.github.io/shiny-r-prod/">Source</a></p>
-</div>
 <aside class="notes">
-<ul>
-<li>Also covered a number of important aspects including:
-<ul>
-<li>Profiling your Shiny app with {profvis}</li>
-<li>Asynchronous processes with {crew}</li>
-<li>A further exploration of fast data loading/querying with {arrow} &amp; <em>.parquet</em> files</li>
-<li>Load testing</li>
-</ul></li>
-<li>Absolutely cram packed day but lots of good content
-<ul>
-<li>Currently preparing a rewrite of the Surveiller app to take advantage of these improvements</li>
-</ul></li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section></section>
-<section>
-<section id="talks" class="title-slide slide level1 center">
-<h1>Talks</h1>
 
-</section>
-<section id="abstractions-all-the-way-down" class="slide level2">
-<h2>Abstractions All the Way Down</h2>
-<blockquote>
-<p>“An abstraction” is the outcome of a process of deriving general rules and concepts from specific examples — a concept that acts as a common noun for all subordinate concepts and connects any related concepts as a group, field, or category.</p>
-</blockquote>
-<div class="fragment">
-<blockquote>
-<p>In software engineering and computer science, abstraction is the process of generalizing concrete details, such as attributes, away from the study of objects and systems to focus attention on details of greater importance.</p>
-</blockquote>
-<div class="footer">
-<p><a href="https://en.wikipedia.org/wiki/Abstraction">Source</a></p>
-</div>
-<aside class="notes">
-<ul>
-<li>As systems become more complex, we must rely on more abstractions.</li>
-<li>Each abstraction tries to hide complexity, allowing more focus on the more important details</li>
-<li>Mostly don’t care how the results get done layers below the abstraction you’re dealing with, this applies in computer science as well as in organizational structures
-<ul>
-<li>CS: write code in high level programming language, maybe need to know vaguely how the compiler works in order to debug</li>
-<li>OS: request from CEO that is passed down corp structure to the people and machines that actually do the work</li>
-</ul></li>
-<li>Why do we use abstractions? …</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</div>
-</section>
-<section id="abstractions-all-the-way-down-1" class="slide level2">
-<h2>Abstractions All the Way Down</h2>
-<blockquote>
-<p>Head trunk only hold so much junk</p>
-</blockquote>
-<blockquote>
-<p>Constrain complexity and separate concerns</p>
-</blockquote>
-<blockquote>
-<p>All non-trivial abstractions, to some degree, are leaky</p>
-</blockquote>
-<aside class="notes">
-<ul>
-<li>From djikstra: the competent programmer is fully aware of the limited size of his own skull</li>
-<li>With the complexity of the modern world / workplace we cannot be masters of everything</li>
-<li>According to Joe Spolsky who wrote a great article called the Law of Leaky Abstractions: All non…</li>
-<li>Spolsky’s article gives examples of an abstraction that works most of the time, but where a detail of the underlying complexity cannot be ignored, thus leaking complexity out of the abstraction back into the software that uses the abstraction. This results in abstraction failure: unexpected results, errors, incorrect responses</li>
-</ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1328,82 +1105,25 @@ Adrian Zetner
           display:block!important;
       }</style></aside>
 </section>
-<section id="abstractions-all-the-way-down-assertions" class="slide level2">
-<h2>Abstractions All the Way Down: Assertions</h2>
+<section id="when-to-use-renv" class="slide level2">
+<h2>When to Use <code>renv</code></h2>
 <ul>
-<li class="fragment"><p>Abstractions can leak so they must be permeable</p></li>
-<li class="fragment"><p>No abstraction is right for everyone</p></li>
+<li class="fragment"><p>Collaborating on project and sharing results</p></li>
+<li class="fragment"><p>Ensure forward compatibility</p></li>
+<li class="fragment"><p>Project small enough to not warrant using more intense encapsulation</p></li>
+<li class="fragment"><p>Use of more robust encapsulation problematic (eg. Docker on Shiny Server)</p></li>
 </ul>
-<aside class="notes">
-<ul>
-<li>JD’s assertions about abstractions were as follows</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
-<section id="abstractions-all-the-way-down-solutions" class="slide level2">
-<h2>Abstractions All the Way Down: Solutions</h2>
-<ul>
-<li class="fragment">Abstraction permeability allows for debugging
-<ul>
-<li class="fragment">Communication is key</li>
-</ul></li>
-<li class="fragment">“Meet people where they are”
-<ul>
-<li class="fragment">80-16-4 split of normal/advanced/guru users</li>
-</ul></li>
-</ul>
-<aside class="notes">
-<ul>
-<li>… Holds for organizations and computers
-<ul>
-<li>Communication of owndership, responsibility, code visibilty, etc</li>
-</ul></li>
-<li>What is fast becoming the ethos of the computation and operational genomics group …
-<ul>
-<li>Match the abstraction to the person needing</li>
-<li>don’t jump 0 to 100 and burn down their process to creat an API or a LIMS database before helping troubleshoot and improve the Excel they’re currently having issue with</li>
-</ul></li>
-<li>Excellent talk, highly recommend</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<section id="questions" class="slide level2">
+<h2>Questions?</h2>
 </section>
-<section id="session-roundup" class="slide level2">
-<h2>Session Roundup</h2>
+<section id="use-case---operational-reports" class="slide level2">
+<h2>Use Case - Operational Reports</h2>
 <ul>
-<li class="fragment"><em>Commit to Change: How to Increase Accessibility in Your Favorite Open Source Projects</em></li>
-<li class="fragment"><em>ShinyUiEditor: From Alpha to Powerful Shiny App Development Tool</em></li>
-<li class="fragment"><em>Parameterized Quarto Reports Improve Understanding of Soil Health</em></li>
-<li class="fragment"><em>Magic with WebAssembly and webR</em></li>
-<li class="fragment"><em>Automating the Dutch National Flu Surveillance for Pandemic Preparedness</em></li>
+<li class="fragment">Updating <code>dplyr</code> caused a change in the functionality of <code>if_else()</code> where <code>Surveiller</code> relied on the</li>
 </ul>
 <aside class="notes">
-<ul>
-<li>Call to arms to improve accessibility of docs and packages</li>
-<li>Brilliant tool to allow visual editing of a Shiny UI that creates the server / UI code automatically</li>
-<li>Impressive commitment to customization in reporting based on a few simple rules</li>
-<li>Running shiny without a server in a web browser, frankly mindblowing the possibilities</li>
-<li>Heartening to see the shared challenges we and the Dutch National Flu Surveillance program faced along with similar solutions</li>
-</ul>
+<p>Hot off the presses.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1415,44 +1135,9 @@ Adrian Zetner
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section></section>
-<section>
-<section id="resources" class="title-slide slide level1 center">
-<h1>Resources</h1>
 
-</section>
-<section id=".resources" class="slide level2">
-<h2></h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<h4 id="workshops">Workshops</h4>
-<ul>
-<li><a href="https://posit-conf-2023.github.io/arrow/">Big Data in R with Arrow</a></li>
-<li><a href="https://posit-conf-2023.github.io/shiny-r-intro/">Intro to Shiny</a></li>
-<li><a href="https://posit-conf-2023.github.io/shiny-r-prod/">Shiny in Production</a></li>
-<li><a href="https://rstudio-conf-2022.github.io/get-started-quarto/">Getting Started with Quarto</a></li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="20240124-BWG_images/qrcode_github.com.png" width="200"></p>
-</figure>
-</div>
-</div><div class="column" style="width:50%;">
-<h4 id="talks-1">Talks</h4>
-<ul>
-<li><a href="https://youtu.be/Pa1PNfoOp-I?si=w6vTBsQLONcjPNB4">Abstractions all the way down</a></li>
-<li><a href="https://youtu.be/0qfzxHHCDfE?si=MHbjyUWGVP4W9rjj">Increase Accessibility</a></li>
-<li><a href="https://youtu.be/G3uxNtACutI?si=6HXKnew15fe2R6oq">ShinyUIEditor</a></li>
-<li><a href="https://youtu.be/lbE5uOqfT70?si=0aW5Ygq8dYsIRLoe">Parameterized Quarto Reports</a></li>
-<li><a href="https://youtu.be/P7aTHrgjHt4?si=fINVlM8viDoIEC3z">Magic with WASM and WebR</a></li>
-<li><a href="https://youtu.be/F8aDgKkXoxI?si=iFutXpLAFIb0t0Sd">Pandem-2</a></li>
-<li><a href="https://youtube.com/playlist?list=PL9HYL-VRX0oRFZslRGHwHuwea7SvAATHp&amp;si=n2YUbMfTyX9ZB_vg">Full Posit 2023 Playlist</a></li>
-</ul>
-</div>
-</div>
 
-<p><img src="https://avatars.githubusercontent.com/u/124097317?s=200&amp;v=4" class="slide-logo"></p>
-<div class="footer footer-default">
+<img src="https://rstudio.github.io/renv/logo.svg" class="slide-logo r-stretch"><div class="footer footer-default">
 
 </div>
 </section></section>
