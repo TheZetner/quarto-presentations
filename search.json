@@ -35,195 +35,6 @@
     "text": "Workshops\n\nBig Data in R with Arrow\nIntro to Shiny\nShiny in Production\nGetting Started with Quarto\n\n\n\n\n\n\n\nTalks\n\nAbstractions all the way down\nIncrease Accessibility\nShinyUIEditor\nParameterized Quarto Reports\nMagic with WASM and WebR\nPandem-2\nFull Posit 2023 Playlist"
   },
   {
-    "objectID": "presentations/20230704-renv.html#sharing-r-analyses-with-collaborators",
-    "href": "presentations/20230704-renv.html#sharing-r-analyses-with-collaborators",
-    "title": "Reproducibility with renv",
-    "section": "Sharing R Analyses with Collaborators",
-    "text": "Sharing R Analyses with Collaborators\n\n“I tried to run your code but it says I’m missing X” 😟\n“Your code used to run fine but now it’s not working” 😖\n“I upgraded my software and now your code is junk” 💔\n\nWe’ve all been here. Headaches coming from code that we’ve written and are proud of but can’t be used by our colleagues or no longer works for them. The"
-  },
-  {
-    "objectID": "presentations/20230704-renv.html#reproducibility-in-data-driven-analysis",
-    "href": "presentations/20230704-renv.html#reproducibility-in-data-driven-analysis",
-    "title": "Reproducibility with renv",
-    "section": "Reproducibility in Data Driven Analysis",
-    "text": "Reproducibility in Data Driven Analysis\n\nCrucial for collaboration and transparency in science\nSoftware and package versions can differ between computers\nPotential code failure or inconsistent results\nSolution: Replicate the environment\n\n\n- Reproducibility in analysis is crucial for collaboration and transparency in science.\n- Even with free and open-source software and clean code, software and package versions can differ between computers.\n- Differences in software versions, package versions, and external dependencies can lead to code failure or inconsistent results.\n- One solution is to replicate the environment in which the code was developed to ensure compatibility and result consistency."
-  },
-  {
-    "objectID": "presentations/20230704-renv.html#replicate-the-environment",
-    "href": "presentations/20230704-renv.html#replicate-the-environment",
-    "title": "Reproducibility with renv",
-    "section": "Replicate the environment ♊",
-    "text": "Replicate the environment ♊\n\nManual replication of the environment is impractical\nPotential solutions\n\nVirtual environments (Python, Conda, etc)\nDocker\nBinder/Jupyter Notebooks\n\n\n\n- Manual replication of the environment is impractical, prompting the need for automated solutions.\n- Solutions range from ensuring consistent package versions to replicating the entire computer environment.\n- Virtual environments to install elements from packages up to system libraries (python, conda, etc)\n- Docker containers package applications into portable images to run consistently in almost any environment\n- Binder and jupyter make sharing online from github etc easy"
-  },
-  {
-    "objectID": "presentations/20230704-renv.html#virtual-environments",
-    "href": "presentations/20230704-renv.html#virtual-environments",
-    "title": "Reproducibility with renv",
-    "section": "Virtual Environments 🌌",
-    "text": "Virtual Environments 🌌\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPython virtual environments are folders containing a complete copy of the Python stack used to create them.\nThey consist of a separate python executable, the associated stack, and a site-packages folder for installed Python packages.\nVirtual environments ensure full isolation by handling package installations independently.\nThey are easy to understand and use but can be heavyweight due to the duplication of the Python stack and packages for each environment.\nConda is a language-agnostic tool for package management and environment management. As a package manager, Conda can install, update and remove packages. As an environment manager, it can manage virtual environments. It’s robust and broadly applicable but not useable in all contexts"
-  },
-  {
-    "objectID": "presentations/20230704-renv.html#containers",
-    "href": "presentations/20230704-renv.html#containers",
-    "title": "Reproducibility with renv",
-    "section": "Containers 🎁",
-    "text": "Containers 🎁\n\n\n\n\n\n\n\n\n\nDocker containers are lightweight relative to true virtual machines and create isolated environments that package applications and their dependencies into a standardized unit\nDeveloping docker containers comes with increased overhead both from complexity in development and deployment along with potential security concerns and performance limitations\nNot exactly what we want to have to focus on when sharing data analysis with colleagues"
-  },
-  {
-    "objectID": "presentations/20230704-renv.html#notebooks",
-    "href": "presentations/20230704-renv.html#notebooks",
-    "title": "Reproducibility with renv",
-    "section": "Notebooks 📑",
-    "text": "Notebooks 📑\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote book options\nBinder is a free service that creates a virtual computer in the cloud based on the specifications listed in a GitHub repository. In the process of building the environment, Binder also clones the GitHub repository making it painless to reproduce analyses. It is essentially read-only though and while great for sharing analyses it can be slow to load and easy to lose work\nJupyter notebooks integrate code and its output into a single document that combines visualizations, narrative text, mathematical equations, and other rich media. In other words: it’s a single document where you can run code, display the output, and also add explanations, formulas, charts, and make your work more transparent, understandable, repeatable, and shareable. Great for sharing analyses, somewhat limited by software needed to run\nThese all seem like a lot of work simply to share our projects with other people, enter…"
-  },
-  {
-    "objectID": "presentations/20230704-renv.html#r-projects",
-    "href": "presentations/20230704-renv.html#r-projects",
-    "title": "Reproducibility with renv",
-    "section": "R Projects 📂",
-    "text": "R Projects 📂\n\n\n\nProjects are the organizational tool of RStudio, essentially a folder\nOrganize all aspects of an analysis (raw data, R scripts, external scripts, outputs, documentation, etc) within a root directory\nAllows for relative pathing amongst all elements\nAllows for simultaneous analyses in different folders and siloing those from each other"
-  },
-  {
-    "objectID": "presentations/20230704-renv.html#packages",
-    "href": "presentations/20230704-renv.html#packages",
-    "title": "Reproducibility with renv",
-    "section": "Packages 📦",
-    "text": "Packages 📦\n\nExtend base R with more functionality\nCalled libraries or packages in other languages\nCan require compilation on your machine (source) or pre-compiled as a binary package\n\n\nExtend base R with more functionality Called libraries or packages in other languages Can require compilation on your machine (source) or pre-compiled as a binary package\nBinary packages offer several advantages such as Faster installation, Platform compatibility, Dependency resolution, and greater Security when installed from trusted sites. When binary packages are unavailable (OS differences etc) they must be compiled locally.\nInstalled from…"
-  },
-  {
-    "objectID": "presentations/20230704-renv.html#repositories",
-    "href": "presentations/20230704-renv.html#repositories",
-    "title": "Reproducibility with renv",
-    "section": "Repositories 🏛️",
-    "text": "Repositories 🏛️\n\nSource of packages 📦\nMany different available\n\nCRAN\nBioconductor\nPosit Public Package Manager\nR Universe\n\n\n\n\nA repository is a source of packages.\nThe main repository for R packages is CRAN (Comprehensive R Archive Network), which is accessible in almost every R session.\nOther freely available repositories include Bioconductor, Posit (formerly RStudio) Public Package Manager, and R Universe.\nWhen a package is retrieved from a repository it is installed on your computer to a library"
-  },
-  {
-    "objectID": "presentations/20230704-renv.html#libraries",
-    "href": "presentations/20230704-renv.html#libraries",
-    "title": "Reproducibility with renv",
-    "section": "Libraries 📚",
-    "text": "Libraries 📚\n\nStore packages installed for current R version\nSystem libraries\n\nUser\nSite\nDefault\n\n\n\nA library in R is a directory that contains installed packages.\nThree system libraries: a user library, a site library, and a default library where base R packages are installed.\nGenerally, you don’t have to worry about libraries and can install all packages into a system library shared across projects.\nSometimes changes to packages can break functionality in older projects.\nWith the use of renv, you can employ project libraries, which provide each project with its own separate set of packages."
-  },
-  {
-    "objectID": "presentations/20230704-renv.html#project-local-libraries-with-renv",
-    "href": "presentations/20230704-renv.html#project-local-libraries-with-renv",
-    "title": "Reproducibility with renv",
-    "section": "Project Local Libraries with renv 📚",
-    "text": "Project Local Libraries with renv 📚\n\nProject local dependency management\nStore and restore your project dependencies\nMimic Packrat\nLittle to no change to workflows\n\n\n\nProject local dependency management\nStore and restore your project dependencies\nMimic Packrat\nLittle to no change to workflows\n\nOK, so we have the concepts of projects, packages, libraries, and repositories down now, correct? So the natural extension of that is to individualize dependencies to a single project in order to save and load the state of your project as you wrote it. renv is designed to more robustly mimic much of the functionality of the now defunct packrat package with fewer surprises and better default behaviours. The philosophy behind renv is that your project workflow shouldn’t meaningfully change due to incorporating it into your projects."
-  },
-  {
-    "objectID": "presentations/20230704-renv.html#workflow",
-    "href": "presentations/20230704-renv.html#workflow",
-    "title": "Reproducibility with renv",
-    "section": "Workflow 🔀",
-    "text": "Workflow 🔀\n\nInitialize a new project local environment with a private R library with renv::init()\nWork in the project as normal adding packages with install.packages()\nSave the state of the working project with renv::snapshot() to lock file (renv.lock)\nKeep working with the option to save state after successful changes (renv::snapshot()) or revert to previous if updates introduce new problems (renv::restore())\n\n\nThe general workflow when working with renv is: 1. Call [renv::init()](../reference/init.html) to initialize a new project-local environment with a private R library\n2. Work in the project as normal, installing and removing new R packages as they are needed in the project\n3. Call [renv::snapshot()](../reference/snapshot.html) to save the state of the project library to the lockfile (called renv.lock)\n4. Keep working with the option to save state after successful changes (renv::snapshot()) or revert to previous if updates introduce new problems (renv::restore())"
-  },
-  {
-    "objectID": "presentations/20230704-renv.html#initialize",
-    "href": "presentations/20230704-renv.html#initialize",
-    "title": "Reproducibility with renv",
-    "section": "Initialize ✨",
-    "text": "Initialize ✨\n\nSearches R scripts for implicitly included dependencies using dependencies()\n\nlibrary(\"dplyr\")\ndplyr::mutate()\n\nCopy discovered packages into the renv global package cache for re-use\nMissing R package dependencies are installed into the project’s private library\nInitial lockfile capturing the state of the project’s library is created\nThe project is activated with activate()\n\n\nWhat does renv actually do when you call init? The primary steps taken when initializing a new project are:\n1. R package dependencies are discovered within the R files used within the project with [dependencies()](dependencies.html)\n2. Discovered packages are copied into the renv global package cache, so these packages can be re-used across future projects as necessary\n3. Any missing R package dependencies discovered are then installed into the project’s private library\n4. A lockfile capturing the state of the project’s library is created with [snapshot()](snapshot.html)\n5. The project is activated with [activate()](activate.html) which adds the necessary code to the project’s .Rprofile to use the project’s own library on start up"
-  },
-  {
-    "objectID": "presentations/20230704-renv.html#initialize---infrastructure-files",
-    "href": "presentations/20230704-renv.html#initialize---infrastructure-files",
-    "title": "Reproducibility with renv",
-    "section": "Initialize - Infrastructure & Files ✨",
-    "text": "Initialize - Infrastructure & Files ✨\n\n\n\n\n\n\n\nFile\nUsage\n\n\n\n\n.Rprofile\nUpdated to activate renv for new project R sessions\n\n\nrenv.lock\nThe lockfile\n\n\nrenv/\nFolder containing all environment details\n\n\nrenv/activate.R\nActivation script run by the project .Rprofile.\n\n\nrenv/library\nThe private project library\n\n\nrenv/settings.json\nProject settings\n\n\nrenv/.gitignore\nrenv specific gitignore\n\n\n\n\n\nProject Rprofile with appended activation scripts\nLockfile describing the state of your project’s library at some point in time.\nProject subfolder that holds all the the important environment details like: Activation script, project library, settings, and .gitignore\n.Rprofile, renv.lock and renv/activate.R files should be committed to your version control system which is usually done by renv::init(). Changes to settings.json should also be tracked."
-  },
-  {
-    "objectID": "presentations/20230704-renv.html#renv.lock",
-    "href": "presentations/20230704-renv.html#renv.lock",
-    "title": "Reproducibility with renv",
-    "section": "renv.lock 🔒",
-    "text": "renv.lock 🔒\n\n\n\nVersion of renv\n\nVersion of R\nR repositories active for lockfile\n\nPackage records\n\n\n{\n  \"R\": {\n    \"Version\": \"4.2.3\",\n    \"Repositories\": [\n      {\n        \"Name\": \"CRAN\",\n        \"URL\": \"https://cloud.r-project.org\"\n      }\n    ]\n  },\n  \"Packages\": {\n    \"markdown\": {\n      \"Package\": \"markdown\",\n      \"Version\": \"1.0\",\n      \"Source\": \"Repository\",\n      \"Repository\": \"CRAN\",\n      \"Hash\": \"4584a57f565dd7987d59dda3a02cfb41\"\n    },\n    \"here\": {\n      \"Package\": \"here\",\n      \"Version\": \"0.7\",\n      \"Source\": \"Repository\",\n      \"Repository\": \"CRAN\",\n      \"Hash\": \"908d95ccbfd1dd274073ef07a7c93934\"\n    }\n  }\n}\n\n\n\nrenv uses a lockfile to capture the state of your library at some point in time. It is stored as a collection of records, with different records defining:\n\nThe version of renv used when generating the lockfile;\nThe version of R used in that project;\nThe R repositories that were active when the lockfile was created;\nPackage records defining each R package, their version, and their installation source.\n\nHere is an example lockfile, including the packages markdown and here"
-  },
-  {
-    "objectID": "presentations/20230704-renv.html#cache",
-    "href": "presentations/20230704-renv.html#cache",
-    "title": "Reproducibility with renv",
-    "section": "Cache 🏦",
-    "text": "Cache 🏦\n\nGlobal package installation location shared across all projects\nProject specific libraries built from symlinks to cache\nPrimary benefits:\n\nSpeed up renv::restore() and renv::install()\nSave disk space\n\n\n\nOne of renv’s primary features is the use of a global package cache, which is shared across all projects using renv. This means that project specific libraries are actually built from symlinks to the user’s cache\nThe renv package cache provides two primary benefits:\n\nFuture calls to [renv::restore()](../reference/restore.html) and [renv::install()](../reference/install.html) will become much faster, as renv will be able to find and re-use packages already installed in the cache.\n\nBecause it is not necessary to have duplicate versions of your packages installed in each project, the renv cache should also help you save disk space relative to an approach with project-specific libraries without a global cache."
-  },
-  {
-    "objectID": "presentations/20230704-renv.html#cache-1",
-    "href": "presentations/20230704-renv.html#cache-1",
-    "title": "Reproducibility with renv",
-    "section": "Cache 🏦",
-    "text": "Cache 🏦\n\nInstall process\n\nInstallation requested\nAvailable? Link, otherwise install.\nCopy to cache\nLink back to project\n\nLocation\n\nDefault to ~/.local/share/renv\nMultiple locations allowed\n\n\n\nThe process by which packages enter the cache is roughly as follows:\n\nPackage installation is requested via e.g. [install.packages()](https://rdrr.io/r/utils/install.packages.html), or [renv::install()](../reference/install.html), or as part of [renv::restore()](../reference/restore.html).\nIf renv is able to find the requested version of the package in the cache, then that package is linked into the project library, and installation is complete.\n\nOtherwise, the package is downloaded and installed into the project library.\n\nAfter installation of the package has successfully completed, the package is then copied into the global package cache, and then linked back into the project library.\n\nRenv defaults to the user’s home .local folder but multiple locations cache locations can be indicated and shared between users. If using a shared cache the time and disk savings can be leveraged across many users"
-  },
-  {
-    "objectID": "presentations/20230704-renv.html#shims",
-    "href": "presentations/20230704-renv.html#shims",
-    "title": "Reproducibility with renv",
-    "section": "Shims 🔼",
-    "text": "Shims 🔼\n\n\n\nFunction\nShim\n\n\n\n\ninstall.packages()\nrenv::install()\n\n\nremove.packages()\nrenv::remove()\n\n\nupdate.packages()\nrenv::update()\n\n\n\n\nTo help you take advantage of the package cache, renv places a couple of shims (or aliases) on the search path - Package related functions like install/remove/update from the utils package become renv functions In effect, calling [install.packages()](https://rdrr.io/r/utils/install.packages.html) within an renv project will call [renv::install()](../reference/install.html) instead. This can be useful when installing packages which have already been cached. For example, if you use renv::install(\"dplyr\"), and renv detects that the latest version on CRAN has already been cached, then renv will just install using the copy available in the cache – thereby skipping some of the installation overhead. This can be disabled but is a really lovely convenience feature."
-  },
-  {
-    "objectID": "presentations/20230704-renv.html#isolation",
-    "href": "presentations/20230704-renv.html#isolation",
-    "title": "Reproducibility with renv",
-    "section": "Isolation 🫧",
-    "text": "Isolation 🫧\n\nRequire that all packages be distributed with a project\nrenv::isolate(): copies all dependencies into the local library\nVastly increases project folder size\nNo reliance on external libraries\n\n\n\nSometimes one requires that a project can be distributed in a more contained fashion with all packages included in a zip file.\nRenv’s isolate function copies all dependencies in the project library from the cache into the project folder: project can be zipped and shared at the cost of a large increase of folder size"
-  },
-  {
-    "objectID": "presentations/20230704-renv.html#collaboration---setup",
-    "href": "presentations/20230704-renv.html#collaboration---setup",
-    "title": "Reproducibility with renv",
-    "section": "Collaboration - Setup ⚒️",
-    "text": "Collaboration - Setup ⚒️\n\nCreate a new project repository and folder\nOne user explicitly initializes renv in the version controlled project folder\nCommit all files including renv generated ones\nrenv will now bootstrap the project environment on collaborators computers\n\n\n\nOne user (perhaps yourself) should explicitly initialize renv in the project, via [renv::init()](../reference/init.html). This will create the initial renv lockfile, and also write the renv auto-loaders to the project’s .Rprofile and renv/activate.R. These will ensure the right version of renv is downloaded and installed for your collaborators when they start in this project.\nShare your project sources, alongside the generated lockfile renv.lock. Be sure to also share the generated auto-loaders in .Rprofile and renv/activate.R.\nWhen a collaborator first launches in this project, renv should automatically bootstrap itself, thereby downloading and installing the appropriate version of renv into the project library. After this has completed, they can then use [renv::restore()](../reference/restore.html) to restore the project library locally on their machine."
-  },
-  {
-    "objectID": "presentations/20230704-renv.html#collaboration---workflow",
-    "href": "presentations/20230704-renv.html#collaboration---workflow",
-    "title": "Reproducibility with renv",
-    "section": "Collaboration - Workflow 🔀",
-    "text": "Collaboration - Workflow 🔀\n\nEnsure all collaborators using the same package version\n\nInstall and test locally\nSnapshot project\nShare lockfile\nRestore locally\n\nLockfile changes can be viewed with renv::history()\n\n\nWhile working on a project, you or your collaborators may need to update or install new packages in your project. When this occurs, you’ll also want to ensure your collaborators are then using the same newly-installed packages. In general, the process looks like this: 1. A user installs, or updates, one or more packages in their local project library; 2. That user calls [renv::snapshot()](../reference/snapshot.html) to update the renv.lock lockfile;\n3. That user then shares the updated version of renv.lock with their collaborators;\n4. Other collaborators then call [renv::restore()](../reference/restore.html) to install the packages specified in the newly-updated lockfile.\nA bit of care is required if collaborators wish to update the shared renv.lock lockfile concurrently – in particular, if multiple collaborators are installing new packages and updating their own local copy of the lockfile, then conflicts would need to be sorted out afterwards.\nOne way to guard against this it to use a version control system, and have all collaborators work off the same branch. This way, if someone needs to update renv.lock in the public repository, all collaborators will see that updated lockfile and will gain access to it next time they pull those changes. Depending on the size of your team, you may want to ensure any changes to renv.lock are communicated so that everyone knows and understands when and why packages have been installed or updated."
-  },
-  {
-    "objectID": "presentations/20230704-renv.html#caveats",
-    "href": "presentations/20230704-renv.html#caveats",
-    "title": "Reproducibility with renv",
-    "section": "Caveats ☠️",
-    "text": "Caveats ☠️\n\nNot a panacea for reproducibility\nSolves one part of the problem\n\nRecords R and package versions\nTools to reinstall above\n\nProblems\n\nResults may depend on other system components\nPackages may be removed from repositories\n\n\n\nIt is important to emphasize that renv is not a panacea for reproducibility. Rather, it is a tool that can help make projects reproducible by solving one small part of the problem: it records the version of R + R packages being used in a project, and provides tools for reinstalling the declared versions of those packages in a project. Ultimately, making a project reproducible requires some thoughtfulness from the user: what does it mean for a particular project to be reproducible, and how can renv (and other tools) be used to accomplish that particular goal of reproducibility?\nThere are a still a number of factors that can affect whether this project could truly be reproducible in the future – for example,\n\nThe results produced by a particular project might depend on other components of the system it’s being run on – for example, the operating system itself, the versions of system libraries in use, the compiler(s) used to compile R and the R packages used, and so on. Keeping a ‘stable’ machine image is a separate challenge, but Docker is one popular solution. See also [vignette(\"docker\", package = \"renv\")](../articles/docker.html) for recommendations on how Docker can be used together with renv.\nThe R packages that the project depends on may no longer be available. If your project depends on R packages available on CRAN, it’s possible those packages may be removed in the future – either by request of the package maintainer, or by the maintainers of CRAN itself. This is quite rare, but needs consideration if reproducibility of a project is paramount.\n\nIn addition, be aware that package installation may fail if a package was originally installed through a CRAN-available binary, but that binary is no longer available. renv will attempt to install the package from sources in this situation, but attempts to install from source can (and often do) fail due to missing system prerequisites for compilation of a package. The [renv::equip()](../reference/equip.html) function may be useful in these scenarios, especially on Windows: it will download external software commonly used when compiling R packages from sources, and instruct R to use that software during compilation.\nA salient example of this is the rmarkdown package, as it relies heavily on the pandoc command line utility. However, because pandoc is not bundled with the rmarkdown package (it is normally provided by RStudio, or installed separately by the user), simply restoring an renv project using rmarkdown may not be sufficient – one also needs to ensure the project is run in a environment with the correct version of pandoc available."
-  },
-  {
-    "objectID": "presentations/20230704-renv.html#use-case---shiny",
-    "href": "presentations/20230704-renv.html#use-case---shiny",
-    "title": "Reproducibility with renv",
-    "section": "Use Case - Shiny🌟",
-    "text": "Use Case - Shiny🌟\n\nShiny apps utilize site library\nChanges to one app’s dependencies can break others\n\nEg. dplyr update from version 1.0.10 to 1.1.12 replaced summarise() with reframe()\nInstalling new dplyr to system library breaks older apps\n\nSolution:\n\nInitialize renv project in shiny app dir (shared shiny user cache)\nRestore lockfile to symlink and install all dependencies to app local library\nInclude sourcing of renv/activate.R in app.R\n\nNow Shiny apps can rely on some shared packages and some unique packages\nEasier addition of more shiny apps without clobbering existing"
-  },
-  {
-    "objectID": "presentations/20230704-renv.html#when-to-use-renv",
-    "href": "presentations/20230704-renv.html#when-to-use-renv",
-    "title": "Reproducibility with renv",
-    "section": "When to Use renv",
-    "text": "When to Use renv\n\nCollaborating on project and sharing results\nEnsure forward compatibility\nProject small enough to not warrant using more intense encapsulation\nUse of more robust encapsulation problematic (eg. Docker on Shiny Server)"
-  },
-  {
-    "objectID": "presentations/20230704-renv.html#questions",
-    "href": "presentations/20230704-renv.html#questions",
-    "title": "Reproducibility with renv",
-    "section": "Questions?",
-    "text": "Questions?"
-  },
-  {
-    "objectID": "presentations/20230704-renv.html#use-case---operational-reports",
-    "href": "presentations/20230704-renv.html#use-case---operational-reports",
-    "title": "Reproducibility with renv",
-    "section": "Use Case - Operational Reports",
-    "text": "Use Case - Operational Reports\n\nUpdating dplyr caused a change in the functionality of if_else() where Surveiller relied on the\n\n\nHot off the presses."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "quarto-presentations",
-    "section": "",
-    "text": "Insights and Innovations from Posit Conf 2023\n\n\n\n\n\n\n\n\n\n\n\n\nJan 24, 2024\n\n\nAdrian Zetner\n\n\n\n\n\n\n  \n\n\n\n\nReproducibility with renv\n\n\n\n\n\n\n\n\n\n\n\n\nJul 4, 2023\n\n\nAdrian Zetner\n\n\n\n\n\n\nNo matching items"
-  },
-  {
     "objectID": "presentations/20240124-BWG.html#section",
     "href": "presentations/20240124-BWG.html#section",
     "title": "Insights and Innovations from Posit Conf 2023",
@@ -439,5 +250,418 @@
     "title": "Insights and Innovations from Posit Conf 2023",
     "section": "",
     "text": "Workshops\n\nBig Data in R with Arrow\nIntro to Shiny\nShiny in Production\nGetting Started with Quarto\n\n\n\n\n\n\n\nTalks\n\nAbstractions all the way down\nIncrease Accessibility\nShinyUIEditor\nParameterized Quarto Reports\nMagic with WASM and WebR\nPandem-2\nFull Posit 2023 Playlist"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "quarto-presentations",
+    "section": "",
+    "text": "Best Practices in R\n\n\n\n\n\n\n\n\n\n\n\n\nJan 31, 2024\n\n\nAdrian Zetner\n\n\n\n\n\n\n  \n\n\n\n\nInsights and Innovations from Posit Conf 2023\n\n\n\n\n\n\n\n\n\n\n\n\nJan 24, 2024\n\n\nAdrian Zetner\n\n\n\n\n\n\n  \n\n\n\n\nReproducibility with renv\n\n\n\n\n\n\n\n\n\n\n\n\nJul 4, 2023\n\n\nAdrian Zetner\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "presentations/20230704-renv.html#sharing-r-analyses-with-collaborators",
+    "href": "presentations/20230704-renv.html#sharing-r-analyses-with-collaborators",
+    "title": "Reproducibility with renv",
+    "section": "Sharing R Analyses with Collaborators",
+    "text": "Sharing R Analyses with Collaborators\n\n“I tried to run your code but it says I’m missing X” 😟\n“Your code used to run fine but now it’s not working” 😖\n“I upgraded my software and now your code is junk” 💔\n\nWe’ve all been here. Headaches coming from code that we’ve written and are proud of but can’t be used by our colleagues or no longer works for them. The"
+  },
+  {
+    "objectID": "presentations/20230704-renv.html#reproducibility-in-data-driven-analysis",
+    "href": "presentations/20230704-renv.html#reproducibility-in-data-driven-analysis",
+    "title": "Reproducibility with renv",
+    "section": "Reproducibility in Data Driven Analysis",
+    "text": "Reproducibility in Data Driven Analysis\n\nCrucial for collaboration and transparency in science\nSoftware and package versions can differ between computers\nPotential code failure or inconsistent results\nSolution: Replicate the environment\n\n\n- Reproducibility in analysis is crucial for collaboration and transparency in science.\n- Even with free and open-source software and clean code, software and package versions can differ between computers.\n- Differences in software versions, package versions, and external dependencies can lead to code failure or inconsistent results.\n- One solution is to replicate the environment in which the code was developed to ensure compatibility and result consistency."
+  },
+  {
+    "objectID": "presentations/20230704-renv.html#replicate-the-environment",
+    "href": "presentations/20230704-renv.html#replicate-the-environment",
+    "title": "Reproducibility with renv",
+    "section": "Replicate the environment ♊",
+    "text": "Replicate the environment ♊\n\nManual replication of the environment is impractical\nPotential solutions\n\nVirtual environments (Python, Conda, etc)\nDocker\nBinder/Jupyter Notebooks\n\n\n\n- Manual replication of the environment is impractical, prompting the need for automated solutions.\n- Solutions range from ensuring consistent package versions to replicating the entire computer environment.\n- Virtual environments to install elements from packages up to system libraries (python, conda, etc)\n- Docker containers package applications into portable images to run consistently in almost any environment\n- Binder and jupyter make sharing online from github etc easy"
+  },
+  {
+    "objectID": "presentations/20230704-renv.html#virtual-environments",
+    "href": "presentations/20230704-renv.html#virtual-environments",
+    "title": "Reproducibility with renv",
+    "section": "Virtual Environments 🌌",
+    "text": "Virtual Environments 🌌\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPython virtual environments are folders containing a complete copy of the Python stack used to create them.\nThey consist of a separate python executable, the associated stack, and a site-packages folder for installed Python packages.\nVirtual environments ensure full isolation by handling package installations independently.\nThey are easy to understand and use but can be heavyweight due to the duplication of the Python stack and packages for each environment.\nConda is a language-agnostic tool for package management and environment management. As a package manager, Conda can install, update and remove packages. As an environment manager, it can manage virtual environments. It’s robust and broadly applicable but not useable in all contexts"
+  },
+  {
+    "objectID": "presentations/20230704-renv.html#containers",
+    "href": "presentations/20230704-renv.html#containers",
+    "title": "Reproducibility with renv",
+    "section": "Containers 🎁",
+    "text": "Containers 🎁\n\n\n\n\n\n\n\n\n\nDocker containers are lightweight relative to true virtual machines and create isolated environments that package applications and their dependencies into a standardized unit\nDeveloping docker containers comes with increased overhead both from complexity in development and deployment along with potential security concerns and performance limitations\nNot exactly what we want to have to focus on when sharing data analysis with colleagues"
+  },
+  {
+    "objectID": "presentations/20230704-renv.html#notebooks",
+    "href": "presentations/20230704-renv.html#notebooks",
+    "title": "Reproducibility with renv",
+    "section": "Notebooks 📑",
+    "text": "Notebooks 📑\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote book options\nBinder is a free service that creates a virtual computer in the cloud based on the specifications listed in a GitHub repository. In the process of building the environment, Binder also clones the GitHub repository making it painless to reproduce analyses. It is essentially read-only though and while great for sharing analyses it can be slow to load and easy to lose work\nJupyter notebooks integrate code and its output into a single document that combines visualizations, narrative text, mathematical equations, and other rich media. In other words: it’s a single document where you can run code, display the output, and also add explanations, formulas, charts, and make your work more transparent, understandable, repeatable, and shareable. Great for sharing analyses, somewhat limited by software needed to run\nThese all seem like a lot of work simply to share our projects with other people, enter…"
+  },
+  {
+    "objectID": "presentations/20230704-renv.html#r-projects",
+    "href": "presentations/20230704-renv.html#r-projects",
+    "title": "Reproducibility with renv",
+    "section": "R Projects 📂",
+    "text": "R Projects 📂\n\n\n\nProjects are the organizational tool of RStudio, essentially a folder\nOrganize all aspects of an analysis (raw data, R scripts, external scripts, outputs, documentation, etc) within a root directory\nAllows for relative pathing amongst all elements\nAllows for simultaneous analyses in different folders and siloing those from each other"
+  },
+  {
+    "objectID": "presentations/20230704-renv.html#packages",
+    "href": "presentations/20230704-renv.html#packages",
+    "title": "Reproducibility with renv",
+    "section": "Packages 📦",
+    "text": "Packages 📦\n\nExtend base R with more functionality\nCalled libraries or packages in other languages\nCan require compilation on your machine (source) or pre-compiled as a binary package\n\n\nExtend base R with more functionality Called libraries or packages in other languages Can require compilation on your machine (source) or pre-compiled as a binary package\nBinary packages offer several advantages such as Faster installation, Platform compatibility, Dependency resolution, and greater Security when installed from trusted sites. When binary packages are unavailable (OS differences etc) they must be compiled locally.\nInstalled from…"
+  },
+  {
+    "objectID": "presentations/20230704-renv.html#repositories",
+    "href": "presentations/20230704-renv.html#repositories",
+    "title": "Reproducibility with renv",
+    "section": "Repositories 🏛️",
+    "text": "Repositories 🏛️\n\nSource of packages 📦\nMany different available\n\nCRAN\nBioconductor\nPosit Public Package Manager\nR Universe\n\n\n\n\nA repository is a source of packages.\nThe main repository for R packages is CRAN (Comprehensive R Archive Network), which is accessible in almost every R session.\nOther freely available repositories include Bioconductor, Posit (formerly RStudio) Public Package Manager, and R Universe.\nWhen a package is retrieved from a repository it is installed on your computer to a library"
+  },
+  {
+    "objectID": "presentations/20230704-renv.html#libraries",
+    "href": "presentations/20230704-renv.html#libraries",
+    "title": "Reproducibility with renv",
+    "section": "Libraries 📚",
+    "text": "Libraries 📚\n\nStore packages installed for current R version\nSystem libraries\n\nUser\nSite\nDefault\n\n\n\nA library in R is a directory that contains installed packages.\nThree system libraries: a user library, a site library, and a default library where base R packages are installed.\nGenerally, you don’t have to worry about libraries and can install all packages into a system library shared across projects.\nSometimes changes to packages can break functionality in older projects.\nWith the use of renv, you can employ project libraries, which provide each project with its own separate set of packages."
+  },
+  {
+    "objectID": "presentations/20230704-renv.html#project-local-libraries-with-renv",
+    "href": "presentations/20230704-renv.html#project-local-libraries-with-renv",
+    "title": "Reproducibility with renv",
+    "section": "Project Local Libraries with renv 📚",
+    "text": "Project Local Libraries with renv 📚\n\nProject local dependency management\nStore and restore your project dependencies\nMimic Packrat\nLittle to no change to workflows\n\n\n\nProject local dependency management\nStore and restore your project dependencies\nMimic Packrat\nLittle to no change to workflows\n\nOK, so we have the concepts of projects, packages, libraries, and repositories down now, correct? So the natural extension of that is to individualize dependencies to a single project in order to save and load the state of your project as you wrote it. renv is designed to more robustly mimic much of the functionality of the now defunct packrat package with fewer surprises and better default behaviours. The philosophy behind renv is that your project workflow shouldn’t meaningfully change due to incorporating it into your projects."
+  },
+  {
+    "objectID": "presentations/20230704-renv.html#workflow",
+    "href": "presentations/20230704-renv.html#workflow",
+    "title": "Reproducibility with renv",
+    "section": "Workflow 🔀",
+    "text": "Workflow 🔀\n\nInitialize a new project local environment with a private R library with renv::init()\nWork in the project as normal adding packages with install.packages()\nSave the state of the working project with renv::snapshot() to lock file (renv.lock)\nKeep working with the option to save state after successful changes (renv::snapshot()) or revert to previous if updates introduce new problems (renv::restore())\n\n\nThe general workflow when working with renv is: 1. Call [renv::init()](../reference/init.html) to initialize a new project-local environment with a private R library\n2. Work in the project as normal, installing and removing new R packages as they are needed in the project\n3. Call [renv::snapshot()](../reference/snapshot.html) to save the state of the project library to the lockfile (called renv.lock)\n4. Keep working with the option to save state after successful changes (renv::snapshot()) or revert to previous if updates introduce new problems (renv::restore())"
+  },
+  {
+    "objectID": "presentations/20230704-renv.html#initialize",
+    "href": "presentations/20230704-renv.html#initialize",
+    "title": "Reproducibility with renv",
+    "section": "Initialize ✨",
+    "text": "Initialize ✨\n\nSearches R scripts for implicitly included dependencies using dependencies()\n\nlibrary(\"dplyr\")\ndplyr::mutate()\n\nCopy discovered packages into the renv global package cache for re-use\nMissing R package dependencies are installed into the project’s private library\nInitial lockfile capturing the state of the project’s library is created\nThe project is activated with activate()\n\n\nWhat does renv actually do when you call init? The primary steps taken when initializing a new project are:\n1. R package dependencies are discovered within the R files used within the project with [dependencies()](dependencies.html)\n2. Discovered packages are copied into the renv global package cache, so these packages can be re-used across future projects as necessary\n3. Any missing R package dependencies discovered are then installed into the project’s private library\n4. A lockfile capturing the state of the project’s library is created with [snapshot()](snapshot.html)\n5. The project is activated with [activate()](activate.html) which adds the necessary code to the project’s .Rprofile to use the project’s own library on start up"
+  },
+  {
+    "objectID": "presentations/20230704-renv.html#initialize---infrastructure-files",
+    "href": "presentations/20230704-renv.html#initialize---infrastructure-files",
+    "title": "Reproducibility with renv",
+    "section": "Initialize - Infrastructure & Files ✨",
+    "text": "Initialize - Infrastructure & Files ✨\n\n\n\n\n\n\n\nFile\nUsage\n\n\n\n\n.Rprofile\nUpdated to activate renv for new project R sessions\n\n\nrenv.lock\nThe lockfile\n\n\nrenv/\nFolder containing all environment details\n\n\nrenv/activate.R\nActivation script run by the project .Rprofile.\n\n\nrenv/library\nThe private project library\n\n\nrenv/settings.json\nProject settings\n\n\nrenv/.gitignore\nrenv specific gitignore\n\n\n\n\n\nProject Rprofile with appended activation scripts\nLockfile describing the state of your project’s library at some point in time.\nProject subfolder that holds all the the important environment details like: Activation script, project library, settings, and .gitignore\n.Rprofile, renv.lock and renv/activate.R files should be committed to your version control system which is usually done by renv::init(). Changes to settings.json should also be tracked."
+  },
+  {
+    "objectID": "presentations/20230704-renv.html#renv.lock",
+    "href": "presentations/20230704-renv.html#renv.lock",
+    "title": "Reproducibility with renv",
+    "section": "renv.lock 🔒",
+    "text": "renv.lock 🔒\n\n\n\nVersion of renv\n\nVersion of R\nR repositories active for lockfile\n\nPackage records\n\n\n{\n  \"R\": {\n    \"Version\": \"4.2.3\",\n    \"Repositories\": [\n      {\n        \"Name\": \"CRAN\",\n        \"URL\": \"https://cloud.r-project.org\"\n      }\n    ]\n  },\n  \"Packages\": {\n    \"markdown\": {\n      \"Package\": \"markdown\",\n      \"Version\": \"1.0\",\n      \"Source\": \"Repository\",\n      \"Repository\": \"CRAN\",\n      \"Hash\": \"4584a57f565dd7987d59dda3a02cfb41\"\n    },\n    \"here\": {\n      \"Package\": \"here\",\n      \"Version\": \"0.7\",\n      \"Source\": \"Repository\",\n      \"Repository\": \"CRAN\",\n      \"Hash\": \"908d95ccbfd1dd274073ef07a7c93934\"\n    }\n  }\n}\n\n\n\nrenv uses a lockfile to capture the state of your library at some point in time. It is stored as a collection of records, with different records defining:\n\nThe version of renv used when generating the lockfile;\nThe version of R used in that project;\nThe R repositories that were active when the lockfile was created;\nPackage records defining each R package, their version, and their installation source.\n\nHere is an example lockfile, including the packages markdown and here"
+  },
+  {
+    "objectID": "presentations/20230704-renv.html#cache",
+    "href": "presentations/20230704-renv.html#cache",
+    "title": "Reproducibility with renv",
+    "section": "Cache 🏦",
+    "text": "Cache 🏦\n\nGlobal package installation location shared across all projects\nProject specific libraries built from symlinks to cache\nPrimary benefits:\n\nSpeed up renv::restore() and renv::install()\nSave disk space\n\n\n\nOne of renv’s primary features is the use of a global package cache, which is shared across all projects using renv. This means that project specific libraries are actually built from symlinks to the user’s cache\nThe renv package cache provides two primary benefits:\n\nFuture calls to [renv::restore()](../reference/restore.html) and [renv::install()](../reference/install.html) will become much faster, as renv will be able to find and re-use packages already installed in the cache.\n\nBecause it is not necessary to have duplicate versions of your packages installed in each project, the renv cache should also help you save disk space relative to an approach with project-specific libraries without a global cache."
+  },
+  {
+    "objectID": "presentations/20230704-renv.html#cache-1",
+    "href": "presentations/20230704-renv.html#cache-1",
+    "title": "Reproducibility with renv",
+    "section": "Cache 🏦",
+    "text": "Cache 🏦\n\nInstall process\n\nInstallation requested\nAvailable? Link, otherwise install.\nCopy to cache\nLink back to project\n\nLocation\n\nDefault to ~/.local/share/renv\nMultiple locations allowed\n\n\n\nThe process by which packages enter the cache is roughly as follows:\n\nPackage installation is requested via e.g. [install.packages()](https://rdrr.io/r/utils/install.packages.html), or [renv::install()](../reference/install.html), or as part of [renv::restore()](../reference/restore.html).\nIf renv is able to find the requested version of the package in the cache, then that package is linked into the project library, and installation is complete.\n\nOtherwise, the package is downloaded and installed into the project library.\n\nAfter installation of the package has successfully completed, the package is then copied into the global package cache, and then linked back into the project library.\n\nRenv defaults to the user’s home .local folder but multiple locations cache locations can be indicated and shared between users. If using a shared cache the time and disk savings can be leveraged across many users"
+  },
+  {
+    "objectID": "presentations/20230704-renv.html#shims",
+    "href": "presentations/20230704-renv.html#shims",
+    "title": "Reproducibility with renv",
+    "section": "Shims 🔼",
+    "text": "Shims 🔼\n\n\n\nFunction\nShim\n\n\n\n\ninstall.packages()\nrenv::install()\n\n\nremove.packages()\nrenv::remove()\n\n\nupdate.packages()\nrenv::update()\n\n\n\n\nTo help you take advantage of the package cache, renv places a couple of shims (or aliases) on the search path - Package related functions like install/remove/update from the utils package become renv functions In effect, calling [install.packages()](https://rdrr.io/r/utils/install.packages.html) within an renv project will call [renv::install()](../reference/install.html) instead. This can be useful when installing packages which have already been cached. For example, if you use renv::install(\"dplyr\"), and renv detects that the latest version on CRAN has already been cached, then renv will just install using the copy available in the cache – thereby skipping some of the installation overhead. This can be disabled but is a really lovely convenience feature."
+  },
+  {
+    "objectID": "presentations/20230704-renv.html#isolation",
+    "href": "presentations/20230704-renv.html#isolation",
+    "title": "Reproducibility with renv",
+    "section": "Isolation 🫧",
+    "text": "Isolation 🫧\n\nRequire that all packages be distributed with a project\nrenv::isolate(): copies all dependencies into the local library\nVastly increases project folder size\nNo reliance on external libraries\n\n\n\nSometimes one requires that a project can be distributed in a more contained fashion with all packages included in a zip file.\nRenv’s isolate function copies all dependencies in the project library from the cache into the project folder: project can be zipped and shared at the cost of a large increase of folder size"
+  },
+  {
+    "objectID": "presentations/20230704-renv.html#collaboration---setup",
+    "href": "presentations/20230704-renv.html#collaboration---setup",
+    "title": "Reproducibility with renv",
+    "section": "Collaboration - Setup ⚒️",
+    "text": "Collaboration - Setup ⚒️\n\nCreate a new project repository and folder\nOne user explicitly initializes renv in the version controlled project folder\nCommit all files including renv generated ones\nrenv will now bootstrap the project environment on collaborators computers\n\n\n\nOne user (perhaps yourself) should explicitly initialize renv in the project, via [renv::init()](../reference/init.html). This will create the initial renv lockfile, and also write the renv auto-loaders to the project’s .Rprofile and renv/activate.R. These will ensure the right version of renv is downloaded and installed for your collaborators when they start in this project.\nShare your project sources, alongside the generated lockfile renv.lock. Be sure to also share the generated auto-loaders in .Rprofile and renv/activate.R.\nWhen a collaborator first launches in this project, renv should automatically bootstrap itself, thereby downloading and installing the appropriate version of renv into the project library. After this has completed, they can then use [renv::restore()](../reference/restore.html) to restore the project library locally on their machine."
+  },
+  {
+    "objectID": "presentations/20230704-renv.html#collaboration---workflow",
+    "href": "presentations/20230704-renv.html#collaboration---workflow",
+    "title": "Reproducibility with renv",
+    "section": "Collaboration - Workflow 🔀",
+    "text": "Collaboration - Workflow 🔀\n\nEnsure all collaborators using the same package version\n\nInstall and test locally\nSnapshot project\nShare lockfile\nRestore locally\n\nLockfile changes can be viewed with renv::history()\n\n\nWhile working on a project, you or your collaborators may need to update or install new packages in your project. When this occurs, you’ll also want to ensure your collaborators are then using the same newly-installed packages. In general, the process looks like this: 1. A user installs, or updates, one or more packages in their local project library; 2. That user calls [renv::snapshot()](../reference/snapshot.html) to update the renv.lock lockfile;\n3. That user then shares the updated version of renv.lock with their collaborators;\n4. Other collaborators then call [renv::restore()](../reference/restore.html) to install the packages specified in the newly-updated lockfile.\nA bit of care is required if collaborators wish to update the shared renv.lock lockfile concurrently – in particular, if multiple collaborators are installing new packages and updating their own local copy of the lockfile, then conflicts would need to be sorted out afterwards.\nOne way to guard against this it to use a version control system, and have all collaborators work off the same branch. This way, if someone needs to update renv.lock in the public repository, all collaborators will see that updated lockfile and will gain access to it next time they pull those changes. Depending on the size of your team, you may want to ensure any changes to renv.lock are communicated so that everyone knows and understands when and why packages have been installed or updated."
+  },
+  {
+    "objectID": "presentations/20230704-renv.html#caveats",
+    "href": "presentations/20230704-renv.html#caveats",
+    "title": "Reproducibility with renv",
+    "section": "Caveats ☠️",
+    "text": "Caveats ☠️\n\nNot a panacea for reproducibility\nSolves one part of the problem\n\nRecords R and package versions\nTools to reinstall above\n\nProblems\n\nResults may depend on other system components\nPackages may be removed from repositories\n\n\n\nIt is important to emphasize that renv is not a panacea for reproducibility. Rather, it is a tool that can help make projects reproducible by solving one small part of the problem: it records the version of R + R packages being used in a project, and provides tools for reinstalling the declared versions of those packages in a project. Ultimately, making a project reproducible requires some thoughtfulness from the user: what does it mean for a particular project to be reproducible, and how can renv (and other tools) be used to accomplish that particular goal of reproducibility?\nThere are a still a number of factors that can affect whether this project could truly be reproducible in the future – for example,\n\nThe results produced by a particular project might depend on other components of the system it’s being run on – for example, the operating system itself, the versions of system libraries in use, the compiler(s) used to compile R and the R packages used, and so on. Keeping a ‘stable’ machine image is a separate challenge, but Docker is one popular solution. See also [vignette(\"docker\", package = \"renv\")](../articles/docker.html) for recommendations on how Docker can be used together with renv.\nThe R packages that the project depends on may no longer be available. If your project depends on R packages available on CRAN, it’s possible those packages may be removed in the future – either by request of the package maintainer, or by the maintainers of CRAN itself. This is quite rare, but needs consideration if reproducibility of a project is paramount.\n\nIn addition, be aware that package installation may fail if a package was originally installed through a CRAN-available binary, but that binary is no longer available. renv will attempt to install the package from sources in this situation, but attempts to install from source can (and often do) fail due to missing system prerequisites for compilation of a package. The [renv::equip()](../reference/equip.html) function may be useful in these scenarios, especially on Windows: it will download external software commonly used when compiling R packages from sources, and instruct R to use that software during compilation.\nA salient example of this is the rmarkdown package, as it relies heavily on the pandoc command line utility. However, because pandoc is not bundled with the rmarkdown package (it is normally provided by RStudio, or installed separately by the user), simply restoring an renv project using rmarkdown may not be sufficient – one also needs to ensure the project is run in a environment with the correct version of pandoc available."
+  },
+  {
+    "objectID": "presentations/20230704-renv.html#use-case---shiny",
+    "href": "presentations/20230704-renv.html#use-case---shiny",
+    "title": "Reproducibility with renv",
+    "section": "Use Case - Shiny🌟",
+    "text": "Use Case - Shiny🌟\n\nShiny apps utilize site library\nChanges to one app’s dependencies can break others\n\nEg. dplyr update from version 1.0.10 to 1.1.12 replaced summarise() with reframe()\nInstalling new dplyr to system library breaks older apps\n\nSolution:\n\nInitialize renv project in shiny app dir (shared shiny user cache)\nRestore lockfile to symlink and install all dependencies to app local library\nInclude sourcing of renv/activate.R in app.R\n\nNow Shiny apps can rely on some shared packages and some unique packages\nEasier addition of more shiny apps without clobbering existing"
+  },
+  {
+    "objectID": "presentations/20230704-renv.html#when-to-use-renv",
+    "href": "presentations/20230704-renv.html#when-to-use-renv",
+    "title": "Reproducibility with renv",
+    "section": "When to Use renv",
+    "text": "When to Use renv\n\nCollaborating on project and sharing results\nEnsure forward compatibility\nProject small enough to not warrant using more intense encapsulation\nUse of more robust encapsulation problematic (eg. Docker on Shiny Server)"
+  },
+  {
+    "objectID": "presentations/20230704-renv.html#questions",
+    "href": "presentations/20230704-renv.html#questions",
+    "title": "Reproducibility with renv",
+    "section": "Questions?",
+    "text": "Questions?"
+  },
+  {
+    "objectID": "presentations/20230704-renv.html#use-case---operational-reports",
+    "href": "presentations/20230704-renv.html#use-case---operational-reports",
+    "title": "Reproducibility with renv",
+    "section": "Use Case - Operational Reports",
+    "text": "Use Case - Operational Reports\n\nUpdating dplyr caused a change in the functionality of if_else() where Surveiller relied on the\n\n\nHot off the presses."
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#seminar-goals",
+    "href": "presentations/20240131-RBP.html#seminar-goals",
+    "title": "Best Practices in R",
+    "section": "Seminar Goals",
+    "text": "Seminar Goals\n\nWhat to take away from this seminar\n\nIdeas, resources, methods to improve future work\n\nWhat not to take away from this seminar\n\nAny rush to apply these ideas retroactively to all previous projects\n\nInspiration and content from sources listed at the end\n\n\n\nWhat to take away from this seminar\n\nIdeas, resources, methods to improve future work\n\nWhat not to take away from this seminar\n\nAny rush to apply these ideas retroactively to all previous projects\nDo it while revisiting old projects if you have time and where appropriate\n\n\nInspiration and content from sources listed at the end: don’t worry about too many notes"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#table-of-contents",
+    "href": "presentations/20240131-RBP.html#table-of-contents",
+    "title": "Best Practices in R",
+    "section": "Table of Contents",
+    "text": "Table of Contents\n\nProject Oriented Workflow\nReadability\nReproducibility"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#why",
+    "href": "presentations/20240131-RBP.html#why",
+    "title": "Best Practices in R",
+    "section": "Why?",
+    "text": "Why?\n\nWork on More Than One Thing at a Time\nTeam Collaboration\n\nEasier concurrent work\nEasy distribution\n\nStart and Stop\n\nFlexible work schedule\nRegularly checkpoint the project to save progress\n\nDocumentation for Continuity\n\nEasy resumption\nContext and guidelines\n\n\n\nWork on More Than One Thing at a Time\n\nIf waiting for input, start another part of the project or another project independently (self-contained).\n\nCollaborate, Communicate, Distribute\n\nTeam Collaboration:\n\nFoster collaboration within a team by structuring the project to enable concurrent contributions.\nKeeping projects self-contained facilitates easy distribution to team members and reporting.\n\n\nStart and Stop\n\nFlexible Work Sessions:\n\nEmbrace a flexible work schedule, allowing for starting and stopping based on availability and focus.\nRegularly checkpoint the project to save progress.\n\nDocumentation for Continuity:\n\nUtilize thorough documentation for easy resumption and provide context and guidelines for others taking over or collaborating.\nThis includes future you!"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#how",
+    "href": "presentations/20240131-RBP.html#how",
+    "title": "Best Practices in R",
+    "section": "How?",
+    "text": "How?\n\nStandardized organization of files per project\nConsistent actions\n\n\n\nDedicated directories with standardized organization of files per project\nConsistent action focused workflow"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#organization-of-project-directories-1",
+    "href": "presentations/20240131-RBP.html#organization-of-project-directories-1",
+    "title": "Best Practices in R",
+    "section": "Organization of Project Directories 📂",
+    "text": "Organization of Project Directories 📂\n\nProject Organization:\n\nFolder per project.\nTop-level advertisement\n\nRStudio/Git/{here} characteristic files\n\n\nPath Construction with here():\n\nUtilize here() function.\nPaths relative to top-level.\nhere package.\n\n\n\n\nOrganize each logical project into a folder on your computer.\nMake sure the top-level folder advertises itself as such. This can be as simple as having an empty file named .here\nOr, if you use RStudio and/or Git, those both leave characteristic files behind that will get the job done.\nUse the here() function from the here package to build the path when you read or write a file.\n\nCreate paths relative to the top-level directory"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#here-package",
+    "href": "presentations/20240131-RBP.html#here-package",
+    "title": "Best Practices in R",
+    "section": "{here} Package 📂",
+    "text": "{here} Package 📂\nhere() displays top-level folder location\n\nlibrary(here)\nhere()\n\n[1] \"C:/Users/azetner/Documents/quarto-presentations\"\n\n\n\nSource\n\n\n\nCriteria for top level\n\nIs a file named .here present?\nIs this an RStudio Project? Literally, can I find a file named something like foo.Rproj?\nIs this an R package? Does it have a DESCRIPTION file?\nIs this a checkout from a version control system? Does it have a directory named .git or .svn?"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#here-package-1",
+    "href": "presentations/20240131-RBP.html#here-package-1",
+    "title": "Best Practices in R",
+    "section": "{here} Package 📂",
+    "text": "{here} Package 📂\nBuild a path to something in a subdirectory and use it.\n\nhere(\"presentations\", \"20240131-RBP_images\", \"analysisworkflow.png\")\n\n[1] \"C:/Users/azetner/Documents/quarto-presentations/presentations/20240131-RBP_images/analysisworkflow.png\"\n\nhere(\"presentations/20240131-RBP_images/\")\n\n[1] \"C:/Users/azetner/Documents/quarto-presentations/presentations/20240131-RBP_images\"\n\narrow.file &lt;- here(\"presentations/20240124-BWG_images/arrow_dataset.png\")\n\nfile.info(arrow.file)[\"size\"]\n\n                                                                                                     size\nC:/Users/azetner/Documents/quarto-presentations/presentations/20240124-BWG_images/arrow_dataset.png 79441\n\n\n\nSource\n\n\n\nThis is taken directly from Jenny Bryan’s github ode to the here package\nNow files within the project are easily accessible from a standardized format regardless of what file is calling\n\nRmd files look for subdirs under their location which if they’re in a docs folder Data won’t be\n\nEasily passable to another user / computer\nFile locations can be more easily built programmatically"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#folder-structure",
+    "href": "presentations/20240131-RBP.html#folder-structure",
+    "title": "Best Practices in R",
+    "section": "Folder Structure 📂",
+    "text": "Folder Structure 📂\n\n\n\n\n\nFolder Structure:\n\nData\nCode\nDocumentation\nExternal scripts\nOutputs\n\nStart project from root\n\nConsole or IDE\n\n\n\n\n\n\nSeparate folders for data, code, documentation, external scripts, and outputs\nUse subdirectories for clarity and organization\nStart R from top-level.\n\nUse {here} for paths.\nMaintain top-level working directory.\nAbsolute paths at runtime."
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#rstudio-projects",
+    "href": "presentations/20240131-RBP.html#rstudio-projects",
+    "title": "Best Practices in R",
+    "section": "RStudio Projects 📂",
+    "text": "RStudio Projects 📂\n\n\n\nTeams Reactions to show who uses RStudio or not"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#rstudio-projects-1",
+    "href": "presentations/20240131-RBP.html#rstudio-projects-1",
+    "title": "Best Practices in R",
+    "section": "RStudio Projects 📂",
+    "text": "RStudio Projects 📂\n\n\n\nSettings stored in &lt;NAME&gt;.Rproj.\nOpen Project in RStudio:\n\nDedicated R instance.\nFile browser points to Project directory.\nWorking directory set to Project.\n\n\n\nVersion: 1.0\nRestoreWorkspace: No\nSaveWorkspace: No\nAlwaysSaveHistory: Default\nEnableCodeIndexing: Yes\nUseSpacesForTab: Yes\nNumSpacesForTab: 2\nEncoding: UTF-8\nRnwWeave: Sweave\nLaTeX: pdfLaTeX\nAutoAppendNewline: Yes\nStripTrailingWhitespace: Yes\nLineEndingConversion: Native\nBuildType: Package\nPackageUseDevtools: Yes\nPackageInstallArgs: --no-multiarch --with-keep.source\nPackageRoxygenize: rd,collate,namespace\n\n\n\n\nRStudio leaves notes to itself in &lt;NAME&gt;.Rproj\nOpen Project = dedicated instance of RStudio\n\nDedicated R process\nFile browser pointed at Project directory\nWorking directory set to Project directory"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#section",
+    "href": "presentations/20240131-RBP.html#section",
+    "title": "Best Practices in R",
+    "section": "",
+    "text": "Everything that matters should be achieved through saved code\n\n\n\nAll important objects or figures should be explicitly saved to file, via code\nTreat your workspaces like livestock, not pets"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#save-source-not-the-workspace-environment",
+    "href": "presentations/20240131-RBP.html#save-source-not-the-workspace-environment",
+    "title": "Best Practices in R",
+    "section": "Save Source not the Workspace / Environment 💥",
+    "text": "Save Source not the Workspace / Environment 💥\n\nLivestock vs. Pets Analogy from Cloud Computing\n\nLivestock: managed in herds, disposable.\nPets: unique, precious.\n\nTreat R processes like livestock.\n\nWorkspace disposability.\nNon-reproducible workflows lead to heartache.\n\nExplicitly save important objects.\nDesign away fear of reproducibility\nCheckpoints for long generation time objects\n\n\n\n“Livestock is managed in herds and there is little fuss when individuals are lost or must be sacrificed. A pet, on the other hand, is unique and precious.”\ncultivate a workflow in which you treat R processes (a.k.a. “sessions”) like livestock. Any individual R process and the associated workspace is disposable\nif your workspace is a pet, i.e. it holds precious objects and you aren’t 100% sure you can reproduce them, you are guaranteeing heartache\nUse your code to explicitly save important intermediate objects so you know the environment is reproducible\nLong-generation time objects:\n\nIsolate each computationally demanding step in its own script and write the precious object to file\nCan simply reload the object from file while developing downstream scripts\n\nWhat’s the best way to ensure you’re not too precious about your workspaces?"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#use-a-blank-slate",
+    "href": "presentations/20240131-RBP.html#use-a-blank-slate",
+    "title": "Best Practices in R",
+    "section": "Use a Blank Slate 💥",
+    "text": "Use a Blank Slate 💥\n\n\n\n\n\n\n\n\n\n\n\n\nR --no-save --no-restore-data\n\n\n\n\nWipe your workspace every load\nThis can be set in RStudio global options\nor via command line"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#restart-r-often",
+    "href": "presentations/20240131-RBP.html#restart-r-often",
+    "title": "Best Practices in R",
+    "section": "Restart R often 💥",
+    "text": "Restart R often 💥\n\n\n\n\n\n\n\nRestart R to wipe environment\nSave code not workspaces\nPressure to reinforce correct behaviours\n\nEnsuring source code recreates important artefacts\n\n\n\n\n\nSaving code – not workspaces – is incredibly important because it is an absolute requirement for reproducibility. Renouncing .Rdata and restarting R often are not intrinsically important or morally superior behaviours. They are important because they provide constant pressure for you to do the right thing: save the source code needed to create all important artefacts of your analysis."
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#use-an-ide",
+    "href": "presentations/20240131-RBP.html#use-an-ide",
+    "title": "Best Practices in R",
+    "section": "Use an IDE ⚡",
+    "text": "Use an IDE ⚡\n\n\n\nUse an Integrated Development environment to smooth this workflow, I recommend RStudio\nRStudio, VSCode, VIM, whatever\nTake advantage of code-aware editor that will help you notice simple errors like typos and unclosed brackets as well as separate R processes per project\nAn IDE offers many was to direct code to a running R process and encourages saving code in source files (R/Rmd)\nUse it to organize your workflow and guide towards best practices\n“Sometimes people resist the advice to use an IDE because it’s hard to incorporate into their current workflow and dismiss it as something “for experts only”. But this gets the direction of causality backwards: long-time and professional coders don’t do these things because they use an IDE. They use an IDE because it makes it so much easier to follow best practices.”"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#software-management",
+    "href": "presentations/20240131-RBP.html#software-management",
+    "title": "Best Practices in R",
+    "section": "Software Management ⚡",
+    "text": "Software Management ⚡\n\nResearch Code and Software:\n\nVaried forms and sizes.\nIncludes code processing research data, scripts, and workflows.\nScriptable languages like R, Python, shell, etc\nStandalone programs for specific research tasks.\n\n\n\nThere are many different shapes and sizes of research software: - Any code that runs in order to process your research data. - A record of all the steps used to process your data (scripts and workflow such data analysis are software). - Any scriptable language (R, Python, shell, etc.)"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#software-management-1",
+    "href": "presentations/20240131-RBP.html#software-management-1",
+    "title": "Best Practices in R",
+    "section": "Software Management ⚡",
+    "text": "Software Management ⚡\n\n\nWhat can go wrong with research code?\n\nWhat does code do?\nWhy did we do it this way?\nNo longer works\nAccuracy at question\n\nSoftware projects range in size but all can benefit modular code:\n\nReadable\nReusable\nTestable\n\n\n\n\nWhat can go wrong? I don’t remember what this code does I don’t remember why I made this choice This code doesn’t work any more I’m not sure if this calculation is correct\n\nRegardless of size, adopting a few Software Engineering practices can make your life much easier\nFocus on making code that is modular as it makes the code\n\nReadable\nReusable\nTestable"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#software-management-2",
+    "href": "presentations/20240131-RBP.html#software-management-2",
+    "title": "Best Practices in R",
+    "section": "Software Management ⚡",
+    "text": "Software Management ⚡\n\n\n\n\n\n\n\n\nComment brief explanations\nFunctions first\n\nClear inputs and outputs\nMeaningful names\nOne main task\n\nRuthlessly eliminate duplication\n\nFunctions\nData Structures\nWork\n\n\n\n\n\n\nA function is a reusable section of software that can be treated as a black box by the rest of the program. This is like the way we combine actions in everyday life. Suppose that it is teatime. You could get a teabag, put the teabag in a mug, boil the kettle, pour the boiling water into the mug, wait 3 minutes for the tea to brew, remove the teabag, and add milk if desired. It is much easier to think of this as a single function, “make a cup of tea”.\nWhen we’re writing scripts built of functions we should think of it in much the same way and apply certain rules to each\nGive them a brief Description: Short is fine; always include at least one example of how the program is used. Remember, a good example is worth a thousand words: Where possible, the description should also indicate reasonable values for parameters, dependencies, etc\nBuild programs out of short, single-purpose functions with:\n\nclearly-defined inputs and outputs\nmeaningful names (applies to variables too), consider tab completion and name based on scope (counter can be i, major object should have a name that describes its purpose)\n\nFunctions should have one main task, which can be combined into larger functions or workflows or if they get too complex, broken down again into single task functions\n\n“Make a cup of Tea” shouldn’t include “Take out the garbage” but it should contain smaller functions to “Boil Kettle” “prepare cup with teabag” etc\n\nEliminate duplication:\nFunction Usage:\n\nWrite and re-use functions.\nAvoid copy-pasting code.\n\nData Structure Utilization:\n\nUse data structures like lists where possible over multiple related objects\nPrefer creating a single structure (e.g., score = (1, 2, 3)) over multiple closely-related variables (e.g., score1, score2, score3).\n\nWork: Library Exploration:\n\nLook for well-maintained libraries before writing your own\nSeek existing code for specific functions.\nExplore language-specific library catalogs (e.g., CRAN for R, PyPI for Python).\nTest libraries before relying on them."
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#software-management-3",
+    "href": "presentations/20240131-RBP.html#software-management-3",
+    "title": "Best Practices in R",
+    "section": "Software Management ⚡",
+    "text": "Software Management ⚡\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSplit monolithic scripts into smaller, individual, independent portions\nTalk about image"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#data-management",
+    "href": "presentations/20240131-RBP.html#data-management",
+    "title": "Best Practices in R",
+    "section": "Data Management 💽",
+    "text": "Data Management 💽\n\nWhy Data Management?\n\nData loss / corruption\nConfusion about provenance\nVersion\n\n\n\n\nData loss / corruption: anything that makes it unusable\nConfusion about provenance: eg. source? purpose?\nVersion: eg. what workflow generated the data?"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#data-management-1",
+    "href": "presentations/20240131-RBP.html#data-management-1",
+    "title": "Best Practices in R",
+    "section": "Data Management 💽",
+    "text": "Data Management 💽\n\nData Management\n\nSave the raw data.\nEnsure raw data is backed up\nCreate analysis-friendly data.\n\nCreate the data you wish to see in the world\n\nSelf explanatory naming\nOpen formats\nMachine readability\n\nExport cleaned data that you wish you’d received\n\nRecord all the steps used to process data\n\n\n\n\nSave data in its original form to ensure faithful retention for rerunning analyses, recovering from mishaps, and experimenting fearlessly. Consider making raw data read only and resist them temptation to overwrite with cleaned results\nFor data that’s impractical to manage this way, document the exact procedure, version details, and other pertinent information when working with large, stable databases.\nBack up raw data in multiple places: if it’s not backed up it doesn’t matter\nAnalysis friendly data\n\nReplace inscrutable variable and column names with self explanatory, machine-readable alternatives\nConvert data from closed, proprietary formats to open, non-proprietary formats like CSV for tabular data, JSON, YAML, or XML for non-tabular data\nCreate an ideal dataset by focusing on improving machine and human readability without extensive filtering or adding external information. Prioritize machine readability for easy reuse"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#data-management-2",
+    "href": "presentations/20240131-RBP.html#data-management-2",
+    "title": "Best Practices in R",
+    "section": "Data Management 💽",
+    "text": "Data Management 💽\n\n\n\n\n\n\n\n\n\n\nEach variable must have its own column.\nEach observation must have its own row.\nEach value must have its own cell.\n\n\n\n\nConsistency\nVectorization\n\n\n\n\nSource\n\n\n\nThere are three interrelated rules which make a dataset tidy\nWhy bother? There’s a general advantage to picking one consistent way of storing data. If you have a consistent data structure, it’s easier to learn the tools that work with it because they have an underlying uniformity.\n\nThere’s a specific advantage to placing variables in columns because it allows R’s vectorised nature to shine. As you learned in mutate and summary functions, most built-in R functions work with vectors of values. That makes transforming tidy data feel particularly natural.\n\nThere are two main reasons to use other data structures:\n\nAlternative representations may have substantial performance or space advantages.\nSpecialised fields have evolved their own conventions for storing data that may be quite different to the conventions of tidy data."
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#data-management-3",
+    "href": "presentations/20240131-RBP.html#data-management-3",
+    "title": "Best Practices in R",
+    "section": "Data Management 💽",
+    "text": "Data Management 💽\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIn much the same way we don’t want monolithic scripts, we also don’t want data transformation to be an entire black box\nTalk about image\n\nProprietary format to open machine readable\nInterim scripts put out interim results to be reports"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#naming-conventions",
+    "href": "presentations/20240131-RBP.html#naming-conventions",
+    "title": "Best Practices in R",
+    "section": "Naming Conventions 📑",
+    "text": "Naming Conventions 📑\n\nFile names should be:\n\nMachine readable\nHuman readable\nOptional: Consistent\nOptional: Play well with default ordering\n\n\n\n\nFile names should be:\n\nMachine readable\nHuman readable\nOptional: Consistent\nOptional: Play well with default ordering"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#machine-readable",
+    "href": "presentations/20240131-RBP.html#machine-readable",
+    "title": "Best Practices in R",
+    "section": "Machine Readable 📑",
+    "text": "Machine Readable 📑\n\n\n\nRegex/Globbing Friendly\n\nAvoid spaces, punctuation, and accented characters\nMaintain case sensitivity.\n\nEasy Computation\n\nUse intentional delimiters for straightforward computational processes.\nDeliberate delimiter use enhances computational efficiency.\n\nDashes for spaces between words\nUnderscores for chunks\n\n\n\n\n\n\n20220120_patient-exposure_control.csv\n20220120_patient-exposure_treatment.csv\n20220215_patient-exposure_control.csv\n20220215_patient-exposure_treatment.csv\n20220215_patient-info_control.csv\n20220310_patient-info_control.csv\n20220520_patient-info_treatment.csv\n20220805_patient-info_control.csv\n20230120_patient-info_treatment.csv\n20230215_patient-info_treatment.csv\n20230310_patient-exposure_control.csv\n20230310_patient-exposure_treatment.csv\n20230405_patient-exposure_control.csv\n20230405_patient-exposure_treatment.csv\n20230405_patient-info_control.csv\n20230615_patient-info_treatment.csv\n20230710_patient-info_control.csv\n20230710_patient-info_treatment.csv\n20230805_patient-info_treatment.csv\n\n\n❯ ls -1 2022*\n20220120_patient-exposure_control.csv\n20220120_patient-exposure_treatment.csv\n20220215_patient-exposure_control.csv\n20220215_patient-exposure_treatment.csv\n20220215_patient-info_control.csv\n20220310_patient-info_control.csv\n20220520_patient-info_treatment.csv\n20220805_patient-info_control.csv\n\n\n❯ ls -1 *info*\n20220215_patient-info_control.csv\n20220310_patient-info_control.csv\n20220520_patient-info_treatment.csv\n20220805_patient-info_control.csv\n20230120_patient-info_treatment.csv\n20230215_patient-info_treatment.csv\n20230405_patient-info_control.csv\n20230615_patient-info_treatment.csv\n20230710_patient-info_control.csv\n20230710_patient-info_treatment.csv\n20230805_patient-info_treatment.csv\n\n\n\n\n\n\nRegular Expression and Globbing Friendly:\n\nFile names should be crafted to be easily processed using regular expressions and globbing (wildcard) patterns.\nConsider avoiding spaces, punctuation, accented characters, and maintain case sensitivity for consistency in manipulation.\n\nEasy to Compute On:\n\nIntentionally use delimiters in file names, making them straightforward for computational processes.\nDeliberate use of delimiters enhances the efficiency of computations."
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#human-readable",
+    "href": "presentations/20240131-RBP.html#human-readable",
+    "title": "Best Practices in R",
+    "section": "Human Readable 📑",
+    "text": "Human Readable 📑\n\n\n\nInformative File Names:\n\nInclude content information in file names.\nAnticipate usage context for human understanding.\n\nSlug:\n\nImplement slug concept for user-friendly and descriptive filenames.\n20230710_patient-info_control.csv\n\n\n\n\n\n\n\n\n\n\n\n\n\nfiledir &lt;- here(\"presentations/20240131-RBP_images/fakedat/\")\nflist &lt;- list.files(filedir, pattern = \"info\")\n\nstringr::str_split_fixed(flist, \"[_\\\\.]\", 4)\n\n      [,1]       [,2]           [,3]        [,4] \n [1,] \"20220215\" \"patient-info\" \"control\"   \"csv\"\n [2,] \"20220310\" \"patient-info\" \"control\"   \"csv\"\n [3,] \"20220520\" \"patient-info\" \"treatment\" \"csv\"\n [4,] \"20220805\" \"patient-info\" \"control\"   \"csv\"\n [5,] \"20230120\" \"patient-info\" \"treatment\" \"csv\"\n [6,] \"20230215\" \"patient-info\" \"treatment\" \"csv\"\n [7,] \"20230405\" \"patient-info\" \"control\"   \"csv\"\n [8,] \"20230615\" \"patient-info\" \"treatment\" \"csv\"\n [9,] \"20230710\" \"patient-info\" \"control\"   \"csv\"\n[10,] \"20230710\" \"patient-info\" \"treatment\" \"csv\"\n[11,] \"20230805\" \"patient-info\" \"treatment\" \"csv\"\n\n\n\n\n\n\n\n\nInformative Naming:\n\nEnsure that the name of the file contains information about its content.\nAnticipate the context in which the file will be used, facilitating human understanding.\n\nSlug Concept:\n\nImplement the concept of a slug in your filenames: creating user-friendly and descriptive URLs for better comprehension.\nA slug is often defined as the part of a URL that identifies a page in human-readable keywords\n\nEasy parsing due to consistent use of delimiters"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#easy-sorting",
+    "href": "presentations/20240131-RBP.html#easy-sorting",
+    "title": "Best Practices in R",
+    "section": "Easy Sorting 📑",
+    "text": "Easy Sorting 📑\n\nNumeric Inclusion:\n\nOften for code\nInclude a numeric element for effective sorting\nLeft-pad with zeros for consistent width and visual sorting.\neg 01_import.R\n\nDates:\n\nUtilize the ISO 8601 standard for date formatting: YYYYMMDD.\nEnsures chronological sorting in file names by default.\neg 20220820_wedding-photos.zip\n\n\n\n\nNumeric Inclusion:\n\nInclude something numeric in the file name for effective sorting of scripts.\nLeft-pad numeric elements with zeros to maintain a constant width for visually pleasing and consistent sorting.\n\nISO 8601 Standard for Dates:\n\nUse the ISO 8601 standard for dates in file names to ensure chronological sorting by default.\n\nCommon-Sense Ordering:\n\nConsider common-sense ordering based on the nature of the data or content.\nEnsure that the file names sort logically for easier retrieval."
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#naming-conventions-1",
+    "href": "presentations/20240131-RBP.html#naming-conventions-1",
+    "title": "Best Practices in R",
+    "section": "Naming Conventions 📑",
+    "text": "Naming Conventions 📑\n\nAvoid:\n\nInternal sequential numbers: result1.csv, result2.csv\nManuscript locations: fig_3_a.png\n\n\n\n\nAvoid:\n\nSequential numbers: result1.csv, result2.csv\n\nDifficult to parse, non-standard\n\nManuscript locations: fig_3_a.png\n\nLiable to change"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#section-1",
+    "href": "presentations/20240131-RBP.html#section-1",
+    "title": "Best Practices in R",
+    "section": "",
+    "text": "Programs must be written for people to read, and only incidentally for machines to execute."
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#meaningful-comments",
+    "href": "presentations/20240131-RBP.html#meaningful-comments",
+    "title": "Best Practices in R",
+    "section": "Meaningful Comments 💬",
+    "text": "Meaningful Comments 💬\n\nRule 1: Comments should not duplicate the code\n\n\n\nif (x &gt; 3) {\n   …\n} # close if\n\n\n\n\ni = i + 1 # Add one to i\n\n\n\n\n\n\nStack Overflow blog in resources with 10 rules, lets consider 3\n\nRule 1: Comments should not duplicate the code.\n\nTraining wheels carried over from early learning exercises\nadd visual clutter\nwaste time writing, reading, and updating for no gain\nIt adds no information whatsoever and incurs a maintenance cost."
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#meaningful-comments-1",
+    "href": "presentations/20240131-RBP.html#meaningful-comments-1",
+    "title": "Best Practices in R",
+    "section": "Meaningful Comments 💬",
+    "text": "Meaningful Comments 💬\n\n\n\n\n- Rule 2: Good comments do not excuse unclear code.\n    - For example generic variable names (x, y, etc) explained in comments\n    - Need for comments is reduced if variables are named properly"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#meaningful-comments-2",
+    "href": "presentations/20240131-RBP.html#meaningful-comments-2",
+    "title": "Best Practices in R",
+    "section": "Meaningful Comments 💬",
+    "text": "Meaningful Comments 💬\n\nRule 1: Comments should not duplicate the code.\n\n\n\nRule 3: If you can’t write a clear comment, there may be a problem with the code. - “Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.” - Brian Kernighan - If you can’t explain it simply, you don’t understand it well enough - Rewrite the code to something you understand well enough to explain or, better yet, that is straightforward."
   }
 ]
