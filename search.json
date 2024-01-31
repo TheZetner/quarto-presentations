@@ -648,20 +648,20 @@
     "href": "presentations/20240131-RBP.html#meaningful-comments",
     "title": "Best Practices in R",
     "section": "Meaningful Comments 💬",
-    "text": "Meaningful Comments 💬\n\nRule 1: Comments should not duplicate the code\n\n\n\nif (x &gt; 3) {\n   …\n} # close if\n\n\n\n\ni = i + 1 # Add one to i\n\n\n\n\n\n\nStack Overflow blog in resources with 10 rules, lets consider 3\n\nRule 1: Comments should not duplicate the code.\n\nTraining wheels carried over from early learning exercises\nadd visual clutter\nwaste time writing, reading, and updating for no gain\nIt adds no information whatsoever and incurs a maintenance cost."
+    "text": "Meaningful Comments 💬\nRule 1: Comments should not duplicate the code\n\n\n\nif (x &gt; 3) {\n   …\n} # close if\n\n\n\n\ni = i + 1 # Add one to i\n\n\n\n\n\nStack Overflow blog in resources with 10 rules, lets consider 3\n\nRule 1: Comments should not duplicate the code.\n\nTraining wheels carried over from early learning exercises\nadd visual clutter\nwaste time writing, reading, and updating for no gain\nIt adds no information whatsoever and incurs a maintenance cost."
   },
   {
     "objectID": "presentations/20240131-RBP.html#meaningful-comments-1",
     "href": "presentations/20240131-RBP.html#meaningful-comments-1",
     "title": "Best Practices in R",
     "section": "Meaningful Comments 💬",
-    "text": "Meaningful Comments 💬\n\n\n\n\n- Rule 2: Good comments do not excuse unclear code.\n    - For example generic variable names (x, y, etc) explained in comments\n    - Need for comments is reduced if variables are named properly"
+    "text": "Meaningful Comments 💬\n\nRule 2: Good comments do not excuse unclear code.\n\n\n\n\n\n\n\n\n\n\n- Rule 2: Good comments do not excuse unclear code.\n    - For example generic variable names (x, y, etc) explained in comments\n    - Need for comments is reduced if variables are named properly"
   },
   {
     "objectID": "presentations/20240131-RBP.html#meaningful-comments-2",
     "href": "presentations/20240131-RBP.html#meaningful-comments-2",
     "title": "Best Practices in R",
     "section": "Meaningful Comments 💬",
-    "text": "Meaningful Comments 💬\n\nRule 1: Comments should not duplicate the code.\n\n\n\nRule 3: If you can’t write a clear comment, there may be a problem with the code. - “Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.” - Brian Kernighan - If you can’t explain it simply, you don’t understand it well enough - Rewrite the code to something you understand well enough to explain or, better yet, that is straightforward."
+    "text": "Meaningful Comments 💬\n\nRule 3: If you can’t write a clear comment, there may be a problem with the code.\n\n\n\nRule 3: If you can’t write a clear comment, there may be a problem with the code. - “Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.” - Brian Kernighan - If you can’t explain it simply, you don’t understand it well enough - Rewrite the code to something you understand well enough to explain or, better yet, that is straightforward."
   }
 ]
