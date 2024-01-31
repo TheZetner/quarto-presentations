@@ -2,4 +2,12 @@
 
 //font
 
-$presentation-font-size-root: 30px;
+$presentation-font-size-root: 30px !default;
+
+
+/*-- scss:rules --*/
+
+
+.small {
+  font-size: 0.75em;
+}
