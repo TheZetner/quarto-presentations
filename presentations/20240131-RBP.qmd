@@ -1,0 +1,838 @@
+---
+title: "Best Practices in R"
+author: "Adrian Zetner"
+date: "2024-01-31"
+logo: 20240131-RBP_images/thumbsupR.png
+format: 
+  revealjs:
+    theme: [moon, rbp.scss]
+    incremental: true
+editor: source 
+---
+
+# ~~Best~~ Good Enough Practices in R {.title}
+
+# Introduction
+
+## Seminar Goals
+
+-   What to take away from this seminar
+    -   Ideas, resources, methods to improve future work
+-   What not to take away from this seminar
+    -   Any rush to apply these ideas retroactively to all previous projects
+- Inspiration and content from sources listed at the end
+
+::: notes
+-   What to take away from this seminar
+    -   Ideas, resources, methods to improve future work
+-   What not to take away from this seminar
+    -   Any rush to apply these ideas retroactively to all previous projects
+    -   Do it while revisiting old projects if you have time and where appropriate
+
+Inspiration and content from sources listed at the end: don't worry about too many notes
+
+:::
+
+## Table of Contents
+1. Project Oriented Workflow
+2. Readability
+3. Reproducibility
+
+# Project Oriented Workflow
+
+::: notes
+- A project-oriented workflow is an approach to work that centers around the organization, structure, and management of tasks within the context of a specific, self-contained project.
+:::
+
+## Why?
+
+- Work on More Than One Thing at a Time
+  
+- Team Collaboration
+  - Easier concurrent work
+  - Easy distribution
+
+- Start and Stop
+  - Flexible work schedule
+  - Regularly checkpoint the project to save progress
+
+- Documentation for Continuity
+  - Easy resumption 
+  - Context and guidelines
+
+
+::: notes
+### Work on More Than One Thing at a Time
+- If waiting for input, start another part of the project or another project independently (self-contained).
+  
+### Collaborate, Communicate, Distribute
+- **Team Collaboration:**
+  - Foster collaboration within a team by structuring the project to enable concurrent contributions.
+  - Keeping projects self-contained facilitates easy distribution to team members and reporting.
+
+### Start and Stop
+- **Flexible Work Sessions:**
+  - Embrace a flexible work schedule, allowing for starting and stopping based on availability and focus.
+  - Regularly checkpoint the project to save progress.
+- **Documentation for Continuity:**
+  - Utilize thorough documentation for easy resumption and provide context and guidelines for others taking over or collaborating.
+  - This includes future you!
+:::
+
+## How?
+
+- Standardized organization of files *per project*
+- Consistent actions
+
+::: notes
+- Dedicated directories with standardized organization of files *per project*
+- Consistent action focused workflow
+:::
+
+# Organization of Project Directories 📂
+
+## Organization of Project Directories 📂
+
+- **Project Organization:**
+  - Folder per project.
+  - Top-level advertisement
+    - RStudio/Git/{here} characteristic files
+
+- **Path Construction with `here()`:**
+  - Utilize `here()` function.
+  - Paths relative to top-level.
+  - [here package](https://cran.r-project.org/package=here).
+
+::: notes
+- Organize each logical project into a folder on your computer.
+- Make sure the top-level folder advertises itself as such. This can be as simple as having an empty file named `.here`
+- Or, if you use RStudio and/or Git, those both leave characteristic files behind that will get the job done.
+- Use the `here()` function from the [here package](https://cran.r-project.org/package=here) to build the path when you read or write a file. 
+	- Create paths relative to the top-level directory
+:::
+
+
+## \{here\} Package 📂
+
+`here()` displays top-level folder location
+
+```{r echo=TRUE}
+library(here)
+here()
+```
+::: {.footer}
+[Source](https://github.com/jennybc/here_here)
+:::
+
+::: notes
+* Criteria for top level
+  * Is a file named `.here` present?
+  * Is this an RStudio Project? Literally, can I find a file named something like `foo.Rproj`?
+  * Is this an R package? Does it have a `DESCRIPTION` file?
+  * Is this a checkout from a version control system? Does it have a directory named `.git` or `.svn`? 
+:::
+
+## \{here\} Package 📂
+
+Build a path to something in a subdirectory and use it.
+
+```{r echo=TRUE}
+here("presentations", "20240131-RBP_images", "analysisworkflow.png")
+here("presentations/20240131-RBP_images/")
+arrow.file <- here("presentations/20240124-BWG_images/arrow_dataset.png")
+
+file.info(arrow.file)["size"]
+```
+
+
+::: {.footer}
+[Source](https://github.com/jennybc/here_here)
+:::
+
+::: notes
+- This is taken directly from Jenny Bryan's github ode to the here package
+- Now files within the project are easily accessible from a standardized format regardless of what file is calling
+  - Rmd files look for subdirs under their location which if they're in a docs folder Data won't be
+- Easily passable to another user / computer
+- File locations can be more easily built programmatically
+:::
+
+## Folder Structure 📂
+
+::: columns
+::: {.column width="50%"}
+![](https://intro2r.com/images/directory_structure.png){width="287"}
+:::
+
+::: {.column width="50%"}
+- **Folder Structure:**
+  - Data
+  - Code
+  - Documentation
+  - External scripts
+  - Outputs
+- Start project from root
+  - Console or IDE
+  
+:::
+:::
+
+::: notes
+- Separate folders for data, code, documentation, external scripts, and outputs
+- Use subdirectories for clarity and organization
+- Start R from top-level.
+  - Use {here} for paths.
+  - Maintain top-level working directory.
+  - Absolute paths at runtime.
+:::
+
+## RStudio Projects 📂
+
+![](20240124-BWG_images/RStudio-Logo.png){fig-align="center" width="400"}
+
+::: notes
+- Teams Reactions to show who uses RStudio or not
+:::
+
+
+## RStudio Projects 📂
+
+::: columns
+::: {.column width="50%"}
+- Settings stored in `<NAME>.Rproj`.
+
+- **Open Project in RStudio:**
+  - Dedicated R instance.
+  - File browser points to Project directory.
+  - Working directory set to Project.
+:::
+
+::: {.column width="50%"}
+```
+Version: 1.0
+RestoreWorkspace: No
+SaveWorkspace: No
+AlwaysSaveHistory: Default
+EnableCodeIndexing: Yes
+UseSpacesForTab: Yes
+NumSpacesForTab: 2
+Encoding: UTF-8
+RnwWeave: Sweave
+LaTeX: pdfLaTeX
+AutoAppendNewline: Yes
+StripTrailingWhitespace: Yes
+LineEndingConversion: Native
+BuildType: Package
+PackageUseDevtools: Yes
+PackageInstallArgs: --no-multiarch --with-keep.source
+PackageRoxygenize: rd,collate,namespace
+```
+:::
+:::
+
+
+::: notes
+- RStudio leaves notes to itself in `<NAME>.Rproj`
+- Open Project = dedicated instance of RStudio
+    - Dedicated R process
+    - File browser pointed at Project directory
+    - Working directory set to Project directory
+:::
+
+
+# Consistent Actions 💥
+
+::: notes
+- Defining a clear and reproducible workflow for data analysis projects
+:::
+
+## {.center}
+
+> Everything that matters should be achieved through saved code
+
+::: notes
+- All important objects or figures should be explicitly saved to file, via code
+- Treat your workspaces like livestock, not pets
+:::
+
+## Save Source not the Workspace / Environment 💥 
+
+- Livestock vs. Pets Analogy from Cloud Computing
+  - Livestock: managed in herds, disposable.
+  - Pets: unique, precious.
+
+- Treat R processes like livestock.
+  - Workspace disposability.
+  - Non-reproducible workflows lead to heartache.
+
+- Explicitly save important objects.
+- Design away fear of reproducibility
+- Checkpoints for long generation time objects
+
+::: notes
+- "Livestock is managed in herds and there is little fuss when individuals are lost or must be sacrificed. A pet, on the other hand, is unique and precious."
+- cultivate a workflow in which you treat R processes (a.k.a. “sessions”) like livestock. Any individual R process and the associated workspace is disposable
+- if your workspace is a pet, i.e. it holds precious objects and you aren’t 100% sure you can reproduce them, you are guaranteeing heartache
+- Use your code to explicitly save important intermediate objects so you know the environment is reproducible
+- Long-generation time objects:
+	- Isolate each computationally demanding step in its own script and write the precious object to file
+	- Can simply reload the object from file while developing downstream scripts
+- What's the best way to ensure you're not too precious about your workspaces?
+:::
+
+## Use a Blank Slate 💥
+
+::: {.r-stack}
+![](https://upload.wikimedia.org/wikipedia/commons/e/ea/Wachstafel.jpg){.fragment fig-align="center" width="400" .fade-in-then-out}
+
+![](20240131-RBP_images/blankslate.png){.fragment fig-align="center" width="400" .fade-in-then-out}
+
+:::{.fragment}
+`R --no-save --no-restore-data`
+:::
+
+:::
+
+::: notes
+- Wipe your workspace every load
+- This can be set in RStudio global options
+- or via command line
+:::
+
+## Restart R often 💥
+
+::: {.r-stack}
+![](20240131-RBP_images/restart.png){fig-align="center" width="400" .fragment .fade-in-then-out}
+
+- Restart R to wipe environment
+- Save code not workspaces
+- Pressure to reinforce correct behaviours
+  - Ensuring source code recreates important artefacts
+
+:::
+
+::: notes
+- Saving code – not workspaces – is incredibly important because it is an absolute requirement for reproducibility. Renouncing .Rdata and restarting R often are not intrinsically important or morally superior behaviours. They are important because they provide constant pressure for you to do the right thing: save the source code needed to create all important artefacts of your analysis.
+:::
+
+# Analysis Project Workflow ⚡
+
+## Use an IDE ⚡
+
+![](20240131-RBP_images/rstudio.png){fig-align="center" width="600"}
+
+::: notes
+- Use an Integrated Development environment to smooth this workflow, I recommend RStudio
+- RStudio, VSCode, VIM, whatever
+- Take advantage of code-aware editor that will help you notice simple errors like typos and unclosed brackets as well as separate R processes per project
+- An IDE offers many was to direct code to a running R process and encourages saving code in source files (R/Rmd)
+- Use it to organize your workflow and guide towards best practices
+- "Sometimes people resist the advice to use an IDE because it’s hard to incorporate into their current workflow and dismiss it as something “for experts only”. But this gets the direction of causality backwards: long-time and professional coders don’t do these things because they use an IDE. They use an IDE because it makes it so much easier to follow best practices." 
+:::
+
+## Software Management ⚡
+
+- **Research Code and Software:**
+  - Varied forms and sizes.
+  - Includes code processing research data, scripts, and workflows.
+  - Scriptable languages like R, Python, shell, etc
+  - Standalone programs for specific research tasks.
+
+::: notes
+There are many different shapes and sizes of research software:
+- Any code that runs in order to process your research data.
+- A record of all the steps used to process your data (scripts and workflow such data analysis are software).
+- Any scriptable language (R, Python, shell, etc.)
+:::
+
+## Software Management ⚡
+
+::: {.r-stack}
+- What can go wrong with research code?
+  - What does code do?
+  - Why did we do it this way?
+  - No longer works
+  - Accuracy at question
+
+- Software projects range in size but all can benefit modular code:
+  - Readable
+  - Reusable
+  - Testable
+:::
+
+::: notes
+What can go wrong?
+I don’t remember what this code does
+I don’t remember why I made this choice
+This code doesn’t work any more
+I’m not sure if this calculation is correct
+
+- Regardless of size, adopting a few Software Engineering practices can make your life much easier
+- Focus on making code that is modular as it makes the code
+  - Readable
+  - Reusable
+  - Testable
+:::
+
+## Software Management ⚡
+
+::: {.r-stack}
+![](20240131-RBP_images/teapot.jpg){.fragment fig-align="center" width="600" .fade-in-then-out}
+
+:::{.fragment}
+- Comment brief explanations
+
+- Functions first
+  - Clear inputs and outputs
+  - Meaningful names
+  - One main task
+
+- Ruthlessly eliminate duplication
+  - Functions
+  - Data Structures
+  - Work
+
+:::
+
+:::
+
+::: notes
+- A function is a reusable section of software that can be treated as a black box by the rest of the program. This is like the way we combine actions in everyday life. Suppose that it is teatime. You could get a teabag, put the teabag in a mug, boil the kettle, pour the boiling water into the mug, wait 3 minutes for the tea to brew, remove the teabag, and add milk if desired. It is much easier to think of this as a single function, “make a cup of tea”.
+- When we're writing scripts built of functions we should think of it in much the same way and apply certain rules to each
+- Give them a brief Description: Short is fine; always include at least one example of how the program is used. Remember, a good example is worth a thousand words: Where possible, the description should also indicate reasonable values for parameters, dependencies, etc
+- Build programs out of short, single-purpose functions with:
+  - clearly-defined inputs and outputs
+  - meaningful names (applies to variables too), consider tab completion and name based on scope (counter can be i, major object should have a name that describes its purpose)
+- Functions should have one main task, which can be combined into larger functions or workflows or if they get too complex, broken down again into single task functions
+  - "Make a cup of Tea" shouldn't include "Take out the garbage" but it should contain smaller functions to "Boil Kettle" "prepare cup with teabag" etc
+- Eliminate duplication:
+- **Function Usage:**
+  - Write and re-use functions.
+  - Avoid copy-pasting code.
+- **Data Structure Utilization:**
+  - Use data structures like lists where possible over multiple related objects
+  - Prefer creating a single structure (e.g., `score = (1, 2, 3)`) over multiple closely-related variables (e.g., `score1`, `score2`, `score3`).
+- Work: **Library Exploration:**
+  - Look for well-maintained libraries before writing your own 
+  - Seek existing code for specific functions.
+  - Explore language-specific library catalogs (e.g., CRAN for R, PyPI for Python).
+  - Test libraries before relying on them.
+:::
+
+
+## Software Management ⚡
+
+::: {.r-stack}
+![](20240131-RBP_images/everything.jpg){.fragment fig-align="center" width="600" .fade-in-then-out}
+
+![](20240131-RBP_images/analysisworkflow.png){.fragment fig-align="center" width="600" .fade-in-then-out}
+:::
+
+::: notes
+- Split monolithic scripts into smaller, individual, independent portions
+- Talk about image
+:::
+
+## Data Management 💽
+
+- Why Data Management?
+    - Data loss / corruption
+    - Confusion about provenance
+    - Version
+
+::: notes
+- Data loss / corruption: anything that makes it unusable
+- Confusion about provenance: eg. source? purpose?
+- Version: eg. what workflow generated the data?
+:::
+
+## Data Management 💽
+
+- Data Management
+    - Save the raw data.
+    - Ensure raw data is backed up
+    - Create analysis-friendly data.
+	    - Create the data you wish to see in the world
+	      - Self explanatory naming
+	      - Open formats
+	      - Machine readability
+      - Export cleaned data that you wish you'd received
+    - Record all the steps used to process data
+
+::: notes
+- Save data in its original form to ensure faithful retention for rerunning analyses, recovering from mishaps, and experimenting fearlessly. Consider making raw data read only and resist them temptation to overwrite with cleaned results
+- For data that's impractical to manage this way, document the exact procedure, version details, and other pertinent information when working with large, stable databases.
+- Back up raw data in multiple places: if it's not backed up it doesn't matter
+- Analysis friendly data
+  - Replace inscrutable variable and column names with self explanatory, machine-readable alternatives
+  - Convert data from closed, proprietary formats to open, non-proprietary formats like CSV for tabular data, JSON, YAML, or XML for non-tabular data
+  - Create an ideal dataset by focusing on improving machine and human readability without extensive filtering or adding external information. Prioritize machine readability for easy reuse
+:::
+
+## Data Management 💽
+
+::: {.nonincremental}
+![](20240131-RBP_images/tidy.png){.fragment fig-align="center" width="600"}
+::: 
+
+
+::: {.r-stack}
+
+:::{.fragment .fade-in-then-out .nonincremental}
+
+  - Each variable must have its own column.
+  - Each observation must have its own row.
+  - Each value must have its own cell.
+  
+:::
+:::{.fragment .nonincremental}
+  - Consistency
+  - Vectorization
+:::
+:::
+
+
+::: {.footer}
+[Source](https://r4ds.had.co.nz/tidy-data.html)
+
+:::
+
+::: notes
+- There are three interrelated rules which make a dataset tidy
+- Why bother?
+There’s a general advantage to picking one consistent way of storing data. If you have a consistent data structure, it’s easier to learn the tools that work with it because they have an underlying uniformity.
+
+There’s a specific advantage to placing variables in columns because it allows R’s vectorised nature to shine. As you learned in mutate and summary functions, most built-in R functions work with vectors of values. That makes transforming tidy data feel particularly natural. 
+
+- There are two main reasons to use other data structures:
+  - Alternative representations may have substantial performance or space advantages.
+  - Specialised fields have evolved their own conventions for storing data that may be quite different to the conventions of tidy data.
+
+:::
+
+## Data Management 💽
+
+::: {.r-stack}
+![](20240131-RBP_images/data.jpg){.fragment fig-align="center" width="600" .fade-out}
+
+![](20240131-RBP_images/inputsandoutputs.png){.fragment fig-align="center" width="600"}
+:::
+
+::: notes
+- In much the same way we don't want monolithic scripts, we also don't want data transformation to be an entire black box 
+- Talk about image
+  - Proprietary format to open machine readable
+  - Interim scripts put out interim results to be reports
+:::
+
+# Readability 📑
+
+::: notes
+- Wasn't sure what to call this section as it covers a number of important topics and frankly this was the best I came up with
+:::
+
+## Naming Conventions 📑
+
+- File names should be:
+  - Machine readable
+  - Human readable
+  - Optional: Consistent
+  - Optional: Play well with default ordering
+
+::: notes
+- File names should be:
+  - Machine readable
+  - Human readable
+  - Optional: Consistent
+  - Optional: Play well with default ordering
+  
+<!-- Made a fake list of filenames, created those files with `cat filenames.txt | xargs touch` -->
+:::
+
+## Machine Readable 📑
+
+::: columns
+::: {.column width="50%"}
+
+- Regex/Globbing Friendly
+  - Avoid spaces, punctuation, and accented characters
+  - Maintain case sensitivity.
+
+- Easy Computation
+  - Use intentional delimiters for straightforward computational processes.
+  - Deliberate delimiter use enhances computational efficiency.
+    - Dashes for spaces between words
+    - Underscores for chunks
+:::
+
+::: {.column width="50%"}
+::: {.r-stack}
+:::: {.fragment .fade-in-then-out}
+```
+20220120_patient-exposure_control.csv
+20220120_patient-exposure_treatment.csv
+20220215_patient-exposure_control.csv
+20220215_patient-exposure_treatment.csv
+20220215_patient-info_control.csv
+20220310_patient-info_control.csv
+20220520_patient-info_treatment.csv
+20220805_patient-info_control.csv
+20230120_patient-info_treatment.csv
+20230215_patient-info_treatment.csv
+20230310_patient-exposure_control.csv
+20230310_patient-exposure_treatment.csv
+20230405_patient-exposure_control.csv
+20230405_patient-exposure_treatment.csv
+20230405_patient-info_control.csv
+20230615_patient-info_treatment.csv
+20230710_patient-info_control.csv
+20230710_patient-info_treatment.csv
+20230805_patient-info_treatment.csv
+```
+::::
+
+:::: {.fragment .fade-in-then-out}
+```
+❯ ls -1 2022*
+20220120_patient-exposure_control.csv
+20220120_patient-exposure_treatment.csv
+20220215_patient-exposure_control.csv
+20220215_patient-exposure_treatment.csv
+20220215_patient-info_control.csv
+20220310_patient-info_control.csv
+20220520_patient-info_treatment.csv
+20220805_patient-info_control.csv
+```
+::::
+:::: {.fragment .fade-in-then-out}
+```
+❯ ls -1 *info*
+20220215_patient-info_control.csv
+20220310_patient-info_control.csv
+20220520_patient-info_treatment.csv
+20220805_patient-info_control.csv
+20230120_patient-info_treatment.csv
+20230215_patient-info_treatment.csv
+20230405_patient-info_control.csv
+20230615_patient-info_treatment.csv
+20230710_patient-info_control.csv
+20230710_patient-info_treatment.csv
+20230805_patient-info_treatment.csv
+```
+::::
+:::
+:::
+
+:::
+
+
+::: notes
+- **Regular Expression and Globbing Friendly:**
+    - File names should be crafted to be easily processed using regular expressions and globbing (wildcard) patterns.
+    - Consider avoiding spaces, punctuation, accented characters, and maintain case sensitivity for consistency in manipulation.
+- **Easy to Compute On:**    
+    - Intentionally use delimiters in file names, making them straightforward for computational processes.
+    - Deliberate use of delimiters enhances the efficiency of computations.
+:::
+
+## Human Readable 📑
+
+::: columns
+::: {.column width="50%"}
+- **Informative File Names:**
+  - Include content information in file names.
+  - Anticipate usage context for human understanding.
+
+- **Slug:**
+  - Implement slug concept for user-friendly and descriptive filenames.
+  - 20230710_**patient-info_control**.csv
+  
+:::
+
+::: {.column width="50%"}
+::: {.r-stack}
+:::: {.fragment .fade-in-then-out}
+![](20240131-RBP_images/slug.jpg){fig-align="left" width="300"}
+::::
+
+
+:::: {.fragment .fade-in-then-out}
+```{r echo=TRUE}
+filedir <- here("presentations/20240131-RBP_images/fakedat/")
+flist <- list.files(filedir, pattern = "info")
+
+stringr::str_split_fixed(flist, "[_\\.]", 4)
+```
+::::
+
+:::
+:::
+:::
+
+
+::: notes
+- **Informative Naming:**    
+    - Ensure that the name of the file contains information about its content.
+    - Anticipate the context in which the file will be used, facilitating human understanding.
+- **Slug Concept:**    
+    - Implement the concept of a slug in your filenames: creating user-friendly and descriptive URLs for better comprehension.
+    - A slug is often defined as the part of a URL that identifies a page in human-readable keywords
+- Easy parsing due to consistent use of delimiters
+:::
+
+## Easy Sorting 📑
+
+- **Numeric Inclusion:**
+  - Often for code
+  - Include a numeric element for effective sorting
+  - Left-pad with zeros for consistent width and visual sorting.
+  - eg `01_import.R`
+
+- **Dates:**
+  - Utilize the ISO 8601 standard for date formatting: YYYYMMDD.
+  - Ensures chronological sorting in file names by default.
+  - eg `20220820_wedding-photos.zip`
+
+::: notes
+- **Numeric Inclusion:**    
+    - Include something numeric in the file name for effective sorting of scripts.
+    - Left-pad numeric elements with zeros to maintain a constant width for visually pleasing and consistent sorting.
+- **ISO 8601 Standard for Dates:**    
+    - Use the ISO 8601 standard for dates in file names to ensure chronological sorting by default.
+- **Common-Sense Ordering:**    
+    - Consider common-sense ordering based on the nature of the data or content.
+    - Ensure that the file names sort logically for easier retrieval. 
+:::
+
+## Naming Conventions 📑
+
+- Avoid:
+  - Internal sequential numbers: `result1.csv`, `result2.csv`
+  - Manuscript locations: `fig_3_a.png`
+
+
+::: notes
+
+- Avoid:
+  - Sequential numbers: `result1.csv`, `result2.csv`
+    - Difficult to parse, non-standard
+  - Manuscript locations: `fig_3_a.png`
+    - Liable to change 
+:::
+
+# Writing Meaningful Comments 💬
+
+## {.center}
+
+> Programs must be written for people to read, and only incidentally for machines to execute.
+
+## Meaningful Comments 💬
+
+
+
+::: {.center}
+**Rule 1: Comments should not duplicate the code**
+
+::: {.r-stack}
+
+:::: {.fragment .fade-in-then-out}
+```{r eval=FALSE, echo=TRUE}
+#| code-line-numbers: false
+if (x > 3) {
+   …
+} # close if
+```
+:::: 
+:::: {.fragment .fade-in-then-out}
+```{r eval=FALSE, echo=TRUE}
+#| code-line-numbers: false
+i = i + 1 # Add one to i
+```
+::::
+:::
+
+:::
+
+::: notes
+- Stack Overflow blog in resources with 10 rules, lets consider 3
+	- Rule 1: Comments should not duplicate the code.
+		- Training wheels carried over from early learning exercises
+		- add visual clutter
+		- waste time writing, reading, and updating for no gain
+		- It adds no information whatsoever and incurs a maintenance cost.
+
+:::
+
+## Meaningful Comments 💬
+
+- 
+
+
+
+::: notes
+	- Rule 2: Good comments do not excuse unclear code.
+		- For example generic variable names (x, y, etc) explained in comments
+		- Need for comments is reduced if variables are named properly
+:::
+
+## Meaningful Comments 💬
+
+- Rule 1: Comments should not duplicate the code.
+
+::: notes
+- Rule 3: If you can't write a clear comment, there may be a problem with the code.
+		- "Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it." - Brian Kernighan
+		- If you can't explain it simply, you don't understand it well enough
+		- Rewrite the code to something you understand well enough to explain or, better yet, that is straightforward.
+:::
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
