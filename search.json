@@ -663,5 +663,12 @@
     "title": "Best Practices in R",
     "section": "Meaningful Comments 💬",
     "text": "Meaningful Comments 💬\nRule 3: If you can’t write a clear comment, there may be a problem with the code.\n\n\nRule 3: If you can’t write a clear comment, there may be a problem with the code. - “Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.” - Brian Kernighan - If you can’t explain it simply, you don’t understand it well enough - Rewrite the code to something you understand well enough to explain or, better yet, that is straightforward."
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#section-2",
+    "href": "presentations/20240131-RBP.html#section-2",
+    "title": "Best Practices in R",
+    "section": "",
+    "text": "“Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.”\n\n\n\nBrian Kernighan\n\nIf you can’t explain it simply, you don’t understand it well enough\nRewrite the code to something you understand well enough to explain or, better yet, that is straightforward."
   }
 ]
