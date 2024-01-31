@@ -648,14 +648,28 @@
     "href": "presentations/20240131-RBP.html#meaningful-comments",
     "title": "Best Practices in R",
     "section": "Meaningful Comments 💬",
-    "text": "Meaningful Comments 💬\nRule 1: Comments should not duplicate the code\n\n\n\nif (x &gt; 3) {\n   …\n} # close if\n\n\n\n\ni = i + 1 # Add one to i\n\n\n\n\n\nStack Overflow blog in resources with 10 rules, lets consider 3\n\nRule 1: Comments should not duplicate the code.\n\nTraining wheels carried over from early learning exercises\nadd visual clutter\nwaste time writing, reading, and updating for no gain\nIt adds no information whatsoever and incurs a maintenance cost."
+    "text": "Meaningful Comments 💬\nRule 1: Comments should not duplicate the code"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#rule1",
+    "href": "presentations/20240131-RBP.html#rule1",
+    "title": "Best Practices in R",
+    "section": "",
+    "text": "if (x &gt; 3) {\n   …\n} # close if\n\n\n\n\ni = i + 1 # Add one to i\n\n\n\n\n\nStack Overflow blog in resources with 10 rules, lets consider 3\n\nRule 1: Comments should not duplicate the code.\n\nTraining wheels carried over from early learning exercises\nadd visual clutter\nwaste time writing, reading, and updating for no gain\nIt adds no information whatsoever and incurs a maintenance cost."
   },
   {
     "objectID": "presentations/20240131-RBP.html#meaningful-comments-1",
     "href": "presentations/20240131-RBP.html#meaningful-comments-1",
     "title": "Best Practices in R",
     "section": "Meaningful Comments 💬",
-    "text": "Meaningful Comments 💬\nRule 2: Good comments do not excuse unclear code.\n\n\n\ngetBestChildNode &lt;- function(node) {\n  n &lt;- NULL  # best child node candidate\n  for (child_node in node$children) {\n    # update n if the current state is better\n    if (is.null(n) || utility(child_node) &gt; utility(n)) {\n      n &lt;- child_node\n    }\n  }\n  return(n)\n}\n\n\n\n\ngetBestChildNode &lt;- function(node) {\n  bestNode &lt;- NULL\n  for (currentNode in node$children) {\n    if (is.null(bestNode) || utility(currentNode) &gt; utility(bestNode)) {\n      bestNode &lt;- currentNode\n    }\n  }\n  return(bestNode)\n}\n\n\n\n\n- Rule 2: Good comments do not excuse unclear code.\n    - For example generic variable names (x, y, etc) explained in comments\n    - Need for comments is reduced if variables are named properly"
+    "text": "Meaningful Comments 💬\nRule 2: Good comments do not excuse unclear code."
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#rule2",
+    "href": "presentations/20240131-RBP.html#rule2",
+    "title": "Best Practices in R",
+    "section": "",
+    "text": "getBestChildNode &lt;- function(node) {\n  n &lt;- NULL  # best child node candidate\n  for (child_node in node$children) {\n    # update n if the current state is better\n    if (is.null(n) || utility(child_node) &gt; utility(n)) {\n      n &lt;- child_node\n    }\n  }\n  return(n)\n}\n\n\n\n\ngetBestChildNode &lt;- function(node) {\n  bestNode &lt;- NULL\n  for (currentNode in node$children) {\n    if (is.null(bestNode) || utility(currentNode) &gt; utility(bestNode)) {\n      bestNode &lt;- currentNode\n    }\n  }\n  return(bestNode)\n}\n\n\n\n\n- Rule 2: Good comments do not excuse unclear code.\n    - For example generic variable names (x, y, etc) explained in comments\n    - Need for comments is reduced if variables are named properly"
   },
   {
     "objectID": "presentations/20240131-RBP.html#meaningful-comments-2",
@@ -665,10 +679,178 @@
     "text": "Meaningful Comments 💬\nRule 3: If you can’t write a clear comment, there may be a problem with the code.\n\n\nRule 3: If you can’t write a clear comment, there may be a problem with the code. - “Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.” - Brian Kernighan - If you can’t explain it simply, you don’t understand it well enough - Rewrite the code to something you understand well enough to explain or, better yet, that is straightforward."
   },
   {
-    "objectID": "presentations/20240131-RBP.html#section-2",
-    "href": "presentations/20240131-RBP.html#section-2",
+    "objectID": "presentations/20240131-RBP.html#section-4",
+    "href": "presentations/20240131-RBP.html#section-4",
     "title": "Best Practices in R",
     "section": "",
     "text": "“Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.”\n\n\n\nBrian Kernighan\n\nIf you can’t explain it simply, you don’t understand it well enough\nRewrite the code to something you understand well enough to explain or, better yet, that is straightforward."
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#roxygen2-comments",
+    "href": "presentations/20240131-RBP.html#roxygen2-comments",
+    "title": "Best Practices in R",
+    "section": "Roxygen2 Comments 💬",
+    "text": "Roxygen2 Comments 💬\n\n\nRoxygen2 allows you to avoid the awful practice of documenting packages where you write .Rd files by hand."
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#roxygen2-comments-1",
+    "href": "presentations/20240131-RBP.html#roxygen2-comments-1",
+    "title": "Best Practices in R",
+    "section": "Roxygen2 Comments 💬",
+    "text": "Roxygen2 Comments 💬\n\n\n\nIn-line documentation\nRich, dynamic .Rd file generation\nStandard markdown\n\n\n\n\n\n#' Add together two numbers\n#' \n#' @param x A number.\n#' @param y A number.\n#' @returns A numeric vector.\n#' @examples\n#' add(1, 1)\n#' add(10, 1)\nadd &lt;- function(x, y) {\n  x + y\n}\n\n\n\n% Generated by roxygen2: do not edit by hand\n% Please edit documentation in R/add.R\n\\name{add}\n\\alias{add}\n\\title{Add together two numbers}\n\\usage{\nadd(x, y)\n}\n\\arguments{\n\\item{x}{A number.}\n\n\\item{y}{A number.}\n}\n\\value{\nA numeric vector.\n}\n\\description{\nAdd together two numbers\n}\n\\examples{\nadd(1, 1)\nadd(10, 1)\n}\n\n\n\n\n\nThere are a few advantages to using roxygen2 : - Code and documentation are co-located. When you modify your code, it’s easy to remember to also update your documentation. - roxygen2 provides a number of tools for sharing content across documentation topics and even between topics and vignettes. - There’s a lot of .Rd boilerplate that’s automated away. - You can use markdown, rather than having to learn a one-off markup language that only applies to .Rd files. In addition to formatting, the automatic hyperlinking functionality makes it much, much easier to create richly linked documentation."
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#roxygen2-comments-2",
+    "href": "presentations/20240131-RBP.html#roxygen2-comments-2",
+    "title": "Best Practices in R",
+    "section": "Roxygen2 Comments 💬",
+    "text": "Roxygen2 Comments 💬\n\n\n\nAllow for easy bundling of inline documentation into a website"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#modular-and-reusable-code",
+    "href": "presentations/20240131-RBP.html#modular-and-reusable-code",
+    "title": "Best Practices in R",
+    "section": "Modular and Reusable Code 🐣",
+    "text": "Modular and Reusable Code 🐣\n\nStart programs/functions with explanatory comments.\nUse meaningful names for functions and variables.\nExplicitly state dependencies and requirements.\nAvoid commenting/uncommenting code sections for program control.\nInclude a simple example or test data set for clarity.\n\n\n\nAs we’ve already discussed\nWriting functions and scripts for modularity\n\nPlace a brief explanatory comment at the start of every program or function\nGive functions and variables meaningful names.\nMake dependencies and requirements explicit.\nDo not comment and uncomment sections of code to control a program’s behavior.\n\nIf it’s going to be shared\nUse proper conditionals or remove\n\nProvide a simple example or test data set.\n\nWhat is the ultimate version of this process?"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#make-an-r-package",
+    "href": "presentations/20240131-RBP.html#make-an-r-package",
+    "title": "Best Practices in R",
+    "section": "Make an R Package 🐣",
+    "text": "Make an R Package 🐣\n\nWhy make an R package?\n\nCode Organization\nConsistent documentation\nCode Distribution\nDependency handling\n\n\n\n\nCreating R packages for code reuse and distribution Why make an R package?\n\n\nCode Organization: I am always trying to figure out where that “function” I wrote months, weeks, or even days ago. Often times, I end up just re-writing it because it is faster than searching all my .R files. An R package would help in organizing where my functions go.\nConsistent documentation: I can barely remember what half of my functions do let alone the inputs and outputs. An R package provides a great consistent documentation structure and actually encourages you to document your functions.\nCode Distribution: No more emailing .R scripts! An R package gives an easy way to distribute your code for others. Especially if you put it on GitHub.\nDependency handling: No more failing scripts because library calls failed on load. Install the package and all of its dependencies are installed alongside it!\n\n\nEven if it’s just for yourself"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#make-an-r-package-1",
+    "href": "presentations/20240131-RBP.html#make-an-r-package-1",
+    "title": "Best Practices in R",
+    "section": "Make an R Package 🐣",
+    "text": "Make an R Package 🐣\n\n\n\nPackage directory structure\n\nScripts in R\nDocumentation in man\nREADME.md\nDESCRIPTION, NAMESPACE\n\n{Roxygen2} for documentation\n{devtools} for process\n\n\n.\n├── DESCRIPTION\n├── NAMESPACE\n├── R\n│   ├── cat_function.R\n│   ├── cat_images.R\n│   └── cats-package.R\n├── README.md\n└── man\n    ├── add_cat.Rd\n    ├── cat_function.Rd\n    ├── cats.Rd\n    ├── get_cat.Rd\n    └── here_kitty.Rd\n\n\n\n\nMaking an R package involves creating a specific structure of directory and adding specific files\nPackage directory structure\n\nScripts in R\nDocumentation in man\nREADME.md\nDESCRIPTION, NAMESPACE\n\nEasily accomplished with Roxygen2 and devtools\nThis is the directory structure of the cats package linked in resources"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#make-an-r-package-2",
+    "href": "presentations/20240131-RBP.html#make-an-r-package-2",
+    "title": "Best Practices in R",
+    "section": "Make an R Package 🐣",
+    "text": "Make an R Package 🐣\n\n\n\nDESCRIPTION file\n\nDependencies\nPackage metadata\nContact information\n\n\n\nPackage: cats\nTitle: Cats\nVersion: 0.1\nAuthor: Hilary Parker &lt;hilary@etsy.com&gt; [aut, cre]\nMaintainer: Hilary Parker &lt;hilary@etsy.com&gt;\nAuthors@R: c( person(\"Hilary\", \"Parker\", email = \"hilary@etsy.com\", role =\n    c(\"aut\", \"cre\")))\nDescription: Mew.\nDepends:\n    R (&gt;= 3.0.2)\nImports:\n    httr,\n    ggplot2,\n    jpeg\nLicense: MIT\nLazyData: true\nSuggests:\n    testthat\n\n\n\n\nThe job of the DESCRIPTION file is to store important metadata about your package.\nEarly on, use these metadata to record what packages are needed to run your package.\nLater, if released publicly let people get in touch with you over problems!"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#make-an-r-package-3",
+    "href": "presentations/20240131-RBP.html#make-an-r-package-3",
+    "title": "Best Practices in R",
+    "section": "Make an R Package 🐣",
+    "text": "Make an R Package 🐣\n\n\n\nNAMESPACE file\n\nFunctions from your package\nImported functions from others\n\n\n\n\n# Generated by roxygen2 (4.0.1.99): do not edit by hand\n\nexport(add_cat)\nexport(cat_function)\nexport(get_cat)\nexport(here_kitty)\nimport(ggplot2)\nimport(httr)\nimport(jpeg)\n\n\n\n\nThe NAMESPACE file specifies which functions your package makes available for others to use and, optionally, imports functions from other packages."
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#version-control",
+    "href": "presentations/20240131-RBP.html#version-control",
+    "title": "Best Practices in R",
+    "section": "Version Control 🧭",
+    "text": "Version Control 🧭\nWhy version control in data analysis projects?\n\n\n\nFile Versioning\nFigure Recreation\nCode Modification Impact\nDirectory Copying Fear\nShared File Duplication\nLost Data Files\nAnalysis Selection Recover\n\n\n\nManuscript Collaboration Merge\nAccidental Deletion\nProject Location Recall\nExperiment Mistake Identification\nDirectory Pollution\nSelective Changes\nAd Infinitum\n\n\n\n\nMany Reasons"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#version-control-1",
+    "href": "presentations/20240131-RBP.html#version-control-1",
+    "title": "Best Practices in R",
+    "section": "Version Control 🧭",
+    "text": "Version Control 🧭"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#version-control-2",
+    "href": "presentations/20240131-RBP.html#version-control-2",
+    "title": "Best Practices in R",
+    "section": "Version Control 🧭",
+    "text": "Version Control 🧭\n\nWhat to Save:\n\nHuman-created content.\nPlain text files.\nAvoid binary files.\n\n\n\n\nWhat to save?\n\nBack up (almost) everything created by a human being as soon as it is created\nOptimized for plain text files (scripts) and can pinpoint changes between versions\nDoesn’t work well for binary files like PDFs or MS Office files\nRaw data shouldn’t change and intermediate files should be able to be reproduced by saved source so no need to change"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#version-control-manual",
+    "href": "presentations/20240131-RBP.html#version-control-manual",
+    "title": "Best Practices in R",
+    "section": "Version Control: Manual 🧭",
+    "text": "Version Control: Manual 🧭\nCHANGELOG.txt\n## 2016-04-08\n\n* Switched to cubic interpolation as default.\n* Moved question about family's TB history to end of questionnaire.\n\n## 2016-04-06\n\n* Added option for cubic interpolation.\n* Removed question about staph exposure (can be inferred from blood test results).\n\nAdd a file called CHANGELOG.txt to the project’s docs subfolder and make dated notes about changes to the project in this file in reverse chronological order (i.e., most recent first). This file is the equivalent of a lab notebook, and should contain entries like those shown."
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#version-control-manual-1",
+    "href": "presentations/20240131-RBP.html#version-control-manual-1",
+    "title": "Best Practices in R",
+    "section": "Version Control: Manual 🧭",
+    "text": "Version Control: Manual 🧭\nBackup entire project folder\n.\n|-- project_name\n|   -- current\n|       -- ...project content as described earlier...\n|   -- 2016-03-01\n|       -- ...content of 'current' on Mar 1, 2016\n|   -- 2016-02-19\n|       -- ...content of 'current' on Feb 19, 2016\n\n… please don’t do this\n\n\nCopy the entire project whenever a significant change has been made (i.e., one that materially affects the results), and store that copy in a sub-folder whose name reflects the date in the area that’s being synchronized. This approach results in projects being organized as shown above"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#version-control-vcs",
+    "href": "presentations/20240131-RBP.html#version-control-vcs",
+    "title": "Best Practices in R",
+    "section": "Version Control: VCS 🧭",
+    "text": "Version Control: VCS 🧭\n\nVersion Control System\nEfficient Backup Storage\nAutomated Timestamps\nAutomated Changelog and Accuracy\nConflict Resolution and Merging\nExamples: Git, SVN, Bitbucket, etc\n\n\n\nVCS\nMuch better than manual\nEfficient Backup Storage:\n\nVersion control eliminates the need for users to create backup copies of the entire project.\nSafely stores sufficient information to recreate old versions of files on demand.\n\nAutomated Timestamps:\n\nTimestamps all saved changes automatically, eliminating the reliance on users to choose sensible names for backup copies.\n\nAutomated Changelog and Accuracy:\n\nVersion control systems prompt users whenever a change is saved, ensuring a disciplined approach without relying on manual changelogs.\nMaintains a 100% accurate record of actual changes made, valuable for troubleshooting later.\n\nConflict Resolution and Merging:\n\nInstead of blindly copying files to remote storage, version control checks for potential overwrites of others’ work.\nFacilitates conflict identification and merging changes, ensuring collaboration without loss of data.\n\nLinks to very good tutorials in the resources section of this talk"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#managing-project-dependencies",
+    "href": "presentations/20240131-RBP.html#managing-project-dependencies",
+    "title": "Best Practices in R",
+    "section": "Managing Project Dependencies 📦",
+    "text": "Managing Project Dependencies 📦"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#section-5",
+    "href": "presentations/20240131-RBP.html#section-5",
+    "title": "Best Practices in R",
+    "section": "",
+    "text": "The only way to be certain that code written by someone else will run on your machine and will produce the same results is to replicate their environment\n\n\nmanaging project dependencies is a significant issue"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#managing-project-dependencies-1",
+    "href": "presentations/20240131-RBP.html#managing-project-dependencies-1",
+    "title": "Best Practices in R",
+    "section": "Managing Project Dependencies 📦",
+    "text": "Managing Project Dependencies 📦\n\nWhat is the environment?\n\nThe version of the software used\n- R 3.6.1 vs R 4.3.2\nThe versions of the packages/extensions used\n- {dplyr} 1.0.10 vs 1.1.12\nExternal software dependencies for packages\n- pandoc\n\n\n\n\nWhat is the environment?\n\nThe version of the software used\nThe versions of the packages/extensions used\nExternal software dependencies for packages (eg. pandoc)\n\nChallenges associated with package versions and dependencies in R projects\n\nOften your code will run without any hiccups even when environments differ. Software engineers try to make sure your code will not stop working if you use a slightly different versions.\nBut with all the software and all the dependencies eventually something will give and things will break. Even if the code runs successfully, there is a chance that the results could differ.\n\nManually comparing environments is difficult to impossible, using containers to replicate another’s computer is complex so we recommend a mid-point: ensuring package and R versions are the same each time the analysis is run"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#httptinyurl.comcogseminar",
+    "href": "presentations/20240131-RBP.html#httptinyurl.comcogseminar",
+    "title": "Best Practices in R",
+    "section": "http://tinyurl.com/COGseminar",
+    "text": "http://tinyurl.com/COGseminar"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#seminar-content",
+    "href": "presentations/20240131-RBP.html#seminar-content",
+    "title": "Best Practices in R",
+    "section": "Seminar Content",
+    "text": "Seminar Content\n\n\nWhat they forgot to teach you in R\nVersion Control with Git and Github\nGood Enough Practices in Scientific Computing - Paper\nGood Enough Practices in Scientific Computing - Course\nThe Turing Way\nProject Oriented Workflow Slides\nMy Previous R Course\nR for Data Science"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#moodle-cources",
+    "href": "presentations/20240131-RBP.html#moodle-cources",
+    "title": "Best Practices in R",
+    "section": "Moodle Cources",
+    "text": "Moodle Cources\n\n\nIntroduction to Git\nOther R Courses"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#readability-1",
+    "href": "presentations/20240131-RBP.html#readability-1",
+    "title": "Best Practices in R",
+    "section": "Readability",
+    "text": "Readability\n\n\nCode Tells You How, Comments Tell You Why\nBest practices for writing code comments\nRoxygen for in-line documentation\nQuarto for reports\npkgdown to compile into websites"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#packages",
+    "href": "presentations/20240131-RBP.html#packages",
+    "title": "Best Practices in R",
+    "section": "Packages",
+    "text": "Packages\n\n\nR Packages\nYour first R package in 1 hour\nWriting an R package from scratch\nMaking Your First R Package"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#project-dependencies",
+    "href": "presentations/20240131-RBP.html#project-dependencies",
+    "title": "Best Practices in R",
+    "section": "Project Dependencies",
+    "text": "Project Dependencies\n\n\nrenv Documentation\nReproducible R Toolbox\nReproducibility with renv"
+  },
+  {
+    "objectID": "presentations/20240131-RBP.html#useful-links",
+    "href": "presentations/20240131-RBP.html#useful-links",
+    "title": "Best Practices in R",
+    "section": "Useful Links",
+    "text": "Useful Links\n\n\nCheatsheets\nHacker Laws\nReproducible Reporting with R"
   }
 ]

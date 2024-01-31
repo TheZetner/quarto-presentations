@@ -478,7 +478,7 @@ Adrian Zetner
           display:block!important;
       }</style></aside>
 </section>
-<section id="why" class="slide level2 small">
+<section id="why" class="slide level2">
 <h2>Why?</h2>
 <ul>
 <li class="fragment"><p>Work on More Than One Thing at a Time</p></li>
@@ -1631,8 +1631,15 @@ PackageRoxygenize: rd,collate,namespace</code></pre>
 <section id="meaningful-comments" class="slide level2">
 <h2>Meaningful Comments 💬</h2>
 <p><strong>Rule 1: Comments should not duplicate the code</strong></p>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+
+<img data-src="20240131-RBP_images/90pctcomments.webp" width="500" class="r-stretch quarto-figure-center"></section>
+<section id="rule1" class="slide level2 center">
+<h2></h2>
 <div class="r-stack">
-<div class="fragment fade-in-then-out">
+<div class="fragment fade-out">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15" data-code-line-numbers="false"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">3</span>) {</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>   …</span>
@@ -1673,6 +1680,13 @@ PackageRoxygenize: rd,collate,namespace</code></pre>
 <section id="meaningful-comments-1" class="slide level2">
 <h2>Meaningful Comments 💬</h2>
 <p><strong>Rule 2: Good comments do not excuse unclear code.</strong></p>
+</section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+
+<img data-src="20240131-RBP_images/otherjokes.webp" width="500" class="r-stretch quarto-figure-center"></section>
+<section id="rule2" class="slide level2 center">
+<h2></h2>
 <div class="r-stack">
 <div class="fragment fade-in-then-out">
 <div class="cell">
@@ -1737,7 +1751,7 @@ PackageRoxygenize: rd,collate,namespace</code></pre>
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-2" class="slide level2 center">
+<section id="section-4" class="slide level2 center">
 <h2></h2>
 <blockquote>
 <p>“Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.”</p>
@@ -1761,6 +1775,656 @@ PackageRoxygenize: rd,collate,namespace</code></pre>
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section id="roxygen2-comments" class="slide level2">
+<h2>Roxygen2 Comments 💬</h2>
+
+<img data-src="20240131-RBP_images/roxygen2.png" class="r-stretch quarto-figure-center"><aside class="notes">
+<p>Roxygen2 allows you to avoid the awful practice of documenting packages where you write .Rd files by hand.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="roxygen2-comments-1" class="slide level2">
+<h2>Roxygen2 Comments 💬</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li class="fragment">In-line documentation</li>
+<li class="fragment">Rich, dynamic <code>.Rd</code> file generation</li>
+<li class="fragment">Standard markdown</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="r-stack">
+<div class="fragment fade-in-then-out">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20" data-code-line-numbers="false"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' Add together two numbers</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co">#' </span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param x A number.</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param y A number.</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co">#' @returns A numeric vector.</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co">#' @examples</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co">#' add(1, 1)</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co">#' add(10, 1)</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>add <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">+</span> y</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment fade-in-then-out">
+<pre><code>% Generated by roxygen2: do not edit by hand
+% Please edit documentation in R/add.R
+\name{add}
+\alias{add}
+\title{Add together two numbers}
+\usage{
+add(x, y)
+}
+\arguments{
+\item{x}{A number.}
+
+\item{y}{A number.}
+}
+\value{
+A numeric vector.
+}
+\description{
+Add together two numbers
+}
+\examples{
+add(1, 1)
+add(10, 1)
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>There are a few advantages to using roxygen2 : - Code and documentation are co-located. When you modify your code, it’s easy to remember to also update your documentation. - roxygen2 provides a number of tools for sharing content across documentation topics and even between topics and vignettes. - There’s a lot of <code>.Rd</code> boilerplate that’s automated away. - You can use markdown, rather than having to learn a one-off markup language that only applies to <code>.Rd</code> files. In addition to formatting, the automatic hyperlinking functionality makes it much, much easier to create richly linked documentation.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="roxygen2-comments-2" class="slide level2">
+<h2>Roxygen2 Comments 💬</h2>
+<iframe width="1000" height="500" src="https://thezetner.github.io/cct/index.html" title="Roxygen example"></iframe>
+<aside class="notes">
+<ul>
+<li>Allow for easy bundling of inline documentation into a website</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="reproducibility" class="title-slide slide level1 center">
+<h1>Reproducibility 🐣</h1>
+
+</section>
+<section id="modular-and-reusable-code" class="slide level2">
+<h2>Modular and Reusable Code 🐣</h2>
+<ul>
+<li class="fragment">Start programs/functions with explanatory comments.</li>
+<li class="fragment">Use meaningful names for functions and variables.</li>
+<li class="fragment">Explicitly state dependencies and requirements.</li>
+<li class="fragment">Avoid commenting/uncommenting code sections for program control.</li>
+<li class="fragment">Include a simple example or test data set for clarity.</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>As we’ve already discussed</li>
+<li>Writing functions and scripts for modularity
+<ul>
+<li>Place a brief explanatory comment at the start of every program or function</li>
+<li>Give functions and variables meaningful names.</li>
+<li>Make dependencies and requirements explicit.</li>
+<li>Do not comment and uncomment sections of code to control a program’s behavior.
+<ul>
+<li>If it’s going to be shared</li>
+<li>Use proper conditionals or remove</li>
+</ul></li>
+<li>Provide a simple example or test data set.</li>
+</ul></li>
+<li>What is the ultimate version of this process?</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="make-an-r-package" class="slide level2">
+<h2>Make an R Package 🐣</h2>
+<ul>
+<li class="fragment">Why make an R package?
+<ul>
+<li class="fragment">Code Organization</li>
+<li class="fragment">Consistent documentation</li>
+<li class="fragment">Code Distribution</li>
+<li class="fragment">Dependency handling</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<ul>
+<li>Creating R packages for code reuse and distribution Why make an R package?</li>
+</ul>
+<ol type="1">
+<li><strong>Code Organization</strong>: I am always trying to figure out where that “function” I wrote months, weeks, or even days ago. Often times, I end up just re-writing it because it is faster than searching all my .R files. An R package would help in organizing where my functions go.</li>
+<li><strong>Consistent documentation</strong>: I can barely remember what half of my functions do let alone the inputs and outputs. An R package provides a great consistent documentation structure and actually encourages you to document your functions.</li>
+<li><strong>Code Distribution</strong>: No more emailing .R scripts! An R package gives an easy way to distribute your code for others. Especially if you put it on GitHub.</li>
+<li><strong>Dependency handling</strong>: No more failing scripts because library calls failed on load. Install the package and all of its dependencies are installed alongside it!</li>
+</ol>
+<ul>
+<li>Even if it’s just for yourself</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="make-an-r-package-1" class="slide level2">
+<h2>Make an R Package 🐣</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li class="fragment">Package directory structure
+<ul>
+<li class="fragment">Scripts in <code>R</code></li>
+<li class="fragment">Documentation in <code>man</code></li>
+<li class="fragment">README.md</li>
+<li class="fragment">DESCRIPTION, NAMESPACE</li>
+</ul></li>
+<li class="fragment">{Roxygen2} for documentation</li>
+<li class="fragment">{devtools} for process</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<pre><code>.
+├── DESCRIPTION
+├── NAMESPACE
+├── R
+│   ├── cat_function.R
+│   ├── cat_images.R
+│   └── cats-package.R
+├── README.md
+└── man
+    ├── add_cat.Rd
+    ├── cat_function.Rd
+    ├── cats.Rd
+    ├── get_cat.Rd
+    └── here_kitty.Rd</code></pre>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>Making an R package involves creating a specific structure of directory and adding specific files</li>
+<li>Package directory structure
+<ul>
+<li>Scripts in <code>R</code></li>
+<li>Documentation in <code>man</code></li>
+<li>README.md</li>
+<li>DESCRIPTION, NAMESPACE</li>
+</ul></li>
+<li>Easily accomplished with Roxygen2 and devtools</li>
+<li>This is the directory structure of the cats package linked in resources</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="make-an-r-package-2" class="slide level2">
+<h2>Make an R Package 🐣</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li class="fragment">DESCRIPTION file
+<ul>
+<li class="fragment">Dependencies</li>
+<li class="fragment">Package metadata</li>
+<li class="fragment">Contact information</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<pre><code>Package: cats
+Title: Cats
+Version: 0.1
+Author: Hilary Parker &lt;hilary@etsy.com&gt; [aut, cre]
+Maintainer: Hilary Parker &lt;hilary@etsy.com&gt;
+Authors@R: c( person("Hilary", "Parker", email = "hilary@etsy.com", role =
+    c("aut", "cre")))
+Description: Mew.
+Depends:
+    R (&gt;= 3.0.2)
+Imports:
+    httr,
+    ggplot2,
+    jpeg
+License: MIT
+LazyData: true
+Suggests:
+    testthat</code></pre>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>The job of the DESCRIPTION file is to store important metadata about your package.</li>
+<li>Early on, use these metadata to record what packages are needed to run your package.</li>
+<li>Later, if released publicly let people get in touch with you over problems!</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="make-an-r-package-3" class="slide level2">
+<h2>Make an R Package 🐣</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li class="fragment">NAMESPACE file
+<ul>
+<li class="fragment">Functions from your package</li>
+<li class="fragment">Imported functions from others</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<pre><code>
+# Generated by roxygen2 (4.0.1.99): do not edit by hand
+
+export(add_cat)
+export(cat_function)
+export(get_cat)
+export(here_kitty)
+import(ggplot2)
+import(httr)
+import(jpeg)</code></pre>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>The NAMESPACE file specifies which functions your package makes available for others to use and, optionally, imports functions from other packages.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="version-control" class="slide level2">
+<h2>Version Control 🧭</h2>
+<p><strong>Why version control in data analysis projects?</strong></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li class="fragment"><strong>File Versioning</strong></li>
+<li class="fragment"><strong>Figure Recreation</strong></li>
+<li class="fragment"><strong>Code Modification Impact</strong></li>
+<li class="fragment"><strong>Directory Copying Fear</strong></li>
+<li class="fragment"><strong>Shared File Duplication</strong></li>
+<li class="fragment"><strong>Lost Data Files</strong></li>
+<li class="fragment"><strong>Analysis Selection Recover</strong></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li class="fragment"><strong>Manuscript Collaboration Merge</strong></li>
+<li class="fragment"><strong>Accidental Deletion</strong></li>
+<li class="fragment"><strong>Project Location Recall</strong></li>
+<li class="fragment"><strong>Experiment Mistake Identification</strong></li>
+<li class="fragment"><strong>Directory Pollution</strong></li>
+<li class="fragment"><strong>Selective Changes</strong></li>
+<li class="fragment"><strong>Ad Infinitum</strong></li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>Many Reasons</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="version-control-1" class="slide level2">
+<h2>Version Control 🧭</h2>
+
+<img data-src="20240131-RBP_images/ew-versions.png" width="500" class="r-stretch quarto-figure-center"></section>
+<section id="version-control-2" class="slide level2">
+<h2>Version Control 🧭</h2>
+<ul>
+<li class="fragment"><strong>What to Save:</strong>
+<ul>
+<li class="fragment">Human-created content.</li>
+<li class="fragment">Plain text files.</li>
+<li class="fragment">Avoid binary files.</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<ul>
+<li>What to save?
+<ul>
+<li>Back up (almost) everything created by a human being as soon as it is created</li>
+<li>Optimized for plain text files (scripts) and can pinpoint changes between versions</li>
+<li>Doesn’t work well for binary files like PDFs or MS Office files</li>
+<li>Raw data shouldn’t change and intermediate files should be able to be reproduced by saved source so no need to change</li>
+</ul></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="version-control-manual" class="slide level2">
+<h2>Version Control: Manual 🧭</h2>
+<p><strong>CHANGELOG.txt</strong></p>
+<pre><code>## 2016-04-08
+
+* Switched to cubic interpolation as default.
+* Moved question about family's TB history to end of questionnaire.
+
+## 2016-04-06
+
+* Added option for cubic interpolation.
+* Removed question about staph exposure (can be inferred from blood test results).</code></pre>
+<aside class="notes">
+<p>Add a file called <code>CHANGELOG.txt</code> to the project’s <code>docs</code> subfolder and make dated notes about changes to the project in this file in reverse chronological order (i.e., most recent first). This file is the equivalent of a lab notebook, and should contain entries like those shown.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="version-control-manual-1" class="slide level2">
+<h2>Version Control: Manual 🧭</h2>
+<p><strong>Backup entire project folder</strong></p>
+<pre><code>.
+|-- project_name
+|   -- current
+|       -- ...project content as described earlier...
+|   -- 2016-03-01
+|       -- ...content of 'current' on Mar 1, 2016
+|   -- 2016-02-19
+|       -- ...content of 'current' on Feb 19, 2016</code></pre>
+<div class="fragment">
+<p>… please don’t do this</p>
+</div>
+<aside class="notes">
+<p>Copy the entire project whenever a significant change has been made (i.e., one that materially affects the results), and store that copy in a sub-folder whose name reflects the date in the area that’s being synchronized. This approach results in projects being organized as shown above</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="version-control-vcs" class="slide level2">
+<h2>Version Control: VCS 🧭</h2>
+<ul>
+<li class="fragment"><strong>Version Control System</strong></li>
+<li class="fragment"><strong>Efficient Backup Storage</strong></li>
+<li class="fragment"><strong>Automated Timestamps</strong></li>
+<li class="fragment"><strong>Automated Changelog and Accuracy</strong></li>
+<li class="fragment"><strong>Conflict Resolution and Merging</strong></li>
+<li class="fragment"><strong>Examples:</strong> Git, SVN, Bitbucket, etc</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>VCS</li>
+<li>Much better than manual</li>
+<li><strong>Efficient Backup Storage:</strong>
+<ul>
+<li>Version control eliminates the need for users to create backup copies of the entire project.</li>
+<li>Safely stores sufficient information to recreate old versions of files on demand.</li>
+</ul></li>
+<li><strong>Automated Timestamps:</strong>
+<ul>
+<li>Timestamps all saved changes automatically, eliminating the reliance on users to choose sensible names for backup copies.</li>
+</ul></li>
+<li><strong>Automated Changelog and Accuracy:</strong>
+<ul>
+<li>Version control systems prompt users whenever a change is saved, ensuring a disciplined approach without relying on manual changelogs.</li>
+<li>Maintains a 100% accurate record of actual changes made, valuable for troubleshooting later.</li>
+</ul></li>
+<li><strong>Conflict Resolution and Merging:</strong>
+<ul>
+<li>Instead of blindly copying files to remote storage, version control checks for potential overwrites of others’ work.</li>
+<li>Facilitates conflict identification and merging changes, ensuring collaboration without loss of data.</li>
+</ul></li>
+<li>Links to very good tutorials in the resources section of this talk</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="managing-project-dependencies" class="slide level2">
+<h2>Managing Project Dependencies 📦</h2>
+</section>
+<section id="section-5" class="slide level2 center">
+<h2></h2>
+<blockquote>
+<p>The only way to be certain that code written by someone else will run on your machine and will produce the same results is to replicate their environment</p>
+</blockquote>
+<aside class="notes">
+<p>managing project dependencies is a significant issue</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="managing-project-dependencies-1" class="slide level2">
+<h2>Managing Project Dependencies 📦</h2>
+<ul>
+<li class="fragment"><strong>What is the environment?</strong>
+<ol type="1">
+<li class="fragment">The version of the software used<br>
+- R 3.6.1 vs R 4.3.2</li>
+<li class="fragment">The versions of the packages/extensions used<br>
+- {dplyr} 1.0.10 vs 1.1.12</li>
+<li class="fragment">External software dependencies for packages<br>
+- pandoc</li>
+</ol></li>
+</ul>
+<aside class="notes">
+<ul>
+<li><strong>What is the environment?</strong>
+<ol type="1">
+<li>The version of the software used</li>
+<li>The versions of the packages/extensions used</li>
+<li>External software dependencies for packages (eg. pandoc)</li>
+</ol></li>
+<li>Challenges associated with package versions and dependencies in R projects
+<ul>
+<li>Often your code will run without any hiccups even when environments differ. Software engineers try to make sure your code will not stop working if you use a slightly different versions.</li>
+<li>But with all the software and all the dependencies eventually something will give and things will break. Even if the code runs successfully, there is a chance that the results could differ.</li>
+</ul></li>
+<li>Manually comparing environments is difficult to impossible, using containers to replicate another’s computer is complex so we recommend a mid-point: ensuring package and R versions are the same each time the analysis is run</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-6" class="slide level2">
+<h2></h2>
+
+<img data-src="https://rstudio.github.io/renv/logo.svg" width="500" class="r-stretch quarto-figure-center"></section></section>
+<section>
+<section id="resources" class="title-slide slide level1 center">
+<h1>Resources</h1>
+
+</section>
+<section id="httptinyurl.comcogseminar" class="slide level2 center">
+<h2>http://tinyurl.com/COGseminar</h2>
+
+<img data-src="20240131-RBP_images/qrcode_tinyurl.com.png" class="r-stretch"></section>
+<section id="seminar-content" class="slide level2">
+<h2>Seminar Content</h2>
+<div>
+<ul>
+<li><a href="https://rstats.wtf/">What they forgot to teach you in R</a></li>
+<li><a href="https://rstats-wtf.github.io/wtf-version-control-slides/">Version Control with Git and Github</a></li>
+<li><a href="https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/">Good Enough Practices in Scientific Computing - Paper</a></li>
+<li><a href="https://carpentries-lab.github.io/good-enough-practices/01-introduction.html">Good Enough Practices in Scientific Computing - Course</a></li>
+<li><a href="https://the-turing-way.netlify.app/index.html">The Turing Way</a></li>
+<li><a href="https://github.com/rstats-wtf/wtf-project-oriented-workflow-slides/blob/main/index.qmd">Project Oriented Workflow Slides</a></li>
+<li><a href="https://github.com/TheZetner/intro-R-course">My Previous R Course</a></li>
+<li><a href="https://r4ds.had.co.nz/tidy-data.html">R for Data Science</a></li>
+</ul>
+</div>
+</section>
+<section id="moodle-cources" class="slide level2">
+<h2>Moodle Cources</h2>
+<div>
+<ul>
+<li><a href="https://course.cscscience.ca/course/view.php?id=108">Introduction to Git</a></li>
+<li><a href="https://course.cscscience.ca/course/index.php?categoryid=23">Other R Courses</a></li>
+</ul>
+</div>
+</section>
+<section id="readability-1" class="slide level2">
+<h2>Readability</h2>
+<div>
+<ul>
+<li><a href="https://blog.codinghorror.com/code-tells-you-how-comments-tell-you-why/">Code Tells You How, Comments Tell You Why</a></li>
+<li><a href="https://stackoverflow.blog/2021/12/23/best-practices-for-writing-code-comments/">Best practices for writing code comments</a></li>
+<li><a href="https://r-pkgs.org/man.html">Roxygen for in-line documentation</a></li>
+<li><a href="https://github.com/posit-conf-2023/quarto-r">Quarto for reports</a></li>
+<li><a href="https://r-pkgs.org/website.html">pkgdown to compile into websites</a></li>
+</ul>
+</div>
+</section>
+<section id="packages" class="slide level2">
+<h2>Packages</h2>
+<div>
+<ul>
+<li><a href="https://r-pkgs.org/">R Packages</a></li>
+<li><a href="https://www.pipinghotdata.com/posts/2020-10-25-your-first-r-package-in-1-hour/">Your first R package in 1 hour</a></li>
+<li><a href="https://hilaryparker.com/2014/04/29/writing-an-r-package-from-scratch/">Writing an R package from scratch</a></li>
+<li><a href="https://tinyheero.github.io/jekyll/update/2015/07/26/making-your-first-R-package.html">Making Your First R Package</a></li>
+</ul>
+</div>
+</section>
+<section id="project-dependencies" class="slide level2">
+<h2>Project Dependencies</h2>
+<div>
+<ul>
+<li><a href="https://rstudio.github.io/renv/articles/renv.html">renv Documentation</a></li>
+<li><a href="https://rpubs.com/glennwithtwons/reproducible-r-toolbox">Reproducible R Toolbox</a></li>
+<li><a href="https://thezetner.github.io/quarto-presentations/presentations/20230704-renv.html#/title-slide">Reproducibility with renv</a></li>
+</ul>
+</div>
+</section>
+<section id="useful-links" class="slide level2">
+<h2>Useful Links</h2>
+<div>
+<ul>
+<li><a href="https://posit.co/resources/cheatsheets/">Cheatsheets</a></li>
+<li><a href="https://github.com/dwmkerr/hacker-laws">Hacker Laws</a></li>
+<li><a href="https://noaa-iea.github.io/r3-train/">Reproducible Reporting with R</a></li>
+</ul>
+</div>
 
 
 <img src="20240131-RBP_images/thumbsupR.png" class="slide-logo r-stretch"><div class="footer footer-default">
