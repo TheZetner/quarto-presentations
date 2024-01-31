@@ -655,13 +655,13 @@
     "href": "presentations/20240131-RBP.html#meaningful-comments-1",
     "title": "Best Practices in R",
     "section": "Meaningful Comments 💬",
-    "text": "Meaningful Comments 💬\n\nRule 2: Good comments do not excuse unclear code.\n\n\n\n\n\n\n\n\n\n\n- Rule 2: Good comments do not excuse unclear code.\n    - For example generic variable names (x, y, etc) explained in comments\n    - Need for comments is reduced if variables are named properly"
+    "text": "Meaningful Comments 💬\nRule 2: Good comments do not excuse unclear code.\n\n\n\ngetBestChildNode &lt;- function(node) {\n  n &lt;- NULL  # best child node candidate\n  for (child_node in node$children) {\n    # update n if the current state is better\n    if (is.null(n) || utility(child_node) &gt; utility(n)) {\n      n &lt;- child_node\n    }\n  }\n  return(n)\n}\n\n\n\n\ngetBestChildNode &lt;- function(node) {\n  bestNode &lt;- NULL\n  for (currentNode in node$children) {\n    if (is.null(bestNode) || utility(currentNode) &gt; utility(bestNode)) {\n      bestNode &lt;- currentNode\n    }\n  }\n  return(bestNode)\n}\n\n\n\n\n- Rule 2: Good comments do not excuse unclear code.\n    - For example generic variable names (x, y, etc) explained in comments\n    - Need for comments is reduced if variables are named properly"
   },
   {
     "objectID": "presentations/20240131-RBP.html#meaningful-comments-2",
     "href": "presentations/20240131-RBP.html#meaningful-comments-2",
     "title": "Best Practices in R",
     "section": "Meaningful Comments 💬",
-    "text": "Meaningful Comments 💬\n\nRule 3: If you can’t write a clear comment, there may be a problem with the code.\n\n\n\nRule 3: If you can’t write a clear comment, there may be a problem with the code. - “Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.” - Brian Kernighan - If you can’t explain it simply, you don’t understand it well enough - Rewrite the code to something you understand well enough to explain or, better yet, that is straightforward."
+    "text": "Meaningful Comments 💬\nRule 3: If you can’t write a clear comment, there may be a problem with the code.\n\n\nRule 3: If you can’t write a clear comment, there may be a problem with the code. - “Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.” - Brian Kernighan - If you can’t explain it simply, you don’t understand it well enough - Rewrite the code to something you understand well enough to explain or, better yet, that is straightforward."
   }
 ]
