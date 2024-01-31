@@ -839,7 +839,7 @@ getBestChildNode <- function(node) {
 
 ## Roxygen2 Comments 💬
 
-![](20240131-RBP_images/roxygen2.png){fig-align="center" width="200"}
+![](20240131-RBP_images/roxygen2.png){fig-align="center"}
 
 ::: notes
 Roxygen2 allows you to avoid the awful practice of documenting packages where you write .Rd files by hand.
@@ -1238,15 +1238,18 @@ managing project dependencies is a significant issue
 ## Managing Project Dependencies 📦
 
 - **What is the environment?**
-	1. The version of the software used (eg. R 3.6.1 vs R 3.5.2) 
-	2. The versions of the packages/extensions used (eg. ggplot2 3.3.0 vs ggplot2 2.2.0) 
-	3. External software dependencies for packages (eg. pandoc)
+	1. The version of the software used 
+	  - R 3.6.1 vs R 4.3.2 
+	2. The versions of the packages/extensions used
+	  - {dplyr} 1.0.10 vs 1.1.12
+	3. External software dependencies for packages 
+	  - pandoc
 
 
 ::: notes
 -  **What is the environment?**
-	1. The version of the software used (eg. R 3.6.1 vs R 3.5.2) 
-	2. The versions of the packages/extensions used (eg. ggplot2 3.3.0 vs ggplot2 2.2.0) 
+	1. The version of the software used
+	2. The versions of the packages/extensions used 
 	3. External software dependencies for packages (eg. pandoc)
 - Challenges associated with package versions and dependencies in R projects
 	- Often your code will run without any hiccups even when environments differ. Software engineers try to make sure your code will not stop working if you use a slightly different versions. 
@@ -1296,8 +1299,7 @@ managing project dependencies is a significant issue
 - [pkgdown to compile into websites](https://r-pkgs.org/website.html)
 :::
 
-## Reproducibility
-### Packages
+## Packages
 
 ::: {.nonincremental}
 - [R Packages](https://r-pkgs.org/)
@@ -1306,11 +1308,12 @@ managing project dependencies is a significant issue
 - [Making Your First R Package](https://tinyheero.github.io/jekyll/update/2015/07/26/making-your-first-R-package.html)
 :::
 
-### Project Dependencies
+## Project Dependencies
 
 ::: {.nonincremental}
 - [renv Documentation](https://rstudio.github.io/renv/articles/renv.html)
 - [Reproducible R Toolbox](https://rpubs.com/glennwithtwons/reproducible-r-toolbox)
+- [Reproducibility with renv](https://thezetner.github.io/quarto-presentations/presentations/20230704-renv.html#/title-slide)
 :::
 
 ## Useful Links
