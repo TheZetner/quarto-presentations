@@ -12,6 +12,10 @@ editor: source
 
 # ~~Best~~ Good Enough Practices in R {.title}
 
+::: notes
+We're going to cover a selection of good computing practices that every researcher can adopt, regardless of computational skill. How not to lose your stuff, and generally how to be more efficient. Just as perfect is the enemy of good, striving for best can blind you to improvements you can make today.
+:::
+
 # Introduction
 
 ## Seminar Goals
@@ -54,16 +58,16 @@ Inspiration and content from sources listed at the end: don't worry about too ma
 
 - Start and Stop
   - Flexible work schedule
-  - Regularly checkpoint the project to save progress
+  - Checkpoint to save progress
 
 - Documentation for Continuity
   - Easy resumption 
-  - Context and guidelines
+  - Context and guidelines for collaborators
 
 
 ::: notes
 ### Work on More Than One Thing at a Time
-- If waiting for input, start another part of the project or another project independently (self-contained).
+- If waiting for input from a colleague or for an analysis to finish can start another part of the project or another project independently (self-contained).
   
 ### Collaborate, Communicate, Distribute
 - **Team Collaboration:**
@@ -94,19 +98,20 @@ Inspiration and content from sources listed at the end: don't worry about too ma
 ## Organization of Project Directories 📂
 
 - **Project Organization:**
-  - Folder per project.
+  - Folder per project
   - Top-level advertisement
     - RStudio/Git/{here} characteristic files
 
 - **Path Construction with `here()`:**
-  - Utilize `here()` function.
-  - Paths relative to top-level.
-  - [here package](https://cran.r-project.org/package=here).
+  - Utilize `here()` function
+  - [here package](https://cran.r-project.org/package=here)
+  - Paths relative to top-level
 
 ::: notes
 - Organize each logical project into a folder on your computer.
 - Make sure the top-level folder advertises itself as such. This can be as simple as having an empty file named `.here`
 - Or, if you use RStudio and/or Git, those both leave characteristic files behind that will get the job done.
+- **Path Construction with `here()`:**
 - Use the `here()` function from the [here package](https://cran.r-project.org/package=here) to build the path when you read or write a file. 
 	- Create paths relative to the top-level directory
 :::
@@ -125,6 +130,7 @@ here()
 :::
 
 ::: notes
+- `here()` displays top-level folder location
 * Criteria for top level
   * Is a file named `.here` present?
   * Is this an RStudio Project? Literally, can I find a file named something like `foo.Rproj`?
@@ -134,7 +140,7 @@ here()
 
 ## \{here\} Package 📂
 
-Build a path to something in a subdirectory and use it.
+Build a path to a file in a subdirectory and use it
 
 ```{r echo=TRUE}
 here("presentations", "20240131-RBP_images", "analysisworkflow.png")
@@ -150,11 +156,13 @@ file.info(arrow.file)["size"]
 :::
 
 ::: notes
+- Build a path to something in a subdirectory and use it
 - This is taken directly from Jenny Bryan's github ode to the here package
-- Now files within the project are easily accessible from a standardized format regardless of what file is calling
-  - Rmd files look for subdirs under their location which if they're in a docs folder Data won't be
+- Now files within the project are easily accessible from a standardized format regardless of where the access began
+  - Rmd files look for subdirs under their location which if they're organized into a docs folder Data won't be a subdir
 - Easily passable to another user / computer
 - File locations can be more easily built programmatically
+- Continuing on with folder structure...
 :::
 
 ## Folder Structure 📂
@@ -173,6 +181,7 @@ file.info(arrow.file)["size"]
   - Outputs
 - Start project from root
   - Console or IDE
+  - `here()` for paths
   
 :::
 :::
@@ -180,18 +189,19 @@ file.info(arrow.file)["size"]
 ::: notes
 - Separate folders for data, code, documentation, external scripts, and outputs
 - Use subdirectories for clarity and organization
-- Start R from top-level.
-  - Use {here} for paths.
-  - Maintain top-level working directory.
-  - Absolute paths at runtime.
+- Start R from top-level
+  - Use {here} for paths
+  - Maintain top-level working directory
+    - Absolute paths generated at runtime
 :::
 
-## RStudio Projects 📂
+## {.center}
 
 ![](20240124-BWG_images/RStudio-Logo.png){fig-align="center" width="400"}
 
 ::: notes
 - Teams Reactions to show who uses RStudio or not
+- RStudio is great for maintaining projects 
 :::
 
 
@@ -199,10 +209,11 @@ file.info(arrow.file)["size"]
 
 ::: columns
 ::: {.column width="50%"}
+- Maintain project separation
 - Settings stored in `<NAME>.Rproj`.
 
 - **Open Project in RStudio:**
-  - Dedicated R instance.
+  - Dedicated R process
   - File browser points to Project directory.
   - Working directory set to Project.
 :::
@@ -232,18 +243,21 @@ PackageRoxygenize: rd,collate,namespace
 
 
 ::: notes
+- RStudio Projects maintain project folder architecture
 - RStudio leaves notes to itself in `<NAME>.Rproj`
+  - including settings for starting new sessions, code style choices, and external libraries
 - Open Project = dedicated instance of RStudio
     - Dedicated R process
     - File browser pointed at Project directory
     - Working directory set to Project directory
+- So you're working in a project but what does that look like? It consists of a series of...
 :::
 
 
 # Consistent Actions 💥
 
 ::: notes
-- Defining a clear and reproducible workflow for data analysis projects
+- That define a clear and reproducible workflow for data analysis projects
 :::
 
 ## {.center}
@@ -252,31 +266,32 @@ PackageRoxygenize: rd,collate,namespace
 
 ::: notes
 - All important objects or figures should be explicitly saved to file, via code
-- Treat your workspaces like livestock, not pets
+- Save source, not the environment...
 :::
 
 ## Save Source not the Workspace / Environment 💥 
 
 - Livestock vs. Pets Analogy from Cloud Computing
-  - Livestock: managed in herds, disposable.
-  - Pets: unique, precious.
+  - Livestock: managed in herds, disposable
+  - Pets: unique, precious
 
-- Treat R processes like livestock.
-  - Workspace disposability.
-  - Non-reproducible workflows lead to heartache.
+- Treat R processes like livestock
+  - Workspace disposability
+  - Non-reproducible workflows lead to heartache
 
-- Explicitly save important objects.
-- Design away fear of reproducibility
+- Explicitly save important objects
 - Checkpoints for long generation time objects
+- Design away fear of reproducibility
 
 ::: notes
 - "Livestock is managed in herds and there is little fuss when individuals are lost or must be sacrificed. A pet, on the other hand, is unique and precious."
 - cultivate a workflow in which you treat R processes (a.k.a. “sessions”) like livestock. Any individual R process and the associated workspace is disposable
 - if your workspace is a pet, i.e. it holds precious objects and you aren’t 100% sure you can reproduce them, you are guaranteeing heartache
-- Use your code to explicitly save important intermediate objects so you know the environment is reproducible
-- Long-generation time objects:
-	- Isolate each computationally demanding step in its own script and write the precious object to file
+- Explicitly save important objects generated during analysis
+- Checkpoints for long generation time objects:
+	- Isolate each computational or time demanding step in its own script and write the precious object to file
 	- Can simply reload the object from file while developing downstream scripts
+- Design your code to explicitly ensure the environment is reproducible
 - What's the best way to ensure you're not too precious about your workspaces?
 :::
 
@@ -297,6 +312,7 @@ PackageRoxygenize: rd,collate,namespace
 - Wipe your workspace every load
 - This can be set in RStudio global options
 - or via command line
+- This ensures you don't rely on precious objects in your R environment being loaded from the project's .Rdata files
 :::
 
 ## Restart R often 💥
@@ -312,10 +328,20 @@ PackageRoxygenize: rd,collate,namespace
 :::
 
 ::: notes
+- Restart R in RStudio with ctrl+shift+F10, Why?
+- Restart R to wipe environment
+- Save code not workspaces
+- Pressure to reinforce correct behaviours
+  - Ensuring source code recreates important objects
+
+
 - Saving code – not workspaces – is incredibly important because it is an absolute requirement for reproducibility. Renouncing .Rdata and restarting R often are not intrinsically important or morally superior behaviours. They are important because they provide constant pressure for you to do the right thing: save the source code needed to create all important artefacts of your analysis.
+
+- Replacing the herd with an identical one is what we're pushing for. There's no replacing your precious pets
+- What best practices to follow while consistently completing these actions?
 :::
 
-# Analysis Project Workflow ⚡
+# Analysis Project Practices ⚡
 
 ## Use an IDE ⚡
 
@@ -324,25 +350,26 @@ PackageRoxygenize: rd,collate,namespace
 ::: notes
 - Use an Integrated Development environment to smooth this workflow, I recommend RStudio
 - RStudio, VSCode, VIM, whatever
-- Take advantage of code-aware editor that will help you notice simple errors like typos and unclosed brackets as well as separate R processes per project
-- An IDE offers many was to direct code to a running R process and encourages saving code in source files (R/Rmd)
+- Take advantage of code-aware editor that will help you notice simple errors like typos and unclosed brackets as well as offering many was to direct code to a running R process. Using an IDE encourages saving code in source files (R/Rmd) rather than sending commands directly to the console
 - Use it to organize your workflow and guide towards best practices
-- "Sometimes people resist the advice to use an IDE because it’s hard to incorporate into their current workflow and dismiss it as something “for experts only”. But this gets the direction of causality backwards: long-time and professional coders don’t do these things because they use an IDE. They use an IDE because it makes it so much easier to follow best practices." 
+- "Sometimes people resist the advice to use an IDE because it’s hard to incorporate into their current workflow and dismiss it as something “for experts only”. But this gets the direction of causality backwards: long-time and professional coders don’t have good habits because they use an IDE. They use an IDE because it makes it so much easier to follow best practices and build good habits." 
+- An IDE only helps you keep organized with how you work on software, but there is much more to it
 :::
 
 ## Software Management ⚡
 
 - **Research Code and Software:**
-  - Varied forms and sizes.
-  - Includes code processing research data, scripts, and workflows.
+  - Varied forms and sizes
+  - Includes code processing research data, scripts, and workflows
   - Scriptable languages like R, Python, shell, etc
-  - Standalone programs for specific research tasks.
+  - Standalone programs for specific research tasks
 
 ::: notes
 There are many different shapes and sizes of research software:
-- Any code that runs in order to process your research data.
-- A record of all the steps used to process your data (scripts and workflow such data analysis are software).
+- Includes code processing research data, scripts, and workflows: any code that runs in order to process your research data.
 - Any scriptable language (R, Python, shell, etc.)
+- Standalone programs for specific research tasks
+- We have to manage it to have a record of all the steps used to process your data
 :::
 
 ## Software Management ⚡
@@ -354,7 +381,7 @@ There are many different shapes and sizes of research software:
   - No longer works
   - Accuracy at question
 
-- Software projects range in size but all can benefit modular code:
+- Software projects all can benefit modular code:
   - Readable
   - Reusable
   - Testable
@@ -367,11 +394,13 @@ I don’t remember why I made this choice
 This code doesn’t work any more
 I’m not sure if this calculation is correct
 
-- Regardless of size, adopting a few Software Engineering practices can make your life much easier
+These can all be attenuated by adopting a few Software Engineering practices the main one being writing modular code
 - Focus on making code that is modular as it makes the code
   - Readable
   - Reusable
   - Testable
+
+Modular code should be built of functions...
 :::
 
 ## Software Management ⚡
@@ -390,7 +419,7 @@ I’m not sure if this calculation is correct
 - Ruthlessly eliminate duplication
   - Functions
   - Data Structures
-  - Work
+  - Effort
 
 :::
 
@@ -402,7 +431,7 @@ I’m not sure if this calculation is correct
 - Give them a brief Description: Short is fine; always include at least one example of how the program is used. Remember, a good example is worth a thousand words: Where possible, the description should also indicate reasonable values for parameters, dependencies, etc
 - Build programs out of short, single-purpose functions with:
   - clearly-defined inputs and outputs
-  - meaningful names (applies to variables too), consider tab completion and name based on scope (counter can be i, major object should have a name that describes its purpose)
+  - meaningful names (applies to variables too), considering tab completion and name based on scope (counter can be i, major object should have a name that describes its purpose)
 - Functions should have one main task, which can be combined into larger functions or workflows or if they get too complex, broken down again into single task functions
   - "Make a cup of Tea" shouldn't include "Take out the garbage" but it should contain smaller functions to "Boil Kettle" "prepare cup with teabag" etc
 - Eliminate duplication:
@@ -412,7 +441,7 @@ I’m not sure if this calculation is correct
 - **Data Structure Utilization:**
   - Use data structures like lists where possible over multiple related objects
   - Prefer creating a single structure (e.g., `score = (1, 2, 3)`) over multiple closely-related variables (e.g., `score1`, `score2`, `score3`).
-- Work: **Library Exploration:**
+- Effort:
   - Look for well-maintained libraries before writing your own 
   - Seek existing code for specific functions.
   - Explore language-specific library catalogs (e.g., CRAN for R, PyPI for Python).
@@ -431,6 +460,8 @@ I’m not sure if this calculation is correct
 ::: notes
 - Split monolithic scripts into smaller, individual, independent portions
 - Talk about image
+
+- This software needs something to work on so lets talk about...
 :::
 
 ## Data Management 💽
@@ -449,9 +480,9 @@ I’m not sure if this calculation is correct
 ## Data Management 💽
 
 - Data Management
-    - Save the raw data.
+    - Save the raw data
     - Ensure raw data is backed up
-    - Create analysis-friendly data.
+    - Create analysis-friendly data
 	    - Create the data you wish to see in the world
 	      - Self explanatory naming
 	      - Open formats
@@ -480,9 +511,9 @@ I’m not sure if this calculation is correct
 
 :::{.fragment .fade-in-then-out .nonincremental}
 
-  - Each variable must have its own column.
-  - Each observation must have its own row.
-  - Each value must have its own cell.
+  - Each variable must have its own column
+  - Each observation must have its own row
+  - Each value must have its own cell
   
 :::
 :::{.fragment .nonincremental}
@@ -498,7 +529,11 @@ I’m not sure if this calculation is correct
 :::
 
 ::: notes
+- One common type of analysis friendly data is Tidy data
 - There are three interrelated rules which make a dataset tidy
+  - Each variable must have its own column.
+  - Each observation must have its own row.
+  - Each value must have its own cell.
 - Why bother?
 There’s a general advantage to picking one consistent way of storing data. If you have a consistent data structure, it’s easier to learn the tools that work with it because they have an underlying uniformity.
 
@@ -522,13 +557,14 @@ There’s a specific advantage to placing variables in columns because it allows
 - In much the same way we don't want monolithic scripts, we also don't want data transformation to be an entire black box 
 - Talk about image
   - Proprietary format to open machine readable
-  - Interim scripts put out interim results to be reports
+  - Interim scripts put out interim results to be reports for environment recreation. Livestock, not pets
 :::
 
 # Readability 📑
 
 ::: notes
 - Wasn't sure what to call this section as it covers a number of important topics and frankly this was the best I came up with
+- Starting with
 :::
 
 ## Naming Conventions 📑
@@ -556,11 +592,11 @@ There’s a specific advantage to placing variables in columns because it allows
 
 - Regex/Globbing Friendly
   - Avoid spaces, punctuation, and accented characters
-  - Maintain case sensitivity.
+  - Maintain case sensitivity
 
 - Easy Computation
-  - Use intentional delimiters for straightforward computational processes.
-  - Deliberate delimiter use enhances computational efficiency.
+  - Use intentional delimiters for straightforward computational processes
+  - Deliberate delimiter use enhances computational efficiency
     - Dashes for spaces between words
     - Underscores for chunks
 :::
@@ -633,6 +669,7 @@ There’s a specific advantage to placing variables in columns because it allows
 - **Easy to Compute On:**    
     - Intentionally use delimiters in file names, making them straightforward for computational processes.
     - Deliberate use of delimiters enhances the efficiency of computations.
+- Discuss searches shown, impossible with inconsistent file names
 :::
 
 ## Human Readable 📑
@@ -640,12 +677,12 @@ There’s a specific advantage to placing variables in columns because it allows
 ::: columns
 ::: {.column width="50%"}
 - **Informative File Names:**
-  - Include content information in file names.
-  - Anticipate usage context for human understanding.
+  - Include content information in file names
+  - Anticipate usage context
 
 - **Slug:**
-  - Implement slug concept for user-friendly and descriptive filenames.
-  - 20230710_**patient-info_control**.csv
+  - User-friendly and descriptive filenames
+  - `20230710_*patient-info_control*.csv`
   
 :::
 
@@ -673,7 +710,8 @@ stringr::str_split_fixed(flist, "[_\\.]", 4)
 ::: notes
 - **Informative Naming:**    
     - Ensure that the name of the file contains information about its content.
-    - Anticipate the context in which the file will be used, facilitating human understanding.
+    - Anticipate the context in which the file will be used, to facilitate understanding
+      - If in a context where dates are less important than say, organism, lead with the more appropriate chunk
 - **Slug Concept:**    
     - Implement the concept of a slug in your filenames: creating user-friendly and descriptive URLs for better comprehension.
     - A slug is often defined as the part of a URL that identifies a page in human-readable keywords
@@ -689,8 +727,8 @@ stringr::str_split_fixed(flist, "[_\\.]", 4)
   - eg `01_import.R`
 
 - **Dates:**
-  - Utilize the ISO 8601 standard for date formatting: YYYYMMDD.
-  - Ensures chronological sorting in file names by default.
+  - Utilize the ISO 8601 standard for date formatting: YYYYMMDD
+  - Ensures chronological sorting in file names by default
   - eg `20220820_wedding-photos.zip`
 
 ::: notes
@@ -821,9 +859,6 @@ getBestChildNode <- function(node) {
 
 ::: notes
 - Rule 3: If you can't write a clear comment, there may be a problem with the code.
-		- "Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it." - Brian Kernighan
-		- If you can't explain it simply, you don't understand it well enough
-		- Rewrite the code to something you understand well enough to explain or, better yet, that is straightforward.
 :::
 
 ## {.center}
@@ -979,7 +1014,8 @@ Why make an R package?
   - Scripts in `R`
   - Documentation in `man`
   - README.md
-  - DESCRIPTION, NAMESPACE
+  - DESCRIPTION
+  - NAMESPACE
 - {Roxygen2} for documentation
 - {devtools} for process
 
@@ -1007,15 +1043,26 @@ Why make an R package?
 :::
 
 ::: notes
+- R packages are easy
 - Making an R package involves creating a specific structure of directory and adding specific files
 - Package directory structure
   - Scripts in `R`
-  - Documentation in `man`
+  - Documentation in `man` (automated)
   - README.md
-  - DESCRIPTION, NAMESPACE
+  - DESCRIPTION
+  - NAMESPACE (automated)
 - Easily accomplished with Roxygen2 and devtools
 - This is the directory structure of the cats package linked in resources
 
+:::
+
+## Make an R Package 🐣
+
+![](20240131-RBP_images/cats.png){fig-align="center"}
+
+::: notes
+- GH for the cats package from HP's very approachable "Writing an R package from scratch" blog entry
+- Readme rendered from markdown
 :::
 
 ## Make an R Package 🐣
@@ -1058,7 +1105,8 @@ Suggests:
 ::: notes
 - The job of the DESCRIPTION file is to store important metadata about your package. 
 - Early on, use these metadata to record what packages are needed to run your package.
-- Later, if released publicly let people get in touch with you over problems!
+- and information about it
+- Later, if released publicly let people get in touch with you!
 :::
 
 ## Make an R Package 🐣
@@ -1091,6 +1139,9 @@ import(jpeg)
 
 ::: notes
 - The NAMESPACE file specifies which functions your package makes available for others to use and, optionally, imports functions from other packages.
+- alt-tab to terminal to show package contents?
+
+- Already showed a quick picture of github which is a bit of a teaser for our next section...
 :::
 
 ## Version Control 🧭
@@ -1103,14 +1154,14 @@ import(jpeg)
 - **Figure Recreation**
 - **Code Modification Impact**
 - **Directory Copying Fear**
-- **Shared File Duplication**
+- **Shared File Row Duplication**
 - **Lost Data Files**
-- **Analysis Selection Recover**
+- **Analysis Choice**
 :::
 ::: {.column width="50%"}
 - **Manuscript Collaboration Merge**
 - **Accidental Deletion**
-- **Project Location Recall**
+- **Project Status Recall**
 - **Experiment Mistake Identification**
 - **Directory Pollution**
 - **Selective Changes**
@@ -1120,6 +1171,21 @@ import(jpeg)
 
 
 ::: notes
+
+I have fifteen versions of this file and I don't know which is which
+I can't remake this figure from last year
+I modified my code and something apparently unrelated does not work anymore
+I have several copies of the same directory because I'm worried about breaking something
+Somebody duplicated a record in a shared file with samples
+You remember seeing a data file but cannot find it anymore: is it deleted ? Moved away ?
+I tried multiple analysis and I don't remember which one I chose to generate my output data
+I have to merge changes to a paper from mails with collaborators
+I accidentally deleted a part of my work
+I came to an old project and forgot where I left it
+I have trouble to find the source of a mistake in an experiment
+My directory is polluted with a lot of unused/temporary/old folders because I'm afraid of losing something important
+I made a lot of changes to my paper but only want to bring back one of paragraph
+
 Many Reasons
 :::
 
@@ -1191,8 +1257,6 @@ Copy the entire project whenever a significant change has been made (i.e., one t
   materially affects the results), and store that copy in a sub-folder
   whose name reflects the date in the area that's being synchronized.
   This approach results in projects being organized as shown above
-  
-  
 :::
 
 ## Version Control: VCS 🧭
@@ -1225,6 +1289,35 @@ Copy the entire project whenever a significant change has been made (i.e., one t
 - Links to very good tutorials in the resources section of this talk
 :::
 
+## Version Control: VCS 🧭
+
+::: columns
+::: {.column width="50%"}
+![](20240131-RBP_images/github-mark-white.png){fig-align="center" width="200"}
+:::
+
+::: {.column width="50%"}
+![](20240131-RBP_images/gitlab-logo-500.png){fig-align="center" width="200"}
+:::
+:::
+
+
+::: notes
+Two prominent VCS websites that both use Git
+:::
+
+## Version Control: VCS 🧭
+
+```{=html}
+<iframe width="1000" height="500" src="https://thezetner.github.io/cct/index.html" title="Roxygen example"></iframe>
+```
+
+::: notes
+A side benefit of using these VCS systems and sites is easy hosting of content, from package documentation to presentations like this one
+
+- Now that we're tracking our code how do we make sure it continues to work?
+:::
+
 ## Managing Project Dependencies 📦
 
 ## {.center}
@@ -1238,11 +1331,11 @@ managing project dependencies is a significant issue
 ## Managing Project Dependencies 📦
 
 - **What is the environment?**
-	1. The version of the software used 
+	1. The version of the software used  
 	  - R 3.6.1 vs R 4.3.2 
-	2. The versions of the packages/extensions used
+	2. The versions of the packages/extensions used  
 	  - {dplyr} 1.0.10 vs 1.1.12
-	3. External software dependencies for packages 
+	3. External software dependencies for packages  
 	  - pandoc
 
 
