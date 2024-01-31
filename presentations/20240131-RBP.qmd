@@ -6,6 +6,7 @@ logo: 20240131-RBP_images/thumbsupR.png
 format: 
   revealjs:
     theme: [moon, rbp.scss]
+    fontsize: 30px
     incremental: true
 editor: source 
 ---
@@ -728,10 +729,7 @@ stringr::str_split_fixed(flist, "[_\\.]", 4)
 
 ## Meaningful Comments 💬
 
-
-
-::: {.center}
-**Rule 1: Comments should not duplicate the code**
+### **Rule 1: Comments should not duplicate the code** {.center}
 
 ::: {.r-stack}
 
@@ -751,8 +749,6 @@ i = i + 1 # Add one to i
 ::::
 :::
 
-:::
-
 ::: notes
 - Stack Overflow blog in resources with 10 rules, lets consider 3
 	- Rule 1: Comments should not duplicate the code.
@@ -765,9 +761,23 @@ i = i + 1 # Add one to i
 
 ## Meaningful Comments 💬
 
-- 
+- **Rule 2: Good comments do not excuse unclear code.**
 
+::: {.r-stack}
 
+:::: {.fragment .fade-in-then-out}
+```{r eval=FALSE, echo=TRUE}
+#| code-line-numbers: false
+
+```
+:::: 
+:::: {.fragment .fade-in-then-out}
+```{r eval=FALSE, echo=TRUE}
+#| code-line-numbers: false
+
+```
+::::
+:::
 
 ::: notes
 	- Rule 2: Good comments do not excuse unclear code.
@@ -777,7 +787,7 @@ i = i + 1 # Add one to i
 
 ## Meaningful Comments 💬
 
-- Rule 1: Comments should not duplicate the code.
+- **Rule 3: If you can't write a clear comment, there may be a problem with the code.**
 
 ::: notes
 - Rule 3: If you can't write a clear comment, there may be a problem with the code.
